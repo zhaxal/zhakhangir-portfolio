@@ -1,26 +1,42 @@
 import { NextPage } from "next";
 
-import { Box, Typography } from "@mui/material";
-import BgAnimation from "./BgAnimation";
+import { Box, Grid, Stack, useMediaQuery } from "@mui/material";
+
+import MainTitle from "@/components/ui/MainTitle";
+import InfoButton from "@/components/home-page-components/InfoButton";
+import ProjectsButton from "@/components/home-page-components/ProjectsButton";
+import ContactButton from "@/components/home-page-components/ContactButton";
 
 const Home: NextPage = () => {
+  const w540 = useMediaQuery("(min-width:540px)");
+
   return (
     <Box
-      component="div"
       sx={{
+        position: "relative",
         display: "flex",
         flexDirection: "column",
-        height: "100vh",
-        padding: "1rem",
+        height: "100%",
+        backgroundColor: "#202025",
       }}
     >
-      <Box
-        component="div"
-        position="relative"
-        sx={{ height: "100%", border: "1px solid white" }}
+      <MainTitle />
+
+      <Grid
+        container
+        justifyContent="flex-end"
+        alignItems="flex-end"
+        spacing={1}
+        sx={{ height: "100%" }}
       >
-        <BgAnimation />
-      </Box>
+        <Grid p={w540 ? "4rem" : "1rem"} item xs={4}>
+          <Stack alignItems="flex-end">
+            <InfoButton />
+            <ProjectsButton />
+            <ContactButton />
+          </Stack>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
