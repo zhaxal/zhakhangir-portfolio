@@ -16,50 +16,28 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const projects = [
   {
-    name: "Физкультура и спорт на ВДНХ",
-    description: "2021 / Event",
-    link: "https://www.figma.com/design/1D4e4PA2QAtQ5mIZKOHfGR/Fizkult.moscow.sport?node-id=0-1&t=vbc9r6Eun4QyWk7e-1",
-  },
-
-  {
-    name: "Спортивные сезоны на ВДНХ",
-    description: "2021 / Event",
-    link: "https://www.figma.com/design/PHTriUpbtmtwS6JU5BBoeF/%D0%A1%D0%9F%D0%9E%D0%A0%D0%A2%D0%98%D0%92%D0%9D%D0%AB%D0%95-%D0%A1%D0%95%D0%97%D0%9E%D0%9D%D0%AB-%D0%9D%D0%90-%D0%92%D0%94%D0%9D%D0%A5?node-id=0-1&t=LSedMNmovTThwW7C-1",
+    name: "Moscow Sport Projects",
+    description: "2021-2023 / Work projects",
+    link: "https://storage.zhaxal.site/filebrowser/share/wWS9Xr9r",
   },
   {
-    name: "Лёд надежды нашей",
-    description: "2023 / Event",
-    link: "https://led.moscow.sport/",
+    name: "car-kit",
+    description: "2021 / Diploma project",
+    link: "https://linkstack.zhaxal.site",
   },
   {
-    name: "Лыжня россии 2023",
-    description: "2023 / Event",
-    link: "https://ski.moscow.sport/",
+    name: "toverlay",
+    description: "2021 / Personal project",
+    link: "https://storage.zhaxal.site/filebrowser/api/public/dl/NVchWoFB?inline=true",
   },
   {
-    name: "День Физкультурника 2023",
-    description: "2023 / Event",
-    link: "https://www.figma.com/proto/309iXqqaFFyxSYgFvn8lTA/DF2022_desktop?page-id=0%3A1&node-id=1101-334&t=MQT45skEzEVRjZy8-1",
+    name: "RiceQualiLink",
+    description: "2024 / University project",
   },
   {
-    name: "Всероссийский фестиваль прыжков с шестом",
-    description: "2023 / Event",
-    link: "https://pryzki.moscow.sport/",
-  },
-  {
-    name: "Фестиваль школьного спорта",
-    description: "2023 / Event",
-    link: "https://school.moscow.sport/",
-  },
-  {
-    name: `Забег "На старт!"`,
-    description: "2023 / Event",
-    link: "https://running.mosgorsport.ru/",
-  },
-  {
-    name: "Московский рогейн",
-    description: "2024 / Event",
-    link: "https://www.figma.com/proto/7HYOZgn7R90voIDUgCFisC/Orient?page-id=0%3A1&node-id=1545-699&t=duML0YTu2NsBK7KC-1",
+    name: "anime-site",
+    description: "2024 / Personal project",
+    link: "https://anime.zhaxal.site",
   },
 ];
 
@@ -95,10 +73,7 @@ const ProjectsButton: FC = () => {
               <List>
                 {projects.map((project, key) => (
                   <ListItem key={key} disablePadding>
-                    <ListItemButton
-                      disabled={!project.link}
-                      onClick={handleRedirect(project.link)}
-                    >
+                    <ListItemButton onClick={handleRedirect(project.link)}>
                       <ListItemText
                         sx={{ fontFamily: "Open Sans", fontWeight: "300" }}
                         primary={project.name}

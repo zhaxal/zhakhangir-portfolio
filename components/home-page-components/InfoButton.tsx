@@ -9,10 +9,31 @@ import {
   Chip,
   Divider,
   Grid,
+  Link,
+  LinkProps,
 } from "@mui/material";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import MenuButton from "../ui/MenuButton";
 import CloseIcon from "@mui/icons-material/Close";
+
+interface ModifiedLinkProps extends LinkProps {
+  children: ReactNode;
+}
+
+const ModifiedLink = ({ children, ...props }: ModifiedLinkProps) => {
+  return (
+    <Link
+      {...props}
+      sx={{
+        textDecoration: "none",
+        "&:hover": { textDecoration: "underline" },
+        cursor: "pointer",
+      }}
+    >
+      {children}
+    </Link>
+  );
+};
 
 const InfoButton: FC = () => {
   const { isOpen, close, open } = useDisclosure(false);
@@ -45,7 +66,7 @@ const InfoButton: FC = () => {
             <Stack height="100%" justifyContent="center" alignContent="center">
               <>
                 <Typography lineHeight="120%" fontSize="36px">
-                  Skills
+                  Coding skills
                 </Typography>
 
                 <Grid container spacing={1}>
@@ -87,15 +108,57 @@ const InfoButton: FC = () => {
               <Divider sx={{ my: 2 }} />
               <>
                 <Typography lineHeight="120%" fontSize="36px">
+                  Work Experience
+                </Typography>
+                <Typography
+                  component={ModifiedLink}
+                  onClick={handleRedirect("https://apartx.co")}
+                  fontWeight="100"
+                  fontSize="24px"
+                >
+                  ApartX, Kazakhstan (2023-2024) - Fullstack engineer
+                </Typography>
+                <Typography
+                  component={ModifiedLink}
+                  onClick={handleRedirect("https://www.ektu.kz")}
+                  fontWeight="100"
+                  fontSize="24px"
+                >
+                  D. Serikbayev EKTU, Kazakhstan (2019-2021) - R&D Engineer
+                </Typography>
+                <Typography
+                  component={ModifiedLink}
+                  onClick={handleRedirect("https://www.instagram.com/moscow.sport_official")}
+                  fontWeight="100"
+                  fontSize="24px"
+                >
+                  Moscow Sport, Russia (2021-2023) - Fullstack Engineer
+                </Typography>
+              </>
+              <Divider sx={{ my: 2 }} />
+              <>
+                <Typography lineHeight="120%" fontSize="36px">
                   Education
                 </Typography>
-                <Typography fontWeight="100" fontSize="24px">
+                <Typography
+                  component={ModifiedLink}
+                  onClick={handleRedirect(
+                    "https://astanait.edu.kz/en/main-page/"
+                  )}
+                  fontWeight="100"
+                  fontSize="24px"
+                >
                   Astana IT University (2019-2021) - Software Engineer
                 </Typography>
-                <Typography fontWeight="100" fontSize="24px">
-                  Niigata University (2024-2026) - Graduate school of Science and Technology
+                <Typography
+                  component={ModifiedLink}
+                  onClick={handleRedirect("https://www.niigata-u.ac.jp")}
+                  fontWeight="100"
+                  fontSize="24px"
+                >
+                  Niigata University (2024-2026) - Graduate school of Science
+                  and Technology
                 </Typography>
-
               </>
               <Divider sx={{ my: 2 }} />
               <>
