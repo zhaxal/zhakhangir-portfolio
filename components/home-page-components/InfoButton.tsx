@@ -50,7 +50,7 @@ const InfoButton: FC = () => {
 
                 <Grid container spacing={1}>
                   <Grid item>
-                    <Chip color="react" label="React" />
+                    <Chip color="react" label="ReactJS" />
                   </Grid>
                   <Grid item>
                     <Chip color="nextjs" label="NextJS" />
@@ -67,6 +67,21 @@ const InfoButton: FC = () => {
                   <Grid item>
                     <Chip color="nginx" label="Nginx" />
                   </Grid>
+                  <Grid item>
+                    <Chip color="typescript" label="TypeScript" />
+                  </Grid>
+
+                  <Grid item>
+                    <Chip color="golang" label="Golang" />
+                  </Grid>
+
+                  <Grid item>
+                    <Chip color="python" label="Python" />
+                  </Grid>
+
+                  <Grid item>
+                    <Chip color="meteorjs" label="MeteorJS" />
+                  </Grid>
                 </Grid>
               </>
               <Divider sx={{ my: 2 }} />
@@ -75,8 +90,12 @@ const InfoButton: FC = () => {
                   Education
                 </Typography>
                 <Typography fontWeight="100" fontSize="24px">
-                  Astana IT University - Software Engineer
+                  Astana IT University (2019-2021) - Software Engineer
                 </Typography>
+                <Typography fontWeight="100" fontSize="24px">
+                  Niigata University (2024-2026) - Graduate school of Science and Technology
+                </Typography>
+
               </>
               <Divider sx={{ my: 2 }} />
               <>

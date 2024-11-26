@@ -15,6 +15,10 @@ declare module "@mui/material/styles" {
     firebase: Palette["primary"];
     mongodb: Palette["primary"];
     linkedin: Palette["primary"];
+    typescript: Palette["primary"];
+    golang: Palette["primary"];
+    python: Palette["primary"];
+    meteorjs: Palette["primary"];
   }
 
   // allow configuration using `createTheme`
@@ -28,6 +32,10 @@ declare module "@mui/material/styles" {
     firebase?: PaletteOptions["primary"];
     mongodb?: PaletteOptions["primary"];
     linkedin?: PaletteOptions["primary"];
+    typescript?: PaletteOptions["primary"];
+    golang?: PaletteOptions["primary"];
+    python?: PaletteOptions["primary"];
+    meteorjs?: PaletteOptions["primary"];
   }
 }
 
@@ -42,6 +50,10 @@ declare module "@mui/material/Chip" {
     firebase: true;
     mongodb: true;
     linkedin: true;
+    typescript: true;
+    golang: true;
+    python: true;
+    meteorjs: true;
   }
 }
 
@@ -91,6 +103,23 @@ const theme = createTheme({
       main: "#009900",
       contrastText: "#FFFFFF",
     },
+    typescript: {
+      main: "#007ACC",
+      contrastText: "#FFFFFF",
+    },
+    golang: {
+      main: "#00ADD8",
+      contrastText: "#FFFFFF",
+    },
+    python: {
+      main: "#3776AB",
+      contrastText: "#FFFFFF",
+    },
+    meteorjs: {
+      main: "#64FFDA",
+      contrastText: "#000000",
+    },
+
   },
 });
 
