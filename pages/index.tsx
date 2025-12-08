@@ -6,8 +6,11 @@ import MainTitle from "@/components/ui/MainTitle";
 import InfoButton from "@/components/home-page-components/InfoButton";
 import ProjectsButton from "@/components/home-page-components/ProjectsButton";
 import ContactButton from "@/components/home-page-components/ContactButton";
+import MenuButton from "@/components/ui/MenuButton";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
+  const router = useRouter();
   const w540 = useMediaQuery("(min-width:540px)");
 
   return (
@@ -34,6 +37,9 @@ const Home: NextPage = () => {
             <InfoButton />
             <ProjectsButton />
             <ContactButton />
+            <MenuButton onClick={() => router.push("/experience")}>
+              Experience
+            </MenuButton>
           </Stack>
         </Grid>
       </Grid>
