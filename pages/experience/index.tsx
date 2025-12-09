@@ -40,7 +40,7 @@ function ExperiencePage() {
           <ArrowBackIcon />
         </IconButton>
       </Stack>
-      <Stack p={2} direction="row" spacing={2}>
+      <Stack p={2} direction="row" justifyContent="center" spacing={2}>
         <Stack>
           <Typography variant="h4" color="white" mb={4} ml={2}>
             Education

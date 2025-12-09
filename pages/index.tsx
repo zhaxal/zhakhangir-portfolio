@@ -35,7 +35,9 @@ const Home: NextPage = () => {
         <Grid p={w540 ? "4rem" : "1rem"} item xs={4}>
           <Stack alignItems="flex-end">
             <InfoButton />
-            <ProjectsButton />
+            <MenuButton onClick={() => router.push("/projects")}>
+              Projects
+            </MenuButton>
             <ContactButton />
             <MenuButton onClick={() => router.push("/experience")}>
               Experience
