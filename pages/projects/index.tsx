@@ -19,57 +19,63 @@ const projects = [
   {
     title: "Точка ГТО на ВДНХ",
     image: "/projects/gto.jpg",
-    link: "/projects/gto",
+    link: "https://gtopoint.moscow.sport",
     description: "2021",
   },
   {
     title: "Физкультура и спорт на ВДНХ",
     image: "/projects/vdnh.jpg",
-    link: "/projects/vdnh",
+    link: "https://vdnh.zhakhangir.site",
     description: "2022-2023",
   },
   {
     title: "Ориентирование в лабиринте",
     image: "/projects/rogaine.png",
-    link: "/projects/rogaine",
+    link: "https://rogaine.mosgorsport.ru",
     description: "2022-2025",
   },
   {
     title: "Неделя Лыжни России в Москве",
     image: "/projects/ski.jpg",
-    link: "/projects/ski",
+    link: "https://ski.sport.mos.ru",
     description: "2022-2026",
   },
   {
     title: 'Забег "На старт!"',
     image: "/projects/zabeg.jpg",
-    link: "/projects/zabeg",
+    link: "https://running.mosgorsport.ru",
     description: "2023-2025",
   },
   {
     title: "Всероссийский фестиваль прыжков с шестом",
     image: "/projects/pryzki.jpg",
-    link: "/projects/pryzki",
+    link: "https://pryzki.sport.mos.ru",
     description: "2023-2025",
   },
   {
     title: "Лёд надежды нашей",
     image: "/projects/led.png",
-    link: "/projects/led",
+    link: "https://led.sport.mos.ru",
     description: "2023-2025",
   },
   {
     title: "Москва Интересная",
     image: "/projects/interesnaya.webp",
-    link: "/projects/interesnaya",
+    link: "https://interesnaya.sport.mos.ru",
     description: "2025",
   },
   {
     title: "Кросс Нации",
     image: "/projects/cross.jpg",
-    link: "/projects/cross",
+    link: "https://cross.sport.mos.ru",
     description: "2025",
-  }
+  },
+  {
+    title: "Фестиваль технических видов спорта",
+    image: "/projects/techfest.jpg",
+    link: "https://tech-fest.sport.mos.ru",
+    description: "2025",
+  },
 ];
 
 function ProjectsPage() {
