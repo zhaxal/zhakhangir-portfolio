@@ -105,61 +105,7 @@ const InfoButton: FC = () => {
                   </Grid>
                 </Grid>
               </>
-              <Divider sx={{ my: 2 }} />
-              <>
-                <Typography lineHeight="120%" fontSize="36px">
-                  Work Experience
-                </Typography>
-                <Typography
-                  component={ModifiedLink}
-                  onClick={handleRedirect("https://apartx.co")}
-                  fontWeight="100"
-                  fontSize="24px"
-                >
-                  ApartX, Kazakhstan (2023-2024) - Fullstack engineer
-                </Typography>
-                <Typography
-                  component={ModifiedLink}
-                  onClick={handleRedirect("https://www.ektu.kz")}
-                  fontWeight="100"
-                  fontSize="24px"
-                >
-                  D. Serikbayev EKTU, Kazakhstan (2019-2021) - R&D Engineer
-                </Typography>
-                <Typography
-                  component={ModifiedLink}
-                  onClick={handleRedirect("https://www.instagram.com/moscow.sport_official")}
-                  fontWeight="100"
-                  fontSize="24px"
-                >
-                  Moscow Sport, Russia (2021-2023) - Fullstack Engineer
-                </Typography>
-              </>
-              <Divider sx={{ my: 2 }} />
-              <>
-                <Typography lineHeight="120%" fontSize="36px">
-                  Education
-                </Typography>
-                <Typography
-                  component={ModifiedLink}
-                  onClick={handleRedirect(
-                    "https://astanait.edu.kz/en/main-page/"
-                  )}
-                  fontWeight="100"
-                  fontSize="24px"
-                >
-                  Astana IT University (2019-2021) - Software Engineer
-                </Typography>
-                <Typography
-                  component={ModifiedLink}
-                  onClick={handleRedirect("https://www.niigata-u.ac.jp")}
-                  fontWeight="100"
-                  fontSize="24px"
-                >
-                  Niigata University (2024-2026) - Graduate school of Science
-                  and Technology
-                </Typography>
-              </>
+
               <Divider sx={{ my: 2 }} />
               <>
                 <Typography lineHeight="120%" fontSize="36px">

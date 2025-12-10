@@ -60,7 +60,7 @@ const projects = [
   },
   {
     title: "Москва Интересная",
-    image: "/projects/interesnaya.webp",
+    image: "/projects/interesnaya.png",
     link: "https://interesnaya.sport.mos.ru",
     description: "2025",
   },
