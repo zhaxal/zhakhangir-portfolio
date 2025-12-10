@@ -4,6 +4,8 @@ import {
   Stack,
   Link as MuiLink,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import React from "react";
 
@@ -20,6 +22,8 @@ import Link from "next/link";
 
 function ExperiencePage() {
   const router = useRouter();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Box
@@ -39,13 +43,18 @@ function ExperiencePage() {
           <ArrowBackIcon />
         </IconButton>
       </Stack>
-      <Stack p={2} direction="row" justifyContent="center" spacing={2}>
+      <Stack
+        p={2}
+        direction={isMobile ? "column" : "row"}
+        justifyContent="center"
+        spacing={2}
+      >
         <Stack>
           <Typography variant="h4" color="white" mb={4} ml={2}>
             Education
           </Typography>
 
-          <Timeline position="alternate-reverse">
+          <Timeline position={isMobile ? "right" : "alternate-reverse"}>
             <TimelineItem>
               <TimelineSeparator>
                 <TimelineDot />
@@ -84,7 +93,7 @@ function ExperiencePage() {
             Work
           </Typography>
 
-          <Timeline position="alternate-reverse">
+          <Timeline position={isMobile ? "right" : "alternate-reverse"}>
             <TimelineItem>
               <TimelineSeparator>
                 <TimelineDot />
