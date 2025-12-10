@@ -58,6 +58,18 @@ const projects = [
     link: "/projects/led",
     description: "2023-2025",
   },
+  {
+    title: "Москва Интересная",
+    image: "/projects/interesnaya.webp",
+    link: "/projects/interesnaya",
+    description: "2025",
+  },
+  {
+    title: "Кросс Нации",
+    image: "/projects/cross.jpg",
+    link: "/projects/cross",
+    description: "2025",
+  }
 ];
 
 function ProjectsPage() {
@@ -70,7 +82,6 @@ function ProjectsPage() {
         display: "flex",
         flexDirection: "column",
         height: "100%",
-        backgroundColor: "#202025",
       }}
     >
       <Stack p={2} justifyContent="flex-start" alignItems="flex-start">
@@ -85,17 +96,20 @@ function ProjectsPage() {
       <Grid container spacing={2} p={2} justifyContent="center">
         {projects.map((project) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={project.title}>
-            <Card variant="outlined">
+            <Card
+              sx={{
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+              }}
+              variant="outlined"
+            >
               <CardMedia
                 sx={{ height: 160 }}
                 image={project.image}
                 title={project.title}
               />
-              <CardContent
-                sx={{
-                  height: 90,
-                }}
-              >
+              <CardContent sx={{ flexGrow: 1 }}>
                 <Typography gutterBottom variant="h5" component="div">
                   {project.title}
                 </Typography>

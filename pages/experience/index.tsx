@@ -28,7 +28,6 @@ function ExperiencePage() {
         display: "flex",
         flexDirection: "column",
         height: "100%",
-        backgroundColor: "#202025",
       }}
     >
       <Stack p={2} justifyContent="flex-start" alignItems="flex-start">

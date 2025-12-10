@@ -4,7 +4,6 @@ import { Box, Grid, Stack, useMediaQuery } from "@mui/material";
 
 import MainTitle from "@/components/ui/MainTitle";
 import InfoButton from "@/components/home-page-components/InfoButton";
-import ProjectsButton from "@/components/home-page-components/ProjectsButton";
 import ContactButton from "@/components/home-page-components/ContactButton";
 import MenuButton from "@/components/ui/MenuButton";
 import { useRouter } from "next/router";
@@ -20,7 +19,6 @@ const Home: NextPage = () => {
         display: "flex",
         flexDirection: "column",
         height: "100%",
-        backgroundColor: "#202025",
       }}
     >
       <MainTitle />
@@ -38,10 +36,10 @@ const Home: NextPage = () => {
             <MenuButton onClick={() => router.push("/projects")}>
               Projects
             </MenuButton>
-            <ContactButton />
             <MenuButton onClick={() => router.push("/experience")}>
               Experience
             </MenuButton>
+            <ContactButton />
           </Stack>
         </Grid>
       </Grid>
