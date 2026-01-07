@@ -2,6 +2,7 @@ import { NextPage } from "next";
 
 import {
   Box,
+  Button,
   Grid,
   Modal,
   Stack,
@@ -135,6 +136,14 @@ const Home: NextPage = () => {
             Check out this video to learn more about my work and projects. Click
             away to close it.
           </Typography>
+          <Button
+            onClick={() => {
+              router.push("/projects");
+            }}
+            sx={{ mt: 3 }}
+          >
+            Projects
+          </Button>
         </Box>
       </Modal>
     </Box>
