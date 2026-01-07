@@ -18,6 +18,15 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const projects = [
   {
+    title: "Graphics program for Podium Esports",
+    image: "/projects/podium.jpg",
+    link: "https://youtu.be/D6BNq7bhOCg",
+    year: "2020-2021",
+    description:
+      "A graphics program designed for Podium Esports, enabling real-time score updates, player statistics, and dynamic overlays for live esports broadcasts.",
+    technologies: ["Golang"],
+  },
+  {
     title: "Точка ГТО на ВДНХ",
     image: "/projects/gto.jpg",
     link: "https://gtopoint.moscow.sport",
@@ -186,6 +195,10 @@ function ProjectsPage() {
                         color = "success";
                         break;
                       case "postgresql":
+                        color = "info";
+                        break;
+                      case "golang":
+                      case "go":
                         color = "info";
                         break;
                       default:
