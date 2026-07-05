@@ -1,0 +1,4 @@
+Low-Cost Tomato Harvesting Robot — Visual Perception System
+Developed the computer vision subsystem of a low-cost tomato-harvesting robot designed for small-scale farms. The system runs entirely on a ¥60,850 (~$410) hardware stack — an OAK-D Lite stereo camera, Raspberry Pi 4, battery pack, and touchscreen — with no external AI accelerator required.
+Key contributions: a stereo-vision depth estimator achieving 2.4 cm mean error at harvesting range, and a YOLOv8n ripeness classifier running at 12–15 FPS on-device (mAP@0.5 = 0.791). Validated in a live greenhouse trial at Takagi Farm (June 2026).
+Technologies: Python, YOLOv8, OAK-D Lite / Myriad X, OpenCV, stereo vision, edge AI

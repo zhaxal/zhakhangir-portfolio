@@ -1,145 +1,70 @@
 import { SnackbarProvider } from "@/contexts/snackbar-context";
+import { LanguageProvider } from "@/contexts/language-context";
 import "@/styles/globals.css";
-import { ThemeProvider, createTheme } from "@mui/material";
+import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
-declare module "@mui/material/styles" {
-  interface Palette {
-    react: Palette["primary"];
-    nextjs: Palette["primary"];
-    github: Palette["primary"];
-    nginx: Palette["primary"];
-    docker: Palette["primary"];
-    instagram: Palette["primary"];
-    firebase: Palette["primary"];
-    mongodb: Palette["primary"];
-    linkedin: Palette["primary"];
-    typescript: Palette["primary"];
-    golang: Palette["primary"];
-    python: Palette["primary"];
-    meteorjs: Palette["primary"];
-  }
-
-  // allow configuration using `createTheme`
-  interface PaletteOptions {
-    react?: PaletteOptions["primary"];
-    nextjs?: PaletteOptions["primary"];
-    github?: PaletteOptions["primary"];
-    nginx?: PaletteOptions["primary"];
-    docker?: PaletteOptions["primary"];
-    instagram?: PaletteOptions["primary"];
-    firebase?: PaletteOptions["primary"];
-    mongodb?: PaletteOptions["primary"];
-    linkedin?: PaletteOptions["primary"];
-    typescript?: PaletteOptions["primary"];
-    golang?: PaletteOptions["primary"];
-    python?: PaletteOptions["primary"];
-    meteorjs?: PaletteOptions["primary"];
-  }
-}
-
-declare module "@mui/material/Chip" {
-  interface ChipPropsColorOverrides {
-    react: true;
-    nextjs: true;
-    github: true;
-    nginx: true;
-    docker: true;
-    instagram: true;
-    firebase: true;
-    mongodb: true;
-    linkedin: true;
-    typescript: true;
-    golang: true;
-    python: true;
-    meteorjs: true;
-  }
-}
-
 const theme = createTheme({
   typography: {
-    fontFamily: ["Prompt", "Open Sans"].join(","),
+    fontFamily: "Inter, sans-serif",
+    button: { textTransform: "none" },
+  },
+  shape: {
+    borderRadius: 4,
   },
   palette: {
     mode: "dark",
-
     primary: {
-      main: "#00AEEF",
+      main: "#D6A24E",
+      contrastText: "#111110",
     },
-    react: {
-      main: "#61dbfb",
-      contrastText: "#FFFFFF",
+    background: {
+      default: "#111110",
+      paper: "#111110",
     },
-    nextjs: {
-      main: "#FFFFFF",
-      contrastText: "#000000",
+    text: {
+      primary: "#E9E7E2",
+      secondary: "#8F8D86",
     },
-    github: {
-      main: "#171515",
-      contrastText: "#FFFFFF",
+    divider: "rgba(233, 231, 226, 0.12)",
+  },
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundImage: "none",
+        },
+      },
     },
-    firebase: {
-      main: "#F5820D",
-      contrastText: "#FFFFFF",
-    },
-    instagram: {
-      main: "#E4405F",
-      contrastText: "#FFFFFF",
-    },
-    docker: {
-      main: "#384d54",
-      contrastText: "#FFFFFF",
-    },
-    mongodb: {
-      main: "#589636",
-      contrastText: "#FFFFFF",
-    },
-    linkedin: {
-      main: "#0A66C2",
-      contrastText: "#FFFFFF",
-    },
-    nginx: {
-      main: "#009900",
-      contrastText: "#FFFFFF",
-    },
-    typescript: {
-      main: "#007ACC",
-      contrastText: "#FFFFFF",
-    },
-    golang: {
-      main: "#00ADD8",
-      contrastText: "#FFFFFF",
-    },
-    python: {
-      main: "#3776AB",
-      contrastText: "#FFFFFF",
-    },
-    meteorjs: {
-      main: "#64FFDA",
-      contrastText: "#000000",
-    },
-
   },
 });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <Head>
-          <meta property="og:title" content="Zhakhangir Anuarbek" />
-          <meta property="og:description" content="Kazakh web developer." />
-          <meta property="og:url" content="zhakhangir.online" />
-          <meta property="og:type" content="website" />
-          <meta property="og:image" content="https://i.ibb.co/xDW0cxg/portfolio-logo.png" />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="Zhakhangir Anuarbek" />
+        <meta
+          property="og:description"
+          content="Fullstack engineer — event platforms, registration systems, interactive city quests."
+        />
+        <meta property="og:url" content="zhakhangir.online" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/xDW0cxg/portfolio-logo.png"
+        />
 
-          <title>Zhakhangir Anuarbek</title>
-        </Head>
+        <title>Zhakhangir Anuarbek — Fullstack Engineer</title>
+      </Head>
+      <LanguageProvider>
         <SnackbarProvider>
           <Component {...pageProps} />
         </SnackbarProvider>
-      </ThemeProvider>
-    </>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
