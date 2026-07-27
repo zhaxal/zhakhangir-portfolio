@@ -1,136 +1,138 @@
 import { FC, useState } from "react";
-import {
-  Box,
-  Divider,
-  Link as MuiLink,
-  Stack,
-  Typography,
-} from "@mui/material";
 import { useLanguage } from "@/contexts/language-context";
-import { Project, projects, ui } from "@/data/content";
-import ProjectDialog from "@/components/ProjectDialog";
-
-const INITIAL_COUNT = 5;
+import { work } from "@/data/content";
+import Reveal from "@/components/ui/Reveal";
+import SectionLabel from "@/components/ui/SectionLabel";
+import SectionTitle from "@/components/ui/SectionTitle";
+import Tag from "@/components/ui/Tag";
+import Glyph from "@/components/ui/Glyph";
+import PlusToggle from "@/components/ui/PlusToggle";
+import styles from "./Work.module.css";
 
 const Work: FC = () => {
   const { lang } = useLanguage();
-  const [selected, setSelected] = useState<Project | null>(null);
-  const [open, setOpen] = useState(false);
-  const [expanded, setExpanded] = useState(false);
-
-  const openProject = (project: Project) => {
-    setSelected(project);
-    setOpen(true);
-  };
-
-  const canExpand = projects.length > INITIAL_COUNT;
-  const visible = expanded ? projects : projects.slice(0, INITIAL_COUNT);
+  // The grid is bounded to one screenful until asked to open. Every card is
+  // rendered; CSS hides the overflow so each breakpoint keeps complete rows.
+  const [gridOpen, setGridOpen] = useState(false);
+  const cardCount = work.moscowSport.cards.length;
 
   return (
-    <Box id="projects" component="section">
-      <Typography
-        color="text.secondary"
-        fontSize="0.9rem"
-        mb={3}
-        component="h2"
-        fontWeight={500}
-      >
-        {ui.projects.heading[lang]}
-      </Typography>
+    <section id="work" className={styles.section}>
+      <div className={styles.head}>
+        <SectionLabel>{work.label[lang]}</SectionLabel>
+        <SectionTitle lines={[work.title[lang]]} />
+      </div>
 
-      <Stack divider={<Divider />} spacing={3}>
-        {visible.map((project) => (
-          <Stack key={project.title.en} spacing={0.75} pb={0.5}>
-            <Stack
-              direction="row"
-              justifyContent="space-between"
-              alignItems="baseline"
-              spacing={2}
-            >
-              {project.link ? (
-                <MuiLink
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{
-                    color: "text.primary",
-                    fontWeight: 500,
-                    textDecoration: "none",
-                    "&:hover": { color: "primary.main" },
-                  }}
-                >
-                  {project.title[lang]} ↗
-                </MuiLink>
-              ) : project.media ? (
-                <MuiLink
-                  component="button"
-                  type="button"
-                  onClick={() => openProject(project)}
-                  sx={{
-                    color: "text.primary",
-                    fontWeight: 500,
-                    textDecoration: "none",
-                    textAlign: "left",
-                    cursor: "pointer",
-                    "&:hover": { color: "primary.main" },
-                  }}
-                >
-                  {project.title[lang]} →
-                </MuiLink>
-              ) : (
-                <Typography color="text.primary" fontWeight={500}>
-                  {project.title[lang]}
-                </Typography>
-              )}
-              <Typography
-                color="text.secondary"
-                fontSize="0.85rem"
-                whiteSpace="nowrap"
-              >
-                {project.year}
-              </Typography>
-            </Stack>
-            <Typography
-              color="text.secondary"
-              fontSize="0.95rem"
-              lineHeight={1.65}
-              maxWidth="36rem"
-            >
-              {project.description[lang]}
-            </Typography>
-            <Typography color="text.secondary" fontSize="0.8rem">
-              {project.technologies.join(" · ")}
-            </Typography>
-          </Stack>
+      {/* The plates lead: they carry the half of the positioning nothing else
+          on the page proves, and the 90-second budget reaches them first. */}
+      <div className={styles.plates}>
+        {work.plates.map((plate) => (
+          <Reveal
+            key={plate.image}
+            as="article"
+            mode={plate.reveal}
+            className={styles.plate}
+          >
+            <div className={styles.plateImage}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={plate.image}
+                alt={plate.title[lang]}
+                loading="lazy"
+                style={plate.focus ? { objectPosition: plate.focus } : undefined}
+              />
+              <span className={styles.plateChip}>{plate.chip[lang]}</span>
+              <span className={styles.plateYear}>{plate.year}</span>
+            </div>
+
+            <div className={styles.plateText}>
+              <div className={styles.plateCopy}>
+                <h3 className={styles.plateTitle}>
+                  {plate.href ? (
+                    <a
+                      href={plate.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-tap
+                    >
+                      {plate.title[lang]} <Glyph />
+                    </a>
+                  ) : (
+                    plate.title[lang]
+                  )}
+                </h3>
+                <p className={styles.plateDesc}>{plate.description[lang]}</p>
+              </div>
+
+              <div className={styles.plateTags}>
+                {plate.tags.map((tag) => (
+                  <Tag key={tag}>{tag}</Tag>
+                ))}
+              </div>
+            </div>
+          </Reveal>
         ))}
-      </Stack>
+      </div>
 
-      {canExpand && (
-        <MuiLink
-          component="button"
-          type="button"
-          onClick={() => setExpanded((v) => !v)}
-          sx={{
-            mt: 3,
-            color: "text.secondary",
-            fontSize: "0.85rem",
-            textDecoration: "none",
-            cursor: "pointer",
-            "&:hover": { color: "primary.main" },
-          }}
-        >
-          {expanded
-            ? `${ui.projects.showLess[lang]} ↑`
-            : `${ui.projects.showAll[lang]} (${projects.length}) ↓`}
-        </MuiLink>
-      )}
+      <div className={styles.msWrap}>
+        <div className={styles.msBlock}>
+          <div className={styles.msHead}>
+            {/* A heading, not a span: navigating by heading is how a screen
+                reader reaches this group, and it is the volume evidence. */}
+            <h3 className={styles.msTitle}>{work.moscowSport.title[lang]}</h3>
+            <span className={styles.msDesc}>
+              {work.moscowSport.description[lang]}
+            </span>
+          </div>
 
-      <ProjectDialog
-        project={selected}
-        open={open}
-        onClose={() => setOpen(false)}
-      />
-    </Box>
+          <div
+            id="ms-grid"
+            className={`${styles.msGrid} ${gridOpen ? styles.msGridOpen : ""}`}
+          >
+            {work.moscowSport.cards.map((card) => (
+              <a
+                key={card.href}
+                href={card.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.card}
+              >
+                <span className={styles.thumb}>
+                  {/* Decorative: the caption below already names the site, so
+                      alt text here would announce every card twice. */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={card.image} alt="" loading="lazy" />
+                </span>
+                <span className={styles.caption}>
+                  <span>
+                    {card.name} <Glyph />
+                  </span>
+                  <span className={styles.cardYear}>{card.year}</span>
+                </span>
+              </a>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            className={styles.msToggle}
+            aria-expanded={gridOpen}
+            aria-controls="ms-grid"
+            onClick={() => setGridOpen((open) => !open)}
+          >
+            <span>
+              {gridOpen
+                ? work.moscowSport.showFewer[lang]
+                : work.moscowSport.showAll[lang].replace(
+                    "{n}",
+                    String(cardCount)
+                  )}
+            </span>
+            <PlusToggle />
+          </button>
+        </div>
+      </div>
+    </section>
   );
 };
 

@@ -1,93 +1,91 @@
 import { FC } from "react";
-import { Box, Link as MuiLink, Stack, Typography } from "@mui/material";
 import { useLanguage } from "@/contexts/language-context";
-import { education, ExperienceItem, ui, work } from "@/data/content";
+import { experience } from "@/data/content";
+import Reveal from "@/components/ui/Reveal";
+import SectionLabel from "@/components/ui/SectionLabel";
+import SectionTitle from "@/components/ui/SectionTitle";
+import Glyph from "@/components/ui/Glyph";
+import section from "./section.module.css";
+import styles from "./Experience.module.css";
 
-const ExperienceGroup: FC<{ label: string; items: ExperienceItem[] }> = ({
-  label,
-  items,
-}) => {
-  const { lang } = useLanguage();
-
-  return (
-    <Stack spacing={2.5}>
-      <Typography
-        color="text.secondary"
-        fontSize="0.9rem"
-        component="h2"
-        fontWeight={500}
-      >
-        {label}
-      </Typography>
-      {items.map((item) => (
-        <Stack
-          key={item.title.en}
-          direction={{ xs: "column", sm: "row" }}
-          spacing={{ xs: 0.25, sm: 2 }}
-        >
-          <Typography
-            color="text.secondary"
-            fontSize="0.85rem"
-            sx={{ width: { sm: "9rem" }, flexShrink: 0, pt: "0.15rem" }}
-          >
-            {item.period[lang]}
-          </Typography>
-          <Stack spacing={0.25}>
-            {item.link ? (
-              <MuiLink
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{
-                  color: "text.primary",
-                  fontWeight: 500,
-                  textDecoration: "none",
-                  "&:hover": { color: "primary.main" },
-                }}
-              >
-                {item.title[lang]}
-              </MuiLink>
-            ) : (
-              <Typography fontWeight={500}>{item.title[lang]}</Typography>
-            )}
-            <Typography color="text.secondary" fontSize="0.9rem">
-              {item.subtitle[lang]}
-            </Typography>
-            {item.highlights && (
-              <Stack component="ul" spacing={0.5} sx={{ m: 0, mt: 0.75, pl: 2 }}>
-                {item.highlights.map((highlight) => (
-                  <Typography
-                    key={highlight.en}
-                    component="li"
-                    color="text.secondary"
-                    fontSize="0.9rem"
-                    lineHeight={1.65}
-                  >
-                    {highlight[lang]}
-                  </Typography>
-                ))}
-              </Stack>
-            )}
-          </Stack>
-        </Stack>
-      ))}
-    </Stack>
-  );
-};
+// Stagger between sibling rows, per the handoff's reveal timings.
+const rowDelays = [0, 100, 200, 300];
 
 const Experience: FC = () => {
   const { lang } = useLanguage();
 
   return (
-    <Box id="experience" component="section">
-      <Stack spacing={6}>
-        <ExperienceGroup label={ui.experience.work[lang]} items={work} />
-        <ExperienceGroup
-          label={ui.experience.education[lang]}
-          items={education}
-        />
-      </Stack>
-    </Box>
+    <section
+      id="experience"
+      className={`${section.section} ${section.bordered}`}
+    >
+      <div className={section.inner}>
+        <div className={section.head}>
+          <SectionLabel>{experience.label[lang]}</SectionLabel>
+          <SectionTitle lines={experience.title.map((line) => line[lang])} />
+        </div>
+
+        <div className={styles.rows}>
+          {experience.rows.map((row, index) => (
+            <Reveal
+              key={row.company}
+              delay={rowDelays[index] ?? 300}
+              className={styles.row}
+            >
+              <span className={styles.period}>{row.period[lang]}</span>
+              <div className={styles.rowBody}>
+                <h3 className={styles.company}>
+                  <a
+                    href={row.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-tap
+                  >
+                    {row.company} <Glyph />
+                  </a>
+                </h3>
+                <span className={styles.role}>{row.role[lang]}</span>
+                <p className={styles.copy}>{row.body[lang]}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <div className={styles.edu}>
+          {experience.education.map((cell, index) => (
+            <Reveal
+              key={cell.href}
+              delay={index * 100}
+              className={styles.eduCell}
+            >
+              {index === 0 ? (
+                <span className={styles.eduLabel}>
+                  {experience.educationLabel[lang]}
+                </span>
+              ) : (
+                <span
+                  className={`${styles.eduLabel} ${styles.eduSpacer}`}
+                  aria-hidden="true"
+                >
+                  &nbsp;
+                </span>
+              )}
+              <h3 className={styles.eduName}>
+                <a
+                  href={cell.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-tap
+                >
+                  {cell.name[lang]} <Glyph />
+                </a>
+              </h3>
+              <span className={styles.eduSub}>{cell.subtitle[lang]}</span>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

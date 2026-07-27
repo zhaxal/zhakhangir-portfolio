@@ -1,0 +1,165 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Sits between the title and the social links, so the answer arrives before
+   the visitor starts choosing a channel. */
+.availability {
+  margin: 0;
+  max-width: 42ch;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.label {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.input {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border-hairline);
+  border-radius: var(--radius-none);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  padding: 12px 0;
+  transition: var(--transition-control);
+  resize: vertical;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: var(--text-faint);
+}
+
+.input:focus {
+  border-bottom-color: var(--white);
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--red-500);
+  outline-offset: 2px;
+}
+
+/* 16px stops iOS Safari zooming the page on focus; the extra padding brings the
+   field to a 44px target. Both are touch-only so the desktop scale is unchanged. */
+@media (pointer: coarse) {
+  .input {
+    font-size: 16px;
+    padding: 14px 0;
+  }
+}
+
+.input.invalid {
+  border-bottom-color: var(--red-500);
+}
+
+textarea.input {
+  min-height: 96px;
+}
+
+/* Livery Red measures 3.94:1 on the page — fine as a marker (needs 3:1), but it
+   was carrying the words themselves. The dot keeps the brand signal; the text
+   moves to a tier that can actually be read. Same leading-dot idiom as the
+   pill buttons and the red "+" chips. */
+.fieldError,
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+.fieldError::before,
+.status::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: var(--radius-pill);
+  background: var(--red-500);
+  flex-shrink: 0;
+}
+
+.status {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-standard);
+  min-height: 1em;
+}
+
+.status.visible {
+  opacity: 1;
+}
+
+/* Pending is not an alert, so it drops the red entirely. */
+.status.pending {
+  color: var(--text-secondary);
+}
+
+.status.pending::before {
+  background: var(--text-secondary);
+}
+
+.noScript {
+  margin: 0 0 24px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border-hairline);
+  border-bottom: 1px solid var(--border-hairline);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.noScript a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+}

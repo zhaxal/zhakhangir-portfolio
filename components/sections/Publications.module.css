@@ -1,0 +1,65 @@
+.rows {
+  border-top: 1px solid var(--border-hairline);
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 20px;
+  margin: 0 -20px;
+  border-bottom: 1px solid var(--border-hairline);
+  transition: background-color var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
+}
+
+/* The whole row inverts to solid white — but only where the row is a real
+   link. An unlinked row keeps its resting state rather than promising a
+   destination it doesn't have. */
+.rowLink {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.rowLink:hover,
+.rowLink:focus-visible {
+  background: var(--white);
+  color: var(--ink-900);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-stretch: 104%;
+  font-size: 20px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+
+.rowLink:hover .desc,
+.rowLink:focus-visible .desc {
+  color: var(--gray-600);
+}
+
+.year {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 20px;
+  white-space: nowrap;
+  text-align: right;
+}

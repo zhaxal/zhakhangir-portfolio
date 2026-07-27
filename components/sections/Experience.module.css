@@ -1,0 +1,113 @@
+.rows {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-hairline);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.period {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+.rowBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.company {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: var(--display-stretch);
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.role {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.copy {
+  margin: 0;
+  max-width: 62ch;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* ---- education grid ---- */
+
+.edu {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--border-hairline);
+  border-left: 1px solid var(--border-hairline);
+}
+
+.eduCell {
+  padding: 28px 24px;
+  border-right: 1px solid var(--border-hairline);
+  border-bottom: 1px solid var(--border-hairline);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.eduLabel {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.eduName {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: var(--display-stretch);
+  font-size: 22px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.eduSub {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 22px 0;
+  }
+
+  .edu {
+    grid-template-columns: 1fr;
+    margin-top: 44px;
+  }
+
+  /* the spacer only exists to align baselines across two columns */
+  .eduSpacer {
+    display: none;
+  }
+}

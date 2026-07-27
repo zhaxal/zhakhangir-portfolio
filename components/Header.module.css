@@ -1,0 +1,321 @@
+/* Offscreen until focused, then it lands as a pill in the top-left corner —
+   the same control language as everything else in the header. */
+.skip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  transform: translateY(-150%);
+  margin: 12px;
+  padding: 10px 18px;
+  background: var(--white);
+  color: var(--ink-900);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+.skip:focus {
+  transform: translateY(0);
+  color: var(--ink-900);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px var(--gutter-page);
+  /* clear the notch in landscape without moving anything on ordinary screens */
+  padding-left: max(var(--gutter-page), env(safe-area-inset-left));
+  padding-right: max(var(--gutter-page), env(safe-area-inset-right));
+  padding-top: max(14px, env(safe-area-inset-top));
+  border-bottom: 1px solid transparent;
+  transition: background-color var(--dur-base) var(--ease-standard),
+    backdrop-filter var(--dur-base) var(--ease-standard),
+    border-color var(--dur-base) var(--ease-standard);
+}
+
+.header.scrolled {
+  background: var(--surface-overlay);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--border-hairline);
+}
+
+.progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: 0;
+  background: var(--red-500);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: var(--display-stretch);
+  /* scales down on narrow phones so the control cluster always fits */
+  font-size: clamp(12px, 3.7vw, 18px);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  line-height: 1;
+  /* last-resort guard: clip rather than collide with the controls */
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* The wordmark clips its overflow, so it can't use the ::after pad — padding
+   cancelled by an equal negative margin grows the box without moving anything. */
+@media (pointer: coarse) {
+  .wordmark {
+    padding: 15px 0;
+    margin: -15px 0;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav a {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+
+.nav a:hover {
+  color: var(--white);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.langs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lang {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  color: rgba(255, 255, 255, 0.62);
+  transition: var(--transition-control);
+}
+
+.lang:hover {
+  color: var(--white);
+}
+
+.lang.active {
+  background: var(--white);
+  color: var(--ink-900);
+  font-weight: 700;
+}
+
+/* ---- hamburger ---- */
+
+.menuBtn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  display: none;
+  cursor: pointer;
+  width: 26px;
+  height: 16px;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.menuBtn span {
+  display: block;
+  height: 1.5px;
+  background: var(--white);
+  transition: transform 260ms var(--ease-standard), opacity 160ms;
+}
+
+.menuBtn.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menuBtn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuBtn.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* The hamburger is the last item in the row, so it grows down and to the right
+   — into the header's own gutter — rather than back toward the CTA. Negative
+   margins cancel the growth so the header keeps its exact height and width.
+   (border-box: the 44px height still leaves the 16px content box the bars use.) */
+@media (pointer: coarse) {
+  .menuBtn {
+    width: 38px;
+    height: 44px;
+    padding: 14px 12px 14px 0;
+    margin: -14px -12px -14px 0;
+  }
+}
+
+/* ---- mobile panel ---- */
+
+.panel {
+  position: fixed;
+  inset: 0;
+  z-index: 39;
+  background: var(--ink-900);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 var(--gutter-page-sm);
+  padding-left: max(var(--gutter-page-sm), env(safe-area-inset-left));
+  padding-right: max(var(--gutter-page-sm), env(safe-area-inset-right));
+  /* a landscape phone is ~360px tall; let the panel scroll rather than clip */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, -12px, 0);
+  transition: opacity 260ms var(--ease-standard),
+    transform 320ms var(--ease-out-expo), visibility 260ms;
+}
+
+.panel.open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.panel a {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: var(--display-stretch);
+  font-size: clamp(34px, 11vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+/* The panel only exists below 900px, i.e. on touch, where there is no hover to
+   respond to — and each link already carries a hairline beneath it. */
+.panel a:hover {
+  text-decoration: none;
+}
+
+.panel .panelMail {
+  margin-top: 24px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 0;
+  padding: 12px 0;
+}
+
+@media (max-width: 900px) {
+  .header {
+    padding: 12px var(--gutter-page-sm);
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .menuBtn {
+    display: flex;
+  }
+
+  .right {
+    gap: 10px;
+  }
+
+  /* keep the pills at a 44px tap target on touch */
+  .lang {
+    padding: 12px 10px;
+  }
+}
+
+/* A landscape phone leaves ~360px of height; shrink the panel type so four
+   links and the mail address still fit without scrolling. */
+@media (max-height: 480px) {
+  .panel a {
+    font-size: clamp(20px, 7.5vh, 34px);
+    padding: 6px 0;
+  }
+
+  .panel .panelMail {
+    margin-top: 12px;
+    padding: 8px 0;
+  }
+}
+
+/* Phones: the wordmark, both language pills, the CTA and the hamburger all
+   have to share one row, so tighten every gap rather than drop an element. */
+@media (max-width: 560px) {
+  .header {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .right {
+    gap: 6px;
+  }
+
+  .lang {
+    font-size: 10px;
+    padding: 12px 6px;
+    letter-spacing: 0.04em;
+  }
+
+  .cta {
+    padding: 0 10px;
+    font-size: 10px;
+    letter-spacing: 0;
+    gap: 6px;
+  }
+}
+
+/* Below ~375px the wordmark, both language pills and the CTA can no longer
+   share a row without truncating the name. The CTA goes — it is the third
+   entry in the hamburger panel, so contact stays one tap away. */
+@media (max-width: 374px) {
+  .cta {
+    display: none;
+  }
+}

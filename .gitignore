@@ -35,5 +35,8 @@ yarn-error.log*
 next-env.d.ts
 .firebase
 secret/firebaseConfig.ts
+
+# impeccable live-mode session journals (local state; config + design.json are tracked)
+.impeccable/live/sessions/
 .firebaserc
 firebase-debug.log

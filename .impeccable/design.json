@@ -1,0 +1,518 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-27T11:54:59.891Z",
+  "title": "Design System: Zhakhangir Anuarbek Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "livery-red": {
+        "role": "primary",
+        "displayName": "Livery Red",
+        "canonical": "#e00013",
+        "tonalRamp": [
+          "#2a0208",
+          "#44020d",
+          "#6b010c",
+          "#8c0010",
+          "#c4000f",
+          "#e00013",
+          "#ff4d5c",
+          "#ffb3ba"
+        ]
+      },
+      "livery-red-deep": {
+        "role": "primary",
+        "displayName": "Livery Red Deep",
+        "canonical": "#c4000f",
+        "tonalRamp": [
+          "#2a0208",
+          "#44020d",
+          "#6b010c",
+          "#8c0010",
+          "#c4000f",
+          "#e00013",
+          "#ff4d5c",
+          "#ffb3ba"
+        ]
+      },
+      "livery-red-mid": {
+        "role": "primary",
+        "displayName": "Livery Red Mid",
+        "canonical": "#8c0010",
+        "tonalRamp": [
+          "#2a0208",
+          "#44020d",
+          "#6b010c",
+          "#8c0010",
+          "#c4000f",
+          "#e00013",
+          "#ff4d5c",
+          "#ffb3ba"
+        ]
+      },
+      "livery-red-black": {
+        "role": "primary",
+        "displayName": "Livery Red Black",
+        "canonical": "#2a0208",
+        "tonalRamp": [
+          "#2a0208",
+          "#44020d",
+          "#6b010c",
+          "#8c0010",
+          "#c4000f",
+          "#e00013",
+          "#ff4d5c",
+          "#ffb3ba"
+        ]
+      },
+      "ink-page": {
+        "role": "neutral",
+        "displayName": "Ink Page",
+        "canonical": "#0a0a0a",
+        "tonalRamp": [
+          "#000000",
+          "#0a0a0a",
+          "#0d0d0d",
+          "#141414",
+          "#161616",
+          "#1d1d1d",
+          "#242424",
+          "#414141"
+        ]
+      },
+      "ink-well": {
+        "role": "neutral",
+        "displayName": "Ink Well",
+        "canonical": "#141414",
+        "tonalRamp": [
+          "#000000",
+          "#0a0a0a",
+          "#0d0d0d",
+          "#141414",
+          "#161616",
+          "#1d1d1d",
+          "#242424",
+          "#414141"
+        ]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#414141",
+        "tonalRamp": [
+          "#141414",
+          "#1d1d1d",
+          "#242424",
+          "#414141",
+          "#6b6b6b",
+          "#8a8a8a",
+          "#a8a8a8",
+          "#d4d4d4"
+        ]
+      },
+      "paper-white": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#414141",
+          "#6b6b6b",
+          "#8a8a8a",
+          "#a8a8a8",
+          "#d4d4d4",
+          "#e5e5e5",
+          "#f5f5f5",
+          "#ffffff"
+        ]
+      },
+      "text-secondary": {
+        "role": "neutral",
+        "displayName": "Text Secondary",
+        "canonical": "rgba(255, 255, 255, 0.72)",
+        "tonalRamp": [
+          "rgba(255,255,255,.06)",
+          "rgba(255,255,255,.14)",
+          "rgba(255,255,255,.28)",
+          "rgba(255,255,255,.46)",
+          "rgba(255,255,255,.58)",
+          "rgba(255,255,255,.72)",
+          "rgba(255,255,255,.86)",
+          "#ffffff"
+        ]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Text Muted",
+        "canonical": "rgba(255, 255, 255, 0.58)",
+        "tonalRamp": [
+          "rgba(255,255,255,.06)",
+          "rgba(255,255,255,.14)",
+          "rgba(255,255,255,.28)",
+          "rgba(255,255,255,.46)",
+          "rgba(255,255,255,.58)",
+          "rgba(255,255,255,.72)",
+          "rgba(255,255,255,.86)",
+          "#ffffff"
+        ]
+      },
+      "text-faint": {
+        "role": "neutral",
+        "displayName": "Text Faint",
+        "canonical": "rgba(255, 255, 255, 0.46)",
+        "tonalRamp": [
+          "rgba(255,255,255,.06)",
+          "rgba(255,255,255,.14)",
+          "rgba(255,255,255,.28)",
+          "rgba(255,255,255,.46)",
+          "rgba(255,255,255,.58)",
+          "rgba(255,255,255,.72)",
+          "rgba(255,255,255,.86)",
+          "#ffffff"
+        ]
+      },
+      "border-hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(255, 255, 255, 0.14)",
+        "tonalRamp": [
+          "rgba(255,255,255,.03)",
+          "rgba(255,255,255,.06)",
+          "rgba(255,255,255,.1)",
+          "rgba(255,255,255,.14)",
+          "rgba(255,255,255,.2)",
+          "rgba(255,255,255,.28)",
+          "rgba(255,255,255,.4)",
+          "rgba(255,255,255,.6)"
+        ]
+      },
+      "hover-veil": {
+        "role": "neutral",
+        "displayName": "Hover Veil",
+        "canonical": "rgba(255, 255, 255, 0.06)",
+        "tonalRamp": [
+          "rgba(255,255,255,.03)",
+          "rgba(255,255,255,.06)",
+          "rgba(255,255,255,.1)",
+          "rgba(255,255,255,.14)",
+          "rgba(255,255,255,.2)",
+          "rgba(255,255,255,.28)",
+          "rgba(255,255,255,.4)",
+          "rgba(255,255,255,.6)"
+        ]
+      },
+      "surface-overlay": {
+        "role": "neutral",
+        "displayName": "Surface Overlay",
+        "canonical": "rgba(10, 10, 10, 0.72)",
+        "tonalRamp": [
+          "rgba(10,10,10,.2)",
+          "rgba(10,10,10,.35)",
+          "rgba(10,10,10,.5)",
+          "rgba(10,10,10,.62)",
+          "rgba(10,10,10,.72)",
+          "rgba(10,10,10,.85)",
+          "rgba(10,10,10,.94)",
+          "#0a0a0a"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The hero name only. Extended, black weight, uppercase, nowrap, allowed to be enormous."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles. Always split across lines so each line reveals from a different side."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Block headings, accordion labels, plate titles, company names, education cells."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading copy at 14px/1.55; small body at 13px. Measure capped 46-62ch by context."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Eyebrows, nav, roles, input labels. Letterspaced 0.08-0.14em and uppercased in CSS."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Two uses only: the experience period column and the footer site URL. Signals 'this is data'."
+      }
+    },
+    "gradients": [
+      {
+        "name": "gradient-hero",
+        "value": "linear-gradient(105deg, #2a0208 0%, #8c0010 45%, #e00013 100%)",
+        "purpose": "The hero field. Sized 180% and drifted over 24s; the only gradient in the system."
+      },
+      {
+        "name": "gradient-scrim",
+        "value": "linear-gradient(180deg, rgba(10,10,10,.55) 0%, rgba(10,10,10,0) 35%, rgba(10,10,10,.65) 100%)",
+        "purpose": "Vertical scrim protecting hero text at top and bottom. Non-interactive."
+      }
+    ],
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.22, 0.61, 0.36, 1)",
+        "purpose": "Colour, controls, header state. Anything that is a discrete state change."
+      },
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Reveals, accordion, transforms. Anything that travels distance."
+      },
+      {
+        "name": "dur-fast",
+        "value": "120ms",
+        "purpose": "Colour only. The publication-row invert."
+      },
+      {
+        "name": "dur-base",
+        "value": "220ms",
+        "purpose": "Controls and the header transparent-to-blurred swap."
+      },
+      {
+        "name": "dur-slow",
+        "value": "420ms",
+        "purpose": "Accordion grid-template-rows 0fr to 1fr."
+      },
+      {
+        "name": "reveal-opacity",
+        "value": "620ms",
+        "purpose": "Scroll-reveal opacity leg."
+      },
+      {
+        "name": "reveal-transform",
+        "value": "720ms",
+        "purpose": "Scroll-reveal transform leg; deliberately trails the opacity."
+      },
+      {
+        "name": "reveal-stagger",
+        "value": "100-140ms",
+        "purpose": "Delay between revealing siblings."
+      },
+      {
+        "name": "hero-line",
+        "value": "900ms",
+        "purpose": "Each hero headline line rising from a 110% mask, at 80ms and 220ms."
+      },
+      {
+        "name": "ken-burns",
+        "value": "18s",
+        "purpose": "Hero photo push from scale(1) to scale(1.09), forwards."
+      },
+      {
+        "name": "gradient-drift",
+        "value": "24s",
+        "purpose": "Hero background-position drift, alternating infinitely."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone-min",
+        "value": "374px"
+      },
+      {
+        "name": "phone",
+        "value": "560px"
+      },
+      {
+        "name": "tablet",
+        "value": "900px"
+      },
+      {
+        "name": "content-max",
+        "value": "1240px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The header contact pill. White fill, leading dot, fully round.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\"><span class=\"ds-btn-dot\"></span>Contact</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 32px; padding: 0 16px; background: var(--white, #ffffff); color: var(--ink-900, #0a0a0a); border: 1px solid var(--white, #ffffff); border-radius: 999px; font-family: var(--font-ui, Archivo, sans-serif); font-size: 12px; font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background-color 220ms cubic-bezier(.22,.61,.36,1), transform 120ms cubic-bezier(.22,.61,.36,1); } .ds-btn-primary:hover { background: #e5e5e5; } .ds-btn-primary:active { transform: scale(.98); } .ds-btn-primary:focus-visible { outline: 2px solid var(--red-500, #e00013); outline-offset: 2px; } .ds-btn-dot { width: 5px; height: 5px; border-radius: 999px; background: currentColor; flex-shrink: 0; }"
+    },
+    {
+      "name": "Brand Button",
+      "kind": "button",
+      "refersTo": "button-brand",
+      "description": "The contact form submit. The only red fill on the page.",
+      "html": "<button class=\"ds-btn-brand\"><span class=\"ds-btn-dot\"></span>Send message</button>",
+      "css": ".ds-btn-brand { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; padding: 0 32px; background: var(--red-500, #e00013); color: var(--white, #ffffff); border: 1px solid var(--red-500, #e00013); border-radius: 999px; font-family: var(--font-ui, Archivo, sans-serif); font-size: 14px; font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; cursor: pointer; white-space: nowrap; transition: background-color 220ms cubic-bezier(.22,.61,.36,1), transform 120ms cubic-bezier(.22,.61,.36,1); } .ds-btn-brand:hover { background: var(--red-600, #c4000f); } .ds-btn-brand:active { transform: scale(.98); } .ds-btn-brand:focus-visible { outline: 2px solid var(--red-500, #e00013); outline-offset: 2px; } .ds-btn-dot { width: 5px; height: 5px; border-radius: 999px; background: currentColor; flex-shrink: 0; }"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Technology label under a project plate. Square, hairline, non-interactive.",
+      "html": "<span class=\"ds-tag\">Python</span> <span class=\"ds-tag\">Hailo NPU</span> <span class=\"ds-tag\">Raspberry Pi</span>",
+      "css": ".ds-tag { display: inline-flex; align-items: center; height: 28px; padding: 0 16px; margin-right: 8px; border: 1px solid var(--border-hairline, rgba(255,255,255,.14)); border-radius: 0; background: transparent; color: var(--text-muted, rgba(255,255,255,.5)); font-family: var(--font-ui, Archivo, sans-serif); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; cursor: default; transition: background-color 220ms cubic-bezier(.22,.61,.36,1), color 220ms cubic-bezier(.22,.61,.36,1); } .ds-tag:hover { background: rgba(255,255,255,.06); color: var(--white, #ffffff); }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Contact field. No box — a label and a single hairline underline. Errors lead with a red dot and set their text in white.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Email</span><input class=\"ds-input\" type=\"email\" placeholder=\"you@company.com\"></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 320px; } .ds-field-label { font-family: var(--font-ui, Archivo, sans-serif); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted, rgba(255,255,255,.5)); } .ds-input { width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--border-hairline, rgba(255,255,255,.14)); border-radius: 0; padding: 12px 0; color: var(--white, #ffffff); font-family: var(--font-ui, Archivo, sans-serif); font-size: 14px; transition: border-color 220ms cubic-bezier(.22,.61,.36,1); } .ds-input::placeholder { color: rgba(255,255,255,.38); } .ds-input:focus { border-bottom-color: var(--white, #ffffff); outline: none; } .ds-input:focus-visible { outline: 2px solid var(--red-500, #e00013); outline-offset: 2px; }"
+    },
+    {
+      "name": "Section Label",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The eyebrow above every section title. A degree or dot marker, then a letterspaced label.",
+      "html": "<div class=\"ds-section-label\"><span>&deg;</span>Selected work</div>",
+      "css": ".ds-section-label { display: flex; align-items: baseline; gap: 6px; font-family: var(--font-ui, Archivo, sans-serif); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted, rgba(255,255,255,.5)); }"
+    },
+    {
+      "name": "Language Switch",
+      "kind": "nav",
+      "refersTo": "lang-pill",
+      "description": "Two pills, EN and 日本語. The active one inverts to a white fill.",
+      "html": "<div class=\"ds-lang\"><button class=\"ds-lang-pill ds-lang-active\">EN</button><button class=\"ds-lang-pill\">日本語</button></div>",
+      "css": ".ds-lang { display: flex; align-items: center; gap: 4px; } .ds-lang-pill { appearance: none; border: 0; background: transparent; cursor: pointer; padding: 5px 10px; border-radius: 999px; font-family: var(--font-ui, Archivo, sans-serif); font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,.62); transition: background-color 220ms cubic-bezier(.22,.61,.36,1), color 220ms cubic-bezier(.22,.61,.36,1); } .ds-lang-pill:hover { color: var(--white, #ffffff); } .ds-lang-active { background: var(--white, #ffffff); color: var(--ink-900, #0a0a0a); font-weight: 700; } .ds-lang-pill:focus-visible { outline: 2px solid var(--red-500, #e00013); outline-offset: 2px; }"
+    },
+    {
+      "name": "Inverting Publication Row",
+      "kind": "custom",
+      "refersTo": "publication-row",
+      "description": "Signature component. The whole row flips to solid white on hover in 120ms — the fastest transition in the system.",
+      "html": "<div class=\"ds-award-row\"><div class=\"ds-award-copy\"><span class=\"ds-award-title\">IVS 2026 Kyoto</span><span class=\"ds-award-desc\">Project presenter &mdash; looq.jp smart camera</span></div><span class=\"ds-award-year\">//2026</span></div>",
+      "css": ".ds-award-row { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 24px 20px; border-top: 1px solid var(--border-hairline, rgba(255,255,255,.14)); border-bottom: 1px solid var(--border-hairline, rgba(255,255,255,.14)); color: var(--white, #ffffff); transition: background-color 120ms cubic-bezier(.22,.61,.36,1), color 120ms cubic-bezier(.22,.61,.36,1); } .ds-award-row:hover { background: var(--white, #ffffff); color: var(--ink-900, #0a0a0a); } .ds-award-copy { display: flex; flex-direction: column; gap: 8px; min-width: 0; } .ds-award-title { font-family: var(--font-display, Archivo, sans-serif); font-weight: 700; font-stretch: 104%; font-size: 20px; line-height: 1.1; text-transform: uppercase; } .ds-award-desc { font-size: 13px; color: var(--text-muted, rgba(255,255,255,.5)); transition: color 120ms cubic-bezier(.22,.61,.36,1); } .ds-award-row:hover .ds-award-desc { color: #414141; } .ds-award-year { font-family: var(--font-display, Archivo, sans-serif); font-weight: 700; font-style: italic; font-size: 20px; white-space: nowrap; }"
+    },
+    {
+      "name": "Work Thumbnail",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Signature component. A 4:3 screenshot held grayscale until the pointer arrives, then it resolves to colour and pushes 4%.",
+      "html": "<a class=\"ds-thumb-card\" href=\"#\"><span class=\"ds-thumb\"><span class=\"ds-thumb-img\"></span></span><span class=\"ds-thumb-caption\"><span>Nation's Cross &#8599;</span><span class=\"ds-thumb-year\">//2025</span></span></a>",
+      "css": ".ds-thumb-card { display: flex; flex-direction: column; gap: 10px; max-width: 240px; text-decoration: none; color: var(--white, #ffffff); transition: opacity 220ms cubic-bezier(.22,.61,.36,1); } .ds-thumb-card:hover { opacity: .82; } .ds-thumb { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--ink-800, #141414); } .ds-thumb-img { display: block; width: 100%; height: 100%; background: linear-gradient(135deg, #c4000f 0%, #1b3fa0 55%, #d8c400 100%); filter: grayscale(1) contrast(1.05); transition: filter 320ms cubic-bezier(.22,.61,.36,1), transform 520ms cubic-bezier(.16,1,.3,1); } .ds-thumb-card:hover .ds-thumb-img { filter: none; transform: scale(1.04); } .ds-thumb-caption { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; font-family: var(--font-ui, Archivo, sans-serif); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.3; } .ds-thumb-year { font-family: var(--font-display, Archivo, sans-serif); font-style: italic; color: var(--text-faint, rgba(255,255,255,.38)); white-space: nowrap; }"
+    },
+    {
+      "name": "Capability Accordion Row",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Signature component. Two 1.5px rules form a plus that rotates 45° into an ✕; the body opens on grid-template-rows rather than height.",
+      "html": "<div class=\"ds-acc\"><button class=\"ds-acc-head\" aria-expanded=\"true\"><span class=\"ds-acc-label\">Web Development</span><span class=\"ds-acc-plus\"></span></button><div class=\"ds-acc-body ds-acc-open\"><div class=\"ds-acc-inner\"><p class=\"ds-acc-copy\">Building and running web apps end to end &mdash; the interface, the API, the database and the server it sits on.</p><div class=\"ds-acc-chips\"><span class=\"ds-acc-chip\">Next.js / React</span><span class=\"ds-acc-chip\">Go / Node</span></div></div></div></div>",
+      "css": ".ds-acc { border-top: 1px solid var(--border-hairline, rgba(255,255,255,.14)); border-bottom: 1px solid var(--border-hairline, rgba(255,255,255,.14)); padding: 28px 0; } .ds-acc-head { appearance: none; border: 0; background: transparent; padding: 0; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; cursor: pointer; text-align: left; color: inherit; } .ds-acc-label { font-family: var(--font-display, Archivo, sans-serif); font-weight: 800; font-stretch: 118%; font-size: 28px; line-height: 1; text-transform: uppercase; color: var(--white, #ffffff); } .ds-acc-plus { position: relative; width: 22px; height: 22px; flex-shrink: 0; transition: transform 220ms cubic-bezier(.22,.61,.36,1); } .ds-acc-head[aria-expanded=\"true\"] .ds-acc-plus { transform: rotate(45deg); } .ds-acc-plus::before, .ds-acc-plus::after { content: \"\"; position: absolute; background: var(--white, #ffffff); } .ds-acc-plus::before { top: 10px; left: 0; width: 22px; height: 1.5px; } .ds-acc-plus::after { left: 10px; top: 0; width: 1.5px; height: 22px; } .ds-acc-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 420ms cubic-bezier(.16,1,.3,1); } .ds-acc-open { grid-template-rows: 1fr; } .ds-acc-inner { overflow: hidden; } .ds-acc-copy { margin: 18px 0 0; max-width: 46ch; font-size: 13px; line-height: 1.5; color: var(--text-secondary, rgba(255,255,255,.72)); } .ds-acc-chips { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 16px; font-size: 12px; color: var(--white, #ffffff); } .ds-acc-chip { display: inline-flex; align-items: center; gap: 8px; } .ds-acc-chip::before { content: \"+\"; color: var(--red-500, #e00013); font-size: 15px; line-height: 1; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Spec Sheet",
+    "overview": "An engineering specification, printed large. Everything in this system behaves like a technical document that someone decided to set at poster scale: values are ruled into cells by hairlines, periods and URLs are set in a numeral face so they read as data, labels are small and letterspaced like field names, and the page itself is near-black paper. Nothing is styled for pleasantness. Things are the size they are because that is how important they are.\n\nThe temperament is industrial, decisive, unsentimental. The display face is set extended and heavy and always uppercase — it does not modulate, it does not get friendly at small sizes, it just gets smaller. There is exactly one chromatic colour in the entire system and it is used sparingly enough that a single 36px strip of it across the bottom of the page reads as an event. Depth does not exist: there is not one shadow in the codebase, and separation is carried entirely by a 14%-white hairline that never changes weight or colour. Corners are square. The only curve permitted anywhere is the full 999px pill on controls, and the contrast between that curve and the universal zero is the system's one piece of wit.\n\nMotion is heavy but never decorative. Content arrives from off-axis under a single expo easing, thumbnails resolve from grayscale to colour under the pointer, a publication row inverts to solid white the instant you touch it. Every one of those is a state change reporting itself, not an ornament. The system is bilingual by commitment — Noto Sans JP is appended to both type stacks, so Japanese must be composed for, never bolted on.",
+    "keyCharacteristics": [
+      "One chromatic colour, rationed hard",
+      "A single hairline is the only line in the system",
+      "Extended, heavy, uppercase display type at every scale",
+      "Zero radius everywhere; 999px on controls; nothing in between",
+      "No shadows at all — depth is line and veil",
+      "Motion reports state; it never garnishes"
+    ],
+    "rules": [
+      {
+        "name": "The One Voice Rule",
+        "body": "Livery Red is the only chromatic colour that exists. It appears on well under 5% of any viewport, and its rarity is the entire point. A second accent hue does not get introduced; if something needs to be distinguished, distinguish it with weight, scale, or a hairline.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "1px solid rgba(255,255,255,.14) is the only line in the system. Not a heavier variant for emphasis, not a darker one for subtlety, not a dashed one for provisional state. One line, everywhere, forever.",
+        "section": "colors"
+      },
+      {
+        "name": "The Four Whites Rule",
+        "body": "Body text has exactly four weights — 100%, 72%, 58%, 46% — plus the 14% that is a line rather than text. Reach for one of the four; do not invent a fifth opacity to solve a hierarchy problem. Every one of them clears 4.5:1 on the page, and that is the constraint that sets the floor: the quiet end stops where legibility does.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hero Exception",
+        "body": "The hero and header carry six opacities of their own (.62, .65, .70, .82, .86, .90). These are pinned by the handoff and sit over the red gradient rather than the page, where the four-tier scale does not apply. They are the only sanctioned departure.",
+        "section": "colors"
+      },
+      {
+        "name": "The Extended Rule",
+        "body": "Display type is always font-weight: 800, font-stretch: 118%, and uppercase. There is no light display setting, no sentence-case headline, no condensed variant. Archivo at normal width is UI type and is never used for a heading.",
+        "section": "typography"
+      },
+      {
+        "name": "The Two Faces Rule",
+        "body": "Space Grotesk appears only where a value must read as measured data. It is not a body face, not a label face, and not a stylistic accent. If a number is prose, it is set in Archivo.",
+        "section": "typography"
+      },
+      {
+        "name": "The Uppercase Is Structural Rule",
+        "body": "Case is applied in CSS, never in the content layer. Copy in data/content.ts is written in sentence case and uppercased by text-transform, so a locale that has no case (Japanese) is unaffected.",
+        "section": "typography"
+      },
+      {
+        "name": "The 96/64/1240 Rule",
+        "body": "Vertical rhythm is 96px, page gutters are 64px, content is 1240px. A new section that wants different numbers is wrong about being a section.",
+        "section": "layout"
+      },
+      {
+        "name": "The Hairline Seam Rule",
+        "body": "Sections are separated by a hairline, not by a gap. Two sections never sit adjacent with only whitespace between them.",
+        "section": "layout"
+      },
+      {
+        "name": "The No-Shadow Rule",
+        "body": "No box-shadow, no drop-shadow, no glow, no inner highlight. If an element needs to feel separate, give it a hairline. If it needs to feel active, give it the veil. There is no third option.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Zero-or-Pill Rule",
+        "body": "Radius is 0 or it is 999px. Nothing between those two values may be introduced.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Earned Colour Rule",
+        "body": "Desaturation is a unifying device, not a house style. The nine event-site screenshots are grayscaled because they are nine clashing brands that must read as one texture, and their colour returns under the pointer. Feature photography stays in colour. Do not desaturate an image whose subject is the point.",
+        "section": "components"
+      },
+      {
+        "name": "The Off-Axis Rule",
+        "body": "Content enters from off-axis and resolves — rise from 26px below, or slide 40px from the left or right, over 620ms opacity / 720ms transform on cubic-bezier(.16,1,.3,1), staggered 100–140ms between siblings, fired once by an IntersectionObserver at threshold 0.1 and never replayed. Section titles split: line one from the left, line two from the right at +120ms.",
+        "section": "components"
+      },
+      {
+        "name": "The Contained Motion Rule",
+        "body": "Because reveals start translated ±40px off their final position, any container holding them must clip horizontally (overflow-x: clip on main). A reveal that widens the document is a bug, not a flourish.",
+        "section": "components"
+      },
+      {
+        "name": "The Reduced-Motion Rule",
+        "body": "Under prefers-reduced-motion: reduce every animation is cancelled, all transitions collapse to 1ms, reveals resolve instantly at full opacity, and the custom cursor is not mounted at all. This is not a degraded experience; it is a supported one.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do separate everything with the hairline (rgba(255,255,255,.14)) and let it carry all structure.",
+      "Do set every heading extended, heavy and uppercase (font-stretch: 118%, font-weight: 800).",
+      "Do keep radius at 0, except controls at 999px.",
+      "Do ration Livery Red. Under 5% of any viewport, and never as a text background beyond a button label.",
+      "Do write copy in sentence case in data/content.ts and uppercase it in CSS, so Japanese is unaffected.",
+      "Do give every new string both an en and a ja value. A one-locale string is unfinished.",
+      "Do clip horizontally around anything that reveals from off-axis.",
+      "Do honour prefers-reduced-motion in the same commit that adds motion, not in a later pass.",
+      "Do use Livery Red as a marker rather than as body or message text — at 3.94:1 it clears the 3:1 non-text bar but not the 4.5:1 text bar."
+    ],
+    "donts": [
+      "Don't add a box-shadow, glow, or glassmorphic panel. The system has zero shadows and that is load-bearing.",
+      "Don't introduce a second accent hue, a gradient on text, or a colour-shifting border. One red, flat.",
+      "Don't use an intermediate corner radius. 4px, 8px and 12px do not exist here.",
+      "Don't reach for Inter, Roboto, or a terminal-green monospace theme. This is not a dark-mode developer-portfolio page — no typing animations, no </> motifs, no contribution graphs.",
+      "Don't centre everything on a soft grey card with a drop shadow. Corporate template minimalism is an explicit anti-reference.",
+      "Don't animate for its own sake. No parallax garnish, no bouncing easing, no motion that isn't a state reporting itself.",
+      "Don't invent a fifth text opacity to solve a hierarchy problem. Use the four, or use scale.",
+      "Don't desaturate feature photography. Grayscale unifies the screenshot grid; it is not the house style.",
+      "Don't set error or status copy in red. The dot is red; the words are white."
+    ]
+  }
+}

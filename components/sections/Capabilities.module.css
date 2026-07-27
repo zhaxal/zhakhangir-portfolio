@@ -1,0 +1,82 @@
+.accordion {
+  border-top: 1px solid var(--border-hairline);
+}
+
+.row {
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 28px 0;
+}
+
+.header {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  text-align: left;
+  color: inherit;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: var(--display-stretch);
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* The + mark now lives in components/ui/PlusToggle — the Moscow Sport grid
+   uses the same disclosure idiom, so the system owns it rather than this file. */
+
+.body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-slow) var(--ease-out-expo);
+}
+
+.body.open {
+  grid-template-rows: 1fr;
+}
+
+.bodyInner {
+  overflow: hidden;
+}
+
+.copy {
+  margin: 18px 0 0;
+  max-width: 46ch;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Sits between the header and the collapsible prose, so it reads as part of
+   the row rather than as disclosed detail. */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chip::before {
+  content: "+";
+  color: var(--red-500);
+  font-size: 15px;
+  line-height: 1;
+}

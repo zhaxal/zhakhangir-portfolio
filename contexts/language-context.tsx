@@ -7,9 +7,15 @@ import {
   useState,
 } from "react";
 
-export type Lang = "en" | "ru" | "ja";
+export type Lang = "en" | "ja";
 
-export const LANGS: Lang[] = ["en", "ru", "ja"];
+export const LANGS: Lang[] = ["en", "ja"];
+
+// Label shown on the header pills.
+export const LANG_LABELS: Record<Lang, string> = {
+  en: "EN",
+  ja: "日本語",
+};
 
 interface LanguageContextValue {
   lang: Lang;
@@ -24,7 +30,7 @@ const LanguageContext = createContext<LanguageContextValue>({
 const STORAGE_KEY = "portfolio-lang";
 
 const isLang = (value: unknown): value is Lang =>
-  value === "en" || value === "ru" || value === "ja";
+  value === "en" || value === "ja";
 
 // Map the visitor's browser languages to one we support; default to English.
 const detectLang = (): Lang => {
@@ -33,7 +39,7 @@ const detectLang = (): Lang => {
     : [navigator.language];
   for (const tag of candidates) {
     const base = tag.toLowerCase().split("-")[0];
-    if (base === "ja" || base === "ru" || base === "en") {
+    if (base === "ja" || base === "en") {
       return base as Lang;
     }
   }
@@ -47,15 +53,9 @@ const LanguageProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   useEffect(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (isLang(stored)) {
-      // Returning visitor: honor their previous choice.
-      setLangState(stored);
-    } else {
-      // First visit: match the browser language, falling back to English.
-      const detected = detectLang();
-      setLangState(detected);
-      document.documentElement.lang = detected;
-    }
+    const next = isLang(stored) ? stored : detectLang();
+    setLangState(next);
+    document.documentElement.lang = next;
   }, []);
 
   const setLang = (next: Lang) => {

@@ -2,556 +2,430 @@ import { Lang } from "@/contexts/language-context";
 
 export type Localized = Record<Lang, string>;
 
-export interface MediaItem {
-  type: "image" | "video";
-  src: string;
-  caption?: Localized;
-}
+/** Strings that are identical in both locales (proper nouns, journal names). */
+const both = (value: string): Localized => ({ en: value, ja: value });
 
-export interface Project {
-  title: Localized;
-  image: string;
-  link?: string;
-  year: string;
-  description: Localized;
-  technologies: string[];
-  // Longer writeup shown in the detail modal (falls back to `description`).
-  details?: Localized;
-  // Images/video shown in the detail modal; presence makes a project clickable.
-  media?: MediaItem[];
-}
-
-export interface ExperienceItem {
-  title: Localized;
-  subtitle: Localized;
-  period: Localized;
-  link?: string;
-  highlights?: Localized[];
-}
-
-export const socials = {
-  github: "https://github.com/zhaxal",
-  linkedin: "https://www.linkedin.com/in/zhakhangir/",
-  instagram: "https://www.instagram.com/zhaxal/",
+export const site = {
+  name: "Zhakhangir Anuarbek",
+  /* Localised so the header matches the hero: the JA locale renders the name in
+     katakana, and showing two different renderings at once reads as two people. */
+  wordmark: { en: "Zhakhangir", ja: "ジャハンギル" } as Localized,
+  email: "anuarbek.z.b@gmail.com",
+  url: "https://portfolio.zhakhangir.site",
+  urlLabel: "portfolio.zhakhangir.site",
 };
 
-export const skills = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Golang",
-  "Python",
-  "Firebase",
-  "MongoDB",
-  "PostgreSQL",
-  "Docker",
-  "Nginx",
+export const socials = [
+  { label: "GitHub", href: "https://github.com/zhaxal" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/zhakhangir/" },
+  { label: "Instagram", href: "https://www.instagram.com/zhaxal/" },
 ];
 
-export interface LanguageItem {
-  name: Localized;
-  level: Localized;
+export const nav = {
+  work: { en: "Projects", ja: "プロジェクト" },
+  experience: { en: "Experience", ja: "経歴" },
+  contact: { en: "Contact", ja: "連絡先" },
+  cta: { en: "Contact", ja: "連絡する" },
+};
+
+export const hero = {
+  eyebrow: { en: "° Niigata, Japan", ja: "° 新潟、日本" },
+  intro: {
+    en: "Software engineer with proficiency in web development, recently started learning hardware. Based in Niigata, Japan.",
+    ja: "Web開発を得意とするソフトウェアエンジニア。最近ハードウェアも学び始めました。日本・新潟在住。",
+  },
+  capabilities: [
+    { en: "Web Development", ja: "Web開発" },
+    { en: "Computer Vision & Hardware", ja: "コンピュータビジョンとハードウェア" },
+  ] as Localized[],
+  line1: { en: "Zhakhangir", ja: "ジャハンギル" },
+  line2: { en: "Anuarbek", ja: "アヌアルベク" },
+  stat: {
+    en: "Portfolio · 2019 — 2026",
+    ja: "ポートフォリオ · 2019 — 2026",
+  },
+  /* The ↑↗↓ glyphs are decorative and live in the components, wrapped in
+     aria-hidden — a screen reader announcing "north east arrow" 25 times is
+     noise, and the link text already says where it goes. */
+  scroll: { en: "Scroll", ja: "スクロール" },
+};
+
+export interface WorkCard {
+  name: string;
+  year: string;
+  href: string;
+  image: string;
 }
 
-export const languages: LanguageItem[] = [
-  {
-    name: { en: "Russian", ru: "Русский", ja: "ロシア語" },
-    level: { en: "Native", ru: "Родной", ja: "ネイティブ" },
-  },
-  {
-    name: { en: "Kazakh", ru: "Казахский", ja: "カザフ語" },
-    level: { en: "Native", ru: "Родной", ja: "ネイティブ" },
-  },
-  {
-    name: { en: "English", ru: "Английский", ja: "英語" },
-    level: { en: "Fluent", ru: "Свободно", ja: "流暢" },
-  },
-  {
-    name: { en: "Japanese", ru: "Японский", ja: "日本語" },
-    level: { en: "Basic", ru: "Базовый", ja: "基礎" },
-  },
-];
+export interface ProjectPlate {
+  chip: Localized;
+  year: string;
+  image: string;
+  /**
+   * `object-position` for the 16:8 plate. Both device photos are portrait, so a
+   * centred cover crop lands on hands and background rather than the hardware —
+   * the focal point names the band worth showing. Defaults to `50% 50%`.
+   */
+  focus?: string;
+  title: Localized;
+  href?: string;
+  description: Localized;
+  tags: string[];
+  reveal: "left" | "right";
+}
 
-export const projects: Project[] = [
-  {
+export const work = {
+  label: { en: "Selected work", ja: "主な実績" },
+  title: { en: "Projects", ja: "プロジェクト" },
+  moscowSport: {
     title: {
-      en: "Tomato-Harvesting Robot — Master's Thesis",
-      ru: "Робот для сбора томатов — магистерская диссертация",
-      ja: "トマト収穫ロボット — 修士論文",
+      en: "Moscow Sport — event platforms",
+      ja: "モスクワ・スポーツ — イベント基盤",
     },
-    image: "/projects/thesis-masters/takagi_farm_experiment(images where taken on the device, it represents bound boxes with spatial data).png",
-    year: "2026",
     description: {
-      en: "Master's thesis at Niigata University: the visual perception subsystem of a low-cost tomato-harvesting robot. A stereo-vision depth estimator (2.4 cm mean error at harvesting range) and an on-device YOLOv8n ripeness classifier (12–15 FPS, mAP@0.5 = 0.79) run entirely on a ~$410 OAK-D Lite + Raspberry Pi 4 stack — no external AI accelerator. Validated in a live greenhouse trial at Takagi Farm.",
-      ru: "Магистерская диссертация в Университете Ниигаты: подсистема визуального восприятия недорогого робота для сбора томатов. Стереозрение для оценки глубины (средняя ошибка 2,4 см на рабочей дистанции) и классификатор зрелости YOLOv8n на устройстве (12–15 FPS, mAP@0.5 = 0,79) работают полностью на связке OAK-D Lite + Raspberry Pi 4 за ~$410 — без внешнего ИИ-ускорителя. Проверено в теплице на ферме Такаги.",
-      ja: "新潟大学の修士論文：低コストなトマト収穫ロボットの視覚認識サブシステム。ステレオ視による深度推定（収穫距離で平均誤差2.4cm）と、オンデバイスで動作するYOLOv8n熟度分類器（12〜15FPS、mAP@0.5 = 0.79）を、約$410のOAK-D Lite + Raspberry Pi 4構成のみで実現（外部AIアクセラレータ不要）。高木農園での実地温室試験で検証。",
+      en: "Event websites I built across the years",
+      ja: "長年にわたって制作したイベントサイト",
     },
-    technologies: ["Python", "YOLOv8", "OpenCV", "OAK-D Lite"],
-    details: {
-      en: "Developed the computer-vision subsystem of a low-cost tomato-harvesting robot for small-scale farms. The whole stack runs on ~$410 of hardware — an OAK-D Lite stereo camera, Raspberry Pi 4, battery pack, and touchscreen — with no external AI accelerator. Two core contributions: a stereo-vision depth estimator with 2.4 cm mean error at harvesting range, and a YOLOv8n ripeness classifier running at 12–15 FPS on-device (mAP@0.5 = 0.791). Validated in a live greenhouse trial at Takagi Farm in June 2026.",
-      ru: "Разработал подсистему компьютерного зрения недорогого робота для сбора томатов на небольших фермах. Вся система работает на оборудовании за ~$410 — стереокамера OAK-D Lite, Raspberry Pi 4, аккумулятор и сенсорный экран — без внешнего ИИ-ускорителя. Два ключевых результата: оценка глубины по стереозрению со средней ошибкой 2,4 см на рабочей дистанции и классификатор зрелости YOLOv8n со скоростью 12–15 FPS на устройстве (mAP@0.5 = 0,791). Проверено в теплице на ферме Такаги в июне 2026 года.",
-      ja: "小規模農家向けの低コストなトマト収穫ロボットのコンピュータビジョンサブシステムを開発。システム全体は約$410のハードウェア（OAK-D Liteステレオカメラ、Raspberry Pi 4、バッテリーパック、タッチスクリーン）だけで動作し、外部AIアクセラレータを必要としません。主な成果は2つ：収穫距離で平均誤差2.4cmのステレオ視深度推定と、オンデバイスで12〜15FPSで動作するYOLOv8n熟度分類器（mAP@0.5 = 0.791）。2026年6月、高木農園での実地温室試験で検証しました。",
-    },
-    media: [
+    /* The grid is bounded to one screenful; the toggle carries the total so
+       collapsing it never costs the volume evidence. {n} = cards.length. */
+    showAll: { en: "See all {n}", ja: "{n}件すべて表示" },
+    showFewer: { en: "Show fewer", ja: "表示を減らす" },
+    cards: [
       {
-        type: "video",
-        src: "/projects/thesis-masters/demo.mp4",
-        caption: {
-          en: "The device operating in the greenhouse.",
-          ru: "Работа устройства в теплице.",
-          ja: "温室内で動作するデバイス。",
-        },
+        name: "Labyrinth Orienteering",
+        year: "//2022–25",
+        href: "https://rogaine.mosgorsport.ru",
+        image: "/projects/rogaine.png",
       },
       {
-        type: "image",
-        src: "/projects/thesis-masters/detections.png",
-        caption: {
-          en: "On-device detections with bounding boxes and spatial (depth) data.",
-          ru: "Детекции на устройстве с рамками и пространственными данными (глубиной).",
-          ja: "オンデバイスでの検出結果：バウンディングボックスと空間（深度）情報。",
-        },
+        name: "Ski Track of Russia",
+        year: "//2022–26",
+        href: "https://ski.sport.mos.ru",
+        image: "/projects/ski.jpg",
       },
       {
-        type: "image",
-        src: "/projects/thesis-masters/greenhouse.png",
-        caption: {
-          en: "The device in operation inside the greenhouse.",
-          ru: "Устройство в работе внутри теплицы.",
-          ja: "温室内で稼働するデバイス。",
-        },
-      },
-    ],
-  },
-  {
-    title: {
-      en: "Fleet Management System — Bachelor's Thesis",
-      ru: "Система управления автопарком — дипломная работа",
-      ja: "車両管理システム — 学士論文",
-    },
-    image: "/projects/thesis-bachelor/dashboard-1.png",
-    year: "2022",
-    description: {
-      en: "Bachelor's thesis at Astana IT University: a lightweight fleet management system. A Go UDP server decodes real-time binary telemetry from a Teltonika OBD-II GPS tracker, and a web dashboard shows live location, speed, fuel, and engine data with automatic trip segmentation and route playback on Google Maps.",
-      ru: "Дипломная работа в Astana IT University: облегчённая система управления автопарком. UDP-сервер на Go декодирует бинарную телеметрию с GPS-трекера Teltonika (OBD-II) в реальном времени, а веб-панель показывает местоположение, скорость, топливо и параметры двигателя с автоматической сегментацией поездок и воспроизведением маршрутов на Google Maps.",
-      ja: "Astana IT University の学士論文：軽量な車両管理システム。Go製のUDPサーバーがTeltonika OBD-II GPSトラッカーのバイナリテレメトリをリアルタイムにデコードし、Webダッシュボードで位置・速度・燃料・エンジン情報を表示。走行の自動区間分けとGoogle Maps上でのルート再生に対応。",
-    },
-    technologies: ["Golang", "React", "Firebase", "Docker"],
-    details: {
-      en: "Built a self-contained alternative to feature-heavy fleet platforms (Wialon, Flespi), aimed at small car-sharing services and leasing companies. A Go UDP server receives and decodes binary AVL packets from a Teltonika FMB003 tracker, deduplicates records by timestamp, and stores them in Firestore. A React dashboard renders live positions on Google Maps, device telemetry, historical packets, and trip routes with start/end markers. Real-time responsiveness was tuned via the tracker's event triggers (speed, heading, and distance deltas). Tested end-to-end on a personal vehicle (KIA Soul 2010), with Nginx as a reverse proxy handling concurrent device connections.",
-      ru: "Создал автономную альтернативу перегруженным платформам (Wialon, Flespi), ориентированную на небольшие каршеринги и лизинговые компании. UDP-сервер на Go принимает и декодирует бинарные AVL-пакеты от трекера Teltonika FMB003, устраняет дубли по временной метке и сохраняет данные в Firestore. Панель на React показывает позиции в реальном времени на Google Maps, телеметрию устройства, историю пакетов и маршруты поездок с маркерами начала и конца. Отзывчивость настраивалась через триггеры событий трекера (изменения скорости, курса и дистанции). Протестировано на личном автомобиле (KIA Soul 2010), Nginx выступал обратным прокси для одновременных подключений устройств.",
-      ja: "高機能で複雑な車両管理プラットフォーム（Wialon、Flespi）に代わる、自己完結型のシステムを構築。小規模カーシェアリングやリース会社を想定しています。Go製のUDPサーバーがTeltonika FMB003トラッカーからのバイナリAVLパケットを受信・デコードし、タイムスタンプで重複を除去してFirestoreに保存。ReactダッシュボードはGoogle Maps上にリアルタイム位置、デバイステレメトリ、過去のパケット、開始・終了マーカー付きの走行ルートを描画します。リアルタイム性はトラッカーのイベントトリガー（速度・方位・距離の変化）で調整。自家用車（KIA Soul 2010）で一連の動作を検証し、Nginxをリバースプロキシとして同時接続を処理しました。",
-    },
-    media: [
-      {
-        type: "image",
-        src: "/projects/thesis-bachelor/dashboard-1.png",
-        caption: {
-          en: "Web dashboard: live vehicle position and telemetry on Google Maps.",
-          ru: "Веб-панель: позиция автомобиля и телеметрия в реальном времени на Google Maps.",
-          ja: "Webダッシュボード：Google Maps上の車両位置とテレメトリをリアルタイム表示。",
-        },
+        name: '"On Your Marks!" Run',
+        year: "//2023–26",
+        href: "https://running.mosgorsport.ru",
+        image: "/projects/zabeg.jpg",
       },
       {
-        type: "image",
-        src: "/projects/thesis-bachelor/dashboard-2.png",
-        caption: {
-          en: "Trip route rendered as a polyline with start and end markers.",
-          ru: "Маршрут поездки в виде ломаной линии с маркерами начала и конца.",
-          ja: "開始・終了マーカー付きのポリラインとして描画された走行ルート。",
-        },
+        name: "Pole Vault Festival",
+        year: "//2023–25",
+        href: "https://pryzki.sport.mos.ru",
+        image: "/projects/pryzki.jpg",
       },
-    ],
+      {
+        name: "Ice of Our Hope",
+        year: "//2023–25",
+        href: "https://led.sport.mos.ru",
+        image: "/projects/led.png",
+      },
+      {
+        name: "Moscow Interesting",
+        year: "//2025",
+        href: "https://interesnaya.sport.mos.ru",
+        image: "/projects/interesnaya.jpg",
+      },
+      {
+        name: "Nation's Cross",
+        year: "//2025",
+        href: "https://cross.sport.mos.ru",
+        image: "/projects/cross.jpg",
+      },
+      {
+        name: "Technical Sports Festival",
+        year: "//2025",
+        href: "https://tech-fest.sport.mos.ru",
+        image: "/projects/techfest.jpg",
+      },
+      {
+        name: "GTO Point at VDNH",
+        year: "//2021",
+        href: "https://gtopoint.moscow.sport",
+        image: "/projects/gto.jpg",
+      },
+    ] as WorkCard[],
   },
-  {
-    title: {
-      en: "Toverlay — overlay program for Podium Esports",
-      ru: "Toverlay — оверлей-программа для Podium Esports",
-      ja: "Toverlay — Podium Esports 向けオーバーレイプログラム",
+  plates: [
+    {
+      chip: { en: "Computer Vision", ja: "コンピュータビジョン" },
+      year: "//2026",
+      image: "/projects/greenhouse-device.jpg",
+      // Lifts the band onto the tablet and its on-screen greenhouse view.
+      focus: "50% 35%",
+      title: {
+        en: "Tomato-harvesting robot vision",
+        ja: "トマト収穫ロボットの視覚システム",
+      },
+      description: {
+        en: "Master’s thesis. Stereo depth and on-device ripeness detection on an edge device.",
+        ja: "修士研究。エッジデバイス上でのステレオ深度と熟度判定。",
+      },
+      tags: ["Python", "YOLOv8", "OpenCV", "OAK-D Lite"],
+      reveal: "left",
     },
-    image: "/projects/podium.jpg",
-    link: "https://youtu.be/D6BNq7bhOCg",
-    year: "2021",
-    description: {
-      en: "A Go-based local server and OBS browser overlay system with animated HTML/CSS graphics and a control UI for live drifting broadcasts. Used Google Sheets as the live data source and ran ~3-hour live shows with no crashes and ~100 concurrent viewers.",
-      ru: "Локальный сервер на Go и система оверлеев для OBS с анимированной HTML/CSS-графикой и панелью управления для прямых трансляций дрифт-соревнований. Google Sheets использовался как источник данных в реальном времени; трансляции шли без сбоев ~3 часа при ~100 зрителях одновременно.",
-      ja: "Go製のローカルサーバーとOBS用ブラウザオーバーレイシステム。アニメーションHTML/CSSグラフィックスと操作用UIを備え、ドリフト競技のライブ配信向け。Google Sheetsをリアルタイムのデータソースとして使用し、約100人の同時視聴で約3時間のライブ配信をノークラッシュで実施。",
+    {
+      chip: { en: "Edge AI", ja: "エッジAI" },
+      year: "//2026",
+      image: "/projects/looq-camera.jpg",
+      // Drops the band onto the camera body so the LOOQ wordmark reads.
+      focus: "50% 70%",
+      title: {
+        en: "Looq — portable smart camera",
+        ja: "Looq — ポータブル・スマートカメラ",
+      },
+      href: "https://looq.jp",
+      description: {
+        en: "A battery-powered camera measuring visitor attention on-device, with its own hotspot and web UI.",
+        ja: "バッテリー駆動のカメラが来訪者の注目度をオンデバイスで計測。自前のホットスポットとWeb UIを備えます。",
+      },
+      tags: ["Python", "Hailo NPU", "Raspberry Pi", "Next.js"],
+      reveal: "right",
     },
-    technologies: ["Golang"],
-  },
-  {
-    title: {
-      en: "GTO Point at VDNH",
-      ru: "Точка ГТО на ВДНХ",
-      ja: "VDNH の GTO ポイント",
-    },
-    image: "/projects/gto.jpg",
-    link: "https://gtopoint.moscow.sport",
-    year: "2021",
-    description: {
-      en: "A personal dashboard with points tracking, task completion history, a QR-code rewards system, a merchandise catalog, and achievement tracking.",
-      ru: "Личный кабинет с накоплением баллов, историей выполненных заданий, системой наград по QR-кодам, каталогом мерча и отслеживанием достижений.",
-      ja: "ポイント管理、課題達成履歴、QRコードによる報酬システム、グッズカタログ、実績トラッキングを備えたマイページ。",
-    },
-    technologies: ["React", "Firebase"],
-  },
-  // {
-  //   title: {
-  //     en: "Sports & Fitness at VDNH",
-  //     ru: "Физкультура и спорт на ВДНХ",
-  //     ja: "VDNH のスポーツ＆フィットネス",
-  //   },
-  //   image: "/projects/vdnh.jpg",
-  //   link: "https://vdnh.zhakhangir.site",
-  //   year: "2022–2023",
-  //   description: {
-  //     en: "Event management platform for sports activities at VDNH: phone-based registration, event schedules, participant management, and an admin panel.",
-  //     ru: "Платформа управления спортивными мероприятиями на ВДНХ: регистрация по телефону, расписание событий, управление участниками и админ-панель.",
-  //     ja: "VDNH のスポーツ活動向けイベント管理プラットフォーム：電話番号による登録、イベントスケジュール、参加者管理、管理パネル。",
-  //   },
-  //   technologies: ["Next.js", "MongoDB"],
-  // },
-  {
-    title: {
-      en: "Labyrinth Orienteering",
-      ru: "Ориентирование в лабиринте",
-      ja: "迷路オリエンテーリング",
-    },
-    image: "/projects/rogaine.png",
-    link: "https://rogaine.mosgorsport.ru",
-    year: "2022–2025",
-    description: {
-      en: "Platform for the annual 'Rogaine: Following the Traces of Culture' orienteering event: phone registration, interactive quizzes, telemetry device sync, and an admin panel for individual and family competitions.",
-      ru: "Платформа ежегодного ориентирования «Рогейн: по следам культуры»: регистрация по телефону, интерактивные квизы, синхронизация с телеметрией и админ-панель для личных и семейных соревнований.",
-      ja: "年次オリエンテーリングイベント「ロゲイン：文化の足跡をたどって」のプラットフォーム。電話番号による登録、インタラクティブなクイズ、テレメトリ機器との同期、個人・家族向け大会用の管理パネルを提供。",
-    },
-    technologies: ["Next.js", "PostgreSQL"],
-  },
-  {
-    title: {
-      en: "Ski Track of Russia Week in Moscow",
-      ru: "Неделя Лыжни России в Москве",
-      ja: "モスクワ「ロシアのスキートラック」ウィーク",
-    },
-    image: "/projects/ski.jpg",
-    link: "https://ski.sport.mos.ru",
-    year: "2022–2026",
-    description: {
-      en: "Official landing page for Moscow's annual 'Ski Track of Russia' event: event details, registration, schedules, and participant information.",
-      ru: "Официальный лендинг ежегодной московской «Лыжни России»: информация о событии, регистрация, расписание и материалы для участников.",
-      ja: "モスクワの年次イベント「ロシアのスキートラック」の公式ランディングページ。イベント情報、登録、スケジュール、参加者向け情報を掲載。",
-    },
-    technologies: ["Next.js", "Firebase"],
-  },
-  {
-    title: {
-      en: "'On Your Marks!' Run",
-      ru: "Забег «На старт!»",
-      ja: "「オン・ユア・マークス！」ラン",
-    },
-    image: "/projects/zabeg.jpg",
-    link: "https://running.mosgorsport.ru",
-    year: "2023–2026",
-    description: {
-      en: "Event website for the annual 'On Your Marks!' running competition in Moscow: event information, registration portal, race schedules, and participant resources.",
-      ru: "Сайт ежегодного московского забега «На старт!»: информация о событии, портал регистрации, расписание стартов и материалы для участников.",
-      ja: "モスクワの年次ランニング大会「オン・ユア・マークス！」のイベントサイト。イベント情報、登録ポータル、レーススケジュール、参加者向けリソースを提供。",
-    },
-    technologies: ["Next.js"],
-  },
-  {
-    title: {
-      en: "All-Russian Pole Vault Festival",
-      ru: "Всероссийский фестиваль прыжков с шестом",
-      ja: "全ロシア棒高跳びフェスティバル",
-    },
-    image: "/projects/pryzki.jpg",
-    link: "https://pryzki.sport.mos.ru",
-    year: "2023–2025",
-    description: {
-      en: "Official platform for the All-Russian Pole Vault Festival: event information, athlete registration, and competition schedules.",
-      ru: "Официальная платформа Всероссийского фестиваля прыжков с шестом: информация о событии, регистрация атлетов и расписание соревнований.",
-      ja: "全ロシア棒高跳びフェスティバルの公式プラットフォーム。イベント情報、選手登録、競技スケジュールを提供。",
-    },
-    technologies: ["Next.js"],
-  },
-  {
-    title: {
-      en: "Ice of Our Hope",
-      ru: "Лёд надежды нашей",
-      ja: "「我らが希望の氷」",
-    },
-    image: "/projects/led.png",
-    link: "https://led.sport.mos.ru",
-    year: "2023–2025",
-    description: {
-      en: "Event landing page for 'Ice of Our Hope': event details, streamlined registration, schedules, and participant information.",
-      ru: "Лендинг события «Лёд надежды нашей»: детали мероприятия, удобная регистрация, расписание и информация для участников.",
-      ja: "イベント「我らが希望の氷」のランディングページ。イベント詳細、スムーズな登録、スケジュール、参加者情報を掲載。",
-    },
-    technologies: ["Next.js"],
-  },
-  {
-    title: {
-      en: "Moscow Interesting",
-      ru: "Москва Интересная",
-      ja: "モスクワ・インタレスティング",
-    },
-    image: "/projects/interesnaya.png",
-    link: "https://interesnaya.sport.mos.ru",
-    year: "2025",
-    description: {
-      en: "Interactive urban orienteering quest with engaging quiz mechanics: video challenges, photo tasks, and GPS check-ins for city exploration.",
-      ru: "Интерактивный городской квест-ориентирование с квиз-механиками: видеозадания, фотозадачи и GPS-чекины для исследования города.",
-      ja: "魅力的なクイズ要素を備えたインタラクティブな都市オリエンテーリングクエスト。動画チャレンジ、写真課題、GPSチェックインで街を探索。",
-    },
-    technologies: ["Next.js", "MongoDB"],
-  },
-  {
-    title: {
-      en: "Nation's Cross",
-      ru: "Кросс Нации",
-      ja: "ネイションズ・クロス",
-    },
-    image: "/projects/cross.jpg",
-    link: "https://cross.sport.mos.ru",
-    year: "2025",
-    description: {
-      en: "Official website for the 'Nation's Cross' event: event information, participant registration, race schedules, and essential resources.",
-      ru: "Официальный сайт «Кросса Нации»: информация о событии, регистрация участников, расписание забегов и полезные материалы.",
-      ja: "イベント「ネイションズ・クロス」の公式サイト。イベント情報、参加者登録、レーススケジュール、必要なリソースを掲載。",
-    },
-    technologies: ["Next.js"],
-  },
-  {
-    title: {
-      en: "Technical Sports Festival",
-      ru: "Фестиваль технических видов спорта",
-      ja: "テクニカルスポーツフェスティバル",
-    },
-    image: "/projects/techfest.jpg",
-    link: "https://tech-fest.sport.mos.ru",
-    year: "2025",
-    description: {
-      en: "Technical Sports Festival platform: event information, participant registration with an integrated casting system, and administrative tools.",
-      ru: "Платформа Фестиваля технических видов спорта: информация о событии, регистрация участников с системой кастинга и инструменты администрирования.",
-      ja: "テクニカルスポーツフェスティバルのプラットフォーム。イベント情報、キャスティングシステムを統合した参加者登録、管理ツールを提供。",
-    },
-    technologies: ["Next.js", "PocketBase"],
-  },
-];
+  ] as ProjectPlate[],
+};
 
-export const education: ExperienceItem[] = [
-  {
-    title: {
-      en: "Astana IT University",
-      ru: "Astana IT University",
-      ja: "Astana IT University",
-    },
-    subtitle: {
-      en: "Software Engineering",
-      ru: "Программная инженерия",
-      ja: "ソフトウェア工学",
-    },
-    period: { en: "2019–2022", ru: "2019–2022", ja: "2019〜2022年" },
-    link: "https://astanait.edu.kz/en/main-page/",
-  },
-  {
-    title: {
-      en: "Niigata University",
-      ru: "Университет Ниигаты",
-      ja: "新潟大学",
-    },
-    subtitle: {
-      en: "Graduate School of Science and Technology",
-      ru: "Магистратура школы науки и технологий",
-      ja: "自然科学研究科（大学院）",
-    },
-    period: { en: "2024–2026", ru: "2024–2026", ja: "2024〜2026年" },
-    link: "https://www.niigata-u.ac.jp",
-  },
-];
+export interface CapabilityRow {
+  label: Localized;
+  body: Localized;
+  chips: string[];
+}
 
-export const work: ExperienceItem[] = [
-  {
-    title: {
-      en: "D. Serikbayev EKTU · Kazakhstan",
-      ru: "ВКТУ им. Д. Серикбаева · Казахстан",
-      ja: "D. セリクバエフ東カザフスタン工科大学 · カザフスタン",
-    },
-    subtitle: {
-      en: "R&D Engineer",
-      ru: "Инженер-исследователь (R&D)",
-      ja: "R&D エンジニア",
-    },
-    period: { en: "2019–2021", ru: "2019–2021", ja: "2019〜2021年" },
-    link: "https://www.ektu.kz",
-  },
-  {
-    title: {
-      en: "Moscow Sport · Russia",
-      ru: "Москва Спорт · Россия",
-      ja: "モスクワ・スポーツ · ロシア",
-    },
-    subtitle: {
-      en: "Freelance Fullstack Engineer",
-      ru: "Freelance Fullstack-инженер",
-      ja: "フリーランス フルスタックエンジニア",
-    },
-    period: { en: "2021 — present", ru: "2021 — н. в.", ja: "2021年 — 現在" },
-    link: "https://mosgorsport.ru",
-    highlights: [
-      {
-        en: "Built 10+ event web apps from scratch, serving 5,000+ total users; owned backend, frontend, and deployment (Next.js, PostgreSQL/MongoDB, Docker, VPS, Coolify).",
-        ru: "Разработал с нуля 10+ веб-приложений для мероприятий, обслуживающих 5000+ пользователей; отвечал за бэкенд, фронтенд и деплой (Next.js, PostgreSQL/MongoDB, Docker, VPS, Coolify).",
-        ja: "イベント向けWebアプリを10件以上ゼロから開発し、累計5,000人以上が利用。バックエンド・フロントエンド・デプロイまで担当（Next.js、PostgreSQL/MongoDB、Docker、VPS、Coolify）。",
+export const capabilities = {
+  label: { en: "Capabilities", ja: "できること" },
+  title: [
+    { en: "Skills &", ja: "スキルと" },
+    { en: "Tools", ja: "ツール" },
+  ] as Localized[],
+  rows: [
+    {
+      label: { en: "Web Development", ja: "Web開発" },
+      body: {
+        en: "Building and running web apps end to end — the interface, the API, the database and the server it sits on.",
+        ja: "インターフェースからAPI、データベース、稼働するサーバーまで、Webアプリを一貫して構築・運用します。",
       },
-      {
-        en: "Developed registration and admin systems for ~1,000 attendees, enabling rapid on-site verification and sustaining 99.9% uptime during live events.",
-        ru: "Создал системы регистрации и администрирования для ~1000 участников, обеспечив быструю верификацию на месте и стабильность 99,9% во время мероприятий.",
-        ja: "約1,000人規模の参加者向け登録・管理システムを開発。現地での迅速な本人確認を可能にし、ライブイベント中に99.9%の稼働率を維持。",
-      },
-      {
-        en: "Engineered event modules — QR check-in, SMS, Telegram bot, competition anti-cheat logic, exports — hardened with rate limiting, timezone handling, and role-based access control.",
-        ru: "Разработал модули мероприятий — QR-регистрация, SMS, Telegram-бот, античит-логика соревнований, экспорт данных — с ограничением частоты запросов, обработкой часовых поясов и ролевым доступом.",
-        ja: "イベント用モジュール（QRチェックイン、SMS、Telegramボット、競技の不正防止ロジック、データエクスポート）を設計し、レート制限・タイムゾーン処理・ロールベースアクセス制御で堅牢化。",
-      },
-    ],
-  },
-  {
-    title: {
-      en: "ApartX · Kazakhstan",
-      ru: "ApartX · Казахстан",
-      ja: "ApartX · カザフスタン",
+      chips: [
+        "Next.js / React",
+        "PostgreSQL / MongoDB",
+        "Go / Node",
+        "Docker / Nginx",
+      ],
     },
-    subtitle: {
-      en: "Fullstack Engineer",
-      ru: "Fullstack-инженер",
-      ja: "フルスタックエンジニア",
+    {
+      label: {
+        en: "Computer Vision & Hardware",
+        ja: "コンピュータビジョンとハードウェア",
+      },
+      body: {
+        en: "Getting vision models to run on small devices, and wiring up the cameras and sensors they read from.",
+        ja: "小型デバイス上で視覚モデルを動かし、そこに繋がるカメラやセンサーを組み込みます。",
+      },
+      chips: [
+        "YOLO / OpenCV",
+        "Stereo depth",
+        "Edge NPUs",
+        "Raspberry Pi",
+        "Sensors",
+      ],
     },
-    period: { en: "2023–2024", ru: "2023–2024", ja: "2023〜2024年" },
-    link: "https://apartx.co",
-    highlights: [
-      {
-        en: "Implemented tenant verification across signup/booking/check-in via biometric.vision, eliminating manual document collection and landlord handoffs.",
-        ru: "Внедрил верификацию арендаторов на этапах регистрации, бронирования и заезда через biometric.vision, исключив ручной сбор документов и участие арендодателей.",
-        ja: "biometric.vision を用いて登録・予約・チェックインの各段階でテナント本人確認を実装し、書類の手動収集や貸主とのやり取りを不要に。",
-      },
-      {
-        en: "Integrated Channex to synchronize Airbnb/Booking.com availability calendars and prevent double bookings.",
-        ru: "Интегрировал Channex для синхронизации календарей доступности Airbnb/Booking.com и предотвращения двойных бронирований.",
-        ja: "Channex を統合して Airbnb/Booking.com の空室カレンダーを同期し、二重予約を防止。",
-      },
-      {
-        en: "Built and maintained web + mobile functionality (Meteor.js/React/MongoDB; React + Cordova), delivering full-stack changes from UI to backend APIs.",
-        ru: "Разрабатывал и поддерживал веб- и мобильный функционал (Meteor.js/React/MongoDB; React + Cordova) — от UI до backend API.",
-        ja: "Web・モバイル機能（Meteor.js/React/MongoDB、React + Cordova）を開発・保守し、UIからバックエンドAPIまでフルスタックで対応。",
-      },
-    ],
-  },
-  {
-    title: {
-      en: "Looq · Japan",
-      ru: "Looq · Япония",
-      ja: "Looq · 日本",
-    },
-    subtitle: {
-      en: "Hardware/Software Engineer",
-      ru: "Hardware/Software-инженер",
-      ja: "ハードウェア／ソフトウェアエンジニア",
-    },
-    period: { en: "2026 — present", ru: "2026 — н. в.", ja: "2026年 — 現在" },
-    link: "https://looq.jp",
-    highlights: [
-      {
-        en: "Built a portable smart-camera device — Raspberry Pi + Hailo NPU + battery pack — running on-device vision models to measure visitors' dwell time and attention.",
-        ru: "Собрал портативное умное камеро-устройство — Raspberry Pi + Hailo NPU + аккумулятор — с моделями компьютерного зрения на устройстве для измерения времени пребывания и внимания посетителей.",
-        ja: "Raspberry Pi + Hailo NPU + バッテリーパックによるポータブルなスマートカメラ端末を開発。オンデバイスの視覚モデルで来訪者の滞在時間と注目度を計測。",
-      },
-      {
-        en: "Designed the camera's self-hosted Wi-Fi hotspot and web UI for on-device control and configuration.",
-        ru: "Разработал собственную Wi-Fi точку доступа камеры и веб-интерфейс для управления и настройки устройства.",
-        ja: "カメラ自身がホストするWi-Fiホットスポットと、端末の操作・設定用Web UIを設計。",
-      },
-    ],
-  },
-];
+  ] as CapabilityRow[],
+};
 
-export const ui = {
-  nav: {
-    projects: { en: "Work", ru: "Работы", ja: "実績" },
-    experience: { en: "Experience", ru: "Опыт", ja: "経歴" },
-    contact: { en: "Contact", ru: "Контакты", ja: "連絡先" },
+export interface ExperienceRow {
+  period: Localized;
+  company: string;
+  href: string;
+  role: Localized;
+  body: Localized;
+}
+
+export interface EducationCell {
+  name: Localized;
+  href: string;
+  subtitle: Localized;
+}
+
+export const experience = {
+  label: { en: "Experience", ja: "経歴" },
+  title: [
+    { en: "Where I've", ja: "これまでの" },
+    { en: "Worked", ja: "仕事" },
+  ] as Localized[],
+  rows: [
+    {
+      period: { en: "2026", ja: "2026年" },
+      company: "Looq · Japan",
+      href: "https://looq.jp",
+      role: {
+        en: "Hardware / Software Engineering Intern",
+        ja: "ハードウェア／ソフトウェアエンジニア インターン",
+      },
+      body: {
+        en: "Built a portable smart camera running on-device vision models to measure visitor attention.",
+        ja: "オンデバイスの視覚モデルで来訪者の注目度を計測するポータブル・スマートカメラを開発。",
+      },
+    },
+    {
+      period: { en: "2021 — 2026", ja: "2021年 — 2026年" },
+      company: "Moscow Sport · Russia",
+      href: "https://mosgorsport.ru",
+      role: {
+        en: "Fullstack Engineer, freelance",
+        ja: "フルスタックエンジニア（フリーランス）",
+      },
+      body: {
+        en: "10+ event web apps from scratch for 5,000+ users, owning backend, frontend and deployment.",
+        ja: "5,000人以上が利用するイベントWebアプリを10件以上ゼロから開発し、バックエンドからデプロイまで担当。",
+      },
+    },
+    {
+      period: { en: "2023 — 2024", ja: "2023年 — 2024年" },
+      company: "ApartX · Kazakhstan",
+      href: "https://apartx.co",
+      role: { en: "Fullstack Engineer", ja: "フルスタックエンジニア" },
+      body: {
+        en: "Biometric tenant verification across signup, booking and check-in, and calendar sync with Airbnb and Booking.com.",
+        ja: "登録・予約・チェックインでの生体認証によるテナント確認と、AirbnbおよびBooking.comのカレンダー同期を実装。",
+      },
+    },
+    {
+      period: { en: "2021 — 2023", ja: "2021年 — 2023年" },
+      company: "D. Serikbayev EKTU · Kazakhstan",
+      href: "https://www.ektu.kz",
+      role: { en: "R&D Engineer", ja: "R&Dエンジニア" },
+      body: {
+        en: "Led a GPS fleet-management system and satellite remote-sensing work for farmers.",
+        ja: "GPSによる車両管理システムを主導し、農家向けの衛星リモートセンシングにも従事。",
+      },
+    },
+  ] as ExperienceRow[],
+  educationLabel: { en: "Education", ja: "学歴" },
+  education: [
+    {
+      name: { en: "Niigata University", ja: "新潟大学" },
+      href: "https://www.niigata-u.ac.jp",
+      subtitle: {
+        en: "Master’s, Science and Technology · 2024–2026",
+        ja: "修士 自然科学研究科 · 2024〜2026",
+      },
+    },
+    {
+      name: both("Astana IT University"),
+      href: "https://astanait.edu.kz/en/main-page/",
+      subtitle: {
+        en: "Bachelor’s, Software Engineering · 2019–2022",
+        ja: "学士 ソフトウェア工学 · 2019〜2022年",
+      },
+    },
+  ] as EducationCell[],
+};
+
+export interface PublicationRow {
+  title: Localized;
+  description: Localized;
+  year: string;
+  /**
+   * DOI or event page. The row only performs the system's invert-on-hover
+   * gesture when this is set — a dramatic hover on something that goes nowhere
+   * is an affordance lie, and these are the page's least verifiable claims.
+   */
+  href?: string;
+}
+
+export const publications = {
+  label: { en: "Publications & Presentations", ja: "論文と発表" },
+  title: [
+    { en: "Papers &", ja: "論文と" },
+    { en: "Presentations", ja: "発表" },
+  ] as Localized[],
+  rows: [
+    {
+      title: both("IVS 2026 Kyoto"),
+      description: both("Project presenter — looq.jp smart camera"),
+      year: "2026",
+    },
+    {
+      title: both("Cost-Effectiveness of Remotely Sensed Data in Agriculture"),
+      description: both("Chemical Engineering Transactions, vol. 103"),
+      year: "2023",
+    },
+    {
+      title: both("Integrated Monitoring System for Growing Grain Crops"),
+      description: both("Chemical Engineering Transactions, vol. 103"),
+      year: "2023",
+    },
+    {
+      title: both("XX CIGR World Congress"),
+      description: both("Poster presentation — Kyoto"),
+      year: "2022",
+    },
+  ] as PublicationRow[],
+};
+
+export const contact = {
+  label: { en: "Contact", ja: "連絡先" },
+  title: [
+    { en: "Get in", ja: "ご連絡" },
+    { en: "Touch", ja: "ください" },
+  ] as Localized[],
+  /* Answers the question a recruiter otherwise has to guess at the one point
+     on the page where they decide whether to write. */
+  availability: {
+    en: "Open to engineering roles in Japan and to freelance work.",
+    ja: "日本でのエンジニア職、フリーランスのご相談を受け付けています。",
   },
-  intro: {
-    role: {
-      en: "Software engineer — Niigata, Japan",
-      ru: "Software-инженер — Ниигата, Япония",
-      ja: "ソフトウェアエンジニア — 新潟、日本",
-    },
-    bio: {
-      en: "I'm a fullstack engineer from Kazakhstan, currently pursuing a master's degree at Niigata University. Since 2021 I've been building the digital side of Moscow's citywide sports events — registration systems, live quizzes, admin panels, and landing pages for festivals with thousands of participants. Before that I worked on broadcast graphics for esports and R&D projects.",
-      ru: "Я fullstack-инженер из Казахстана, сейчас учусь в магистратуре Университета Ниигаты. С 2021 года делаю цифровую часть общегородских спортивных событий Москвы: системы регистрации, живые квизы, админ-панели и лендинги фестивалей с тысячами участников. До этого занимался графикой киберспортивных трансляций и R&D-проектами.",
-      ja: "カザフスタン出身のフルスタックエンジニアで、現在は新潟大学の修士課程に在籍しています。2021年からモスクワ市の各種スポーツイベントのデジタル面を担当し、数千人規模のフェスティバル向けに登録システム、ライブクイズ、管理パネル、ランディングページを開発してきました。それ以前はeスポーツ配信のグラフィックスやR&Dプロジェクトに携わっていました。",
-    },
-    skillsLabel: { en: "Tools", ru: "Инструменты", ja: "ツール" },
-    languagesLabel: { en: "Languages", ru: "Языки", ja: "言語" },
+  emailLabel: { en: "Email", ja: "メールアドレス" },
+  emailPlaceholder: both("you@company.com"),
+  messageLabel: { en: "Message", ja: "メッセージ" },
+  messagePlaceholder: {
+    en: "A line about the project",
+    ja: "プロジェクトについて一言",
   },
-  projects: {
-    heading: { en: "Selected work", ru: "Избранные работы", ja: "主な実績" },
-    viewDetails: { en: "View details", ru: "Подробнее", ja: "詳細を見る" },
-    close: { en: "Close", ru: "Закрыть", ja: "閉じる" },
-    showAll: { en: "Show all", ru: "Показать все", ja: "すべて表示" },
-    showLess: { en: "Show less", ru: "Свернуть", ja: "折りたたむ" },
+  send: { en: "Send message", ja: "送信する" },
+  sending: { en: "Sending…", ja: "送信中…" },
+  /* A stated window reassures where "soon" only defers the question. */
+  sent: {
+    en: "Message sent — I’ll reply within a few days",
+    ja: "メッセージを送信しました。数日以内に返信します",
   },
-  experience: {
-    heading: { en: "Experience", ru: "Опыт", ja: "経歴" },
-    work: { en: "Work", ru: "Работа", ja: "職歴" },
-    education: { en: "Education", ru: "Образование", ja: "学歴" },
-    present: { en: "present", ru: "н. в.", ja: "現在" },
+  /* Names the failure and both recovery routes, and stays parallel with the
+     timeout message so the two read as one system rather than two voices. */
+  failed: {
+    en: "Couldn’t send — try again, or email me directly",
+    ja: "送信できませんでした。再度お試しいただくか、直接メールしてください",
   },
-  contact: {
-    heading: { en: "Contact", ru: "Контакты", ja: "連絡先" },
-    subheading: {
-      en: "Have a project in mind or just want to say hi? Drop me a message.",
-      ru: "Есть идея проекта или просто хотите поздороваться? Напишите мне.",
-      ja: "プロジェクトのご相談も、ちょっとしたご挨拶も、お気軽にメッセージをどうぞ。",
-    },
-    email: { en: "Email", ru: "Email", ja: "メール" },
-    message: { en: "Message", ru: "Сообщение", ja: "メッセージ" },
-    send: { en: "Send message", ru: "Отправить", ja: "送信する" },
-    sending: { en: "Sending…", ru: "Отправка…", ja: "送信中…" },
-    success: {
-      en: "Message sent successfully. Please wait for a reply.",
-      ru: "Сообщение отправлено. Ожидайте ответа.",
-      ja: "メッセージを送信しました。返信をお待ちください。",
-    },
-    error: {
-      en: "Message failed to send. Please try again later.",
-      ru: "Не удалось отправить сообщение. Попробуйте позже.",
-      ja: "送信に失敗しました。時間をおいて再度お試しください。",
-    },
-    emailInvalid: {
-      en: "Email must be valid.",
-      ru: "Некорректный email.",
-      ja: "有効なメールアドレスを入力してください。",
-    },
-    emailRequired: {
-      en: "Email is required.",
-      ru: "Укажите email.",
-      ja: "メールアドレスを入力してください。",
-    },
-    messageRequired: {
-      en: "Message is required.",
-      ru: "Введите сообщение.",
-      ja: "メッセージを入力してください。",
-    },
+  emailInvalid: {
+    en: "Enter a valid email address",
+    ja: "有効なメールアドレスを入力してください",
   },
-  footer: {
-    built: {
-      en: "Built with Next.js · Deployed on Firebase",
-      ru: "Сделано на Next.js · Хостинг Firebase",
-      ja: "Next.js で構築 · Firebase でホスティング",
-    },
+  emailRequired: {
+    en: "Email is required",
+    ja: "メールアドレスを入力してください",
   },
+  messageRequired: {
+    en: "Message is required",
+    ja: "メッセージを入力してください",
+  },
+  /* Shown only when the submit never settles — Firestore queues writes offline
+     rather than rejecting, so without a timeout the form would hang forever. */
+  timedOut: {
+    en: "No response — check your connection, or email me directly",
+    ja: "応答がありません。接続を確認するか、直接メールしてください",
+  },
+  /* <noscript>: the form is client-side only, so say so rather than present a
+     control that silently does nothing. */
+  noScript: {
+    en: "This form needs JavaScript. Email me directly at",
+    ja: "このフォームにはJavaScriptが必要です。直接メールしてください：",
+  },
+};
+
+export const a11y = {
+  skipToContent: { en: "Skip to content", ja: "本文へスキップ" },
+};
+
+export const footer = {
+  location: { en: "Niigata, Japan", ja: "新潟、日本" },
+  legal: both("2026 Zhakhangir Anuarbek"),
 };

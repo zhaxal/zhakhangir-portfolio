@@ -1,22 +1,287 @@
+/* Novasite Design System — resolved tokens.
+   Values come from the redesign handoff (_ds/…/tokens/*.css). */
+
+:root {
+  /* neutrals — the site is dark-first */
+  --ink-900: #0a0a0a;
+  --ink-800: #141414;
+  --gray-600: #414141;
+  --white: #ffffff;
+
+  /* brand red ramp — 700 and 950 exist only as hero-gradient stops */
+  --red-500: #e00013;
+  --red-600: #c4000f;
+  --red-700: #8c0010;
+  --red-950: #2a0208;
+
+  /* surfaces */
+  --surface-page: var(--ink-900);
+  --surface-overlay: rgba(10, 10, 10, 0.72);
+
+  /* text — the quiet end is spaced so every tier clears 4.5:1 on --ink-900.
+     The handoff set muted/faint at .5/.38, but .38 measures 3.50:1 and this is
+     read on a phone in daylight. The .12 interval between them is preserved;
+     the whole quiet end simply shifts up until it is legible. */
+  --text-primary: var(--white);
+  --text-secondary: rgba(255, 255, 255, 0.72); /* 10.20:1 */
+  --text-muted: rgba(255, 255, 255, 0.58); /* 6.86:1 */
+  --text-faint: rgba(255, 255, 255, 0.46); /* 4.68:1 */
+
+  /* lines — the hairline is the only line in the system */
+  --border-hairline: rgba(255, 255, 255, 0.14);
+  --state-hover-veil: rgba(255, 255, 255, 0.06);
+
+  /* signature gradients */
+  --gradient-hero: linear-gradient(
+    105deg,
+    var(--red-950) 0%,
+    var(--red-700) 45%,
+    var(--red-500) 100%
+  );
+  --gradient-scrim: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.55) 0%,
+    rgba(10, 10, 10, 0) 35%,
+    rgba(10, 10, 10, 0.65) 100%
+  );
+
+  /* type */
+  --font-display: "Archivo", "Noto Sans JP", "Arial Black", sans-serif;
+  --font-ui: "Archivo", "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Space Grotesk", ui-monospace, monospace;
+  --display-stretch: 118%;
+
+  /* radius — square everywhere, pills for controls, nothing in between */
+  --radius-none: 0px;
+  --radius-pill: 999px;
+
+  /* spacing rhythm */
+  --gutter-page: 64px;
+  --gutter-page-sm: 20px;
+  --max-content: 1240px;
+  --section-pad-y: 96px;
+
+  /* motion */
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 420ms;
+  --transition-control: background-color var(--dur-base) var(--ease-standard),
+    color var(--dur-base) var(--ease-standard),
+    border-color var(--dur-base) var(--ease-standard),
+    opacity var(--dur-fast) var(--ease-standard);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 2rem;
+  /* clear the fixed header when jumping to an anchor */
+  scroll-padding-top: 72px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /* No min-width: a legacy 355px guard lived here and forced horizontal scroll
+     whenever a classic scrollbar ate into a narrow window. The layout is
+     verified fluid well below 320px, so the floor is no longer needed. */
+  background: var(--surface-page);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Reveals start translated ±40px off their final position, which would widen
+   the page until they fire. Clip that horizontally — vertical stays visible. */
+main {
+  overflow-x: clip;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+/* Livery Red measures 3.94:1 — it clears the 3:1 non-text bar and fails the
+   4.5:1 text bar, so colouring the word broke every small link (socials, footer,
+   the scroll cue) while display-size links happened to pass. One treatment that
+   always holds beats two that depend on font size: the word stays white, the
+   red moves to the rule under it. Same idiom as the form's red dot. */
+a:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--red-500);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--red-600);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--red-500);
+  outline-offset: 2px;
+}
+
+/* Skip-link target. Focus lands here so assistive tech continues from the right
+   place, but ringing the entire page would read as a rendering fault. */
+main:focus,
+main:focus-visible {
+  outline: none;
+}
+
+/* ---- touch targets ----
+   The control sizes in this system are deliberate, so a coarse pointer gets a
+   larger *hit area* rather than a larger control: an invisible centred pad that
+   takes no space in layout. Opt in with data-tap; override with --tap. */
+
+@media (pointer: coarse) {
+  [data-tap] {
+    position: relative;
+  }
+
+  [data-tap]::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: max(100%, var(--tap, 44px));
+    height: max(100%, var(--tap, 44px));
+    transform: translate(-50%, -50%);
+  }
+
+  /* Controls sitting shoulder-to-shoulder must not grow sideways, or their hit
+     zones overlap and steal each other's taps. These grow vertically only. */
+  [data-tap="v"]::after {
+    width: 100%;
+  }
+}
+
+/* ---- scroll reveals ----
+   Driven by an IntersectionObserver (hooks/reveal.ts) that flips
+   data-revealed. Attribute selectors so <noscript> can force them open. */
+
+[data-reveal] {
+  transition: opacity 620ms var(--ease-out-expo),
+    transform 720ms var(--ease-out-expo), filter 620ms var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-reveal][data-revealed="false"] {
+  opacity: 0;
+}
+
+[data-reveal="rise"][data-revealed="false"] {
+  transform: translate3d(0, 26px, 0);
+}
+
+[data-reveal="left"][data-revealed="false"] {
+  transform: translate3d(-40px, 0, 0);
+}
+
+[data-reveal="right"][data-revealed="false"] {
+  transform: translate3d(40px, 0, 0);
+}
+
+[data-reveal="scale"][data-revealed="false"] {
+  transform: scale(1.05);
+  filter: blur(6px);
+}
+
+[data-reveal][data-revealed="true"] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  will-change: auto;
+}
+
+/* ---- hero entrance + ambient loops ---- */
+
+@keyframes zaLine {
+  from {
+    transform: translate3d(0, 110%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes zaFade {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes zaKen {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.09);
+  }
+}
+
+@keyframes zaCue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+}
+
+@keyframes zaGrad {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-}
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  min-width: 355px;
-  background-color: #111110;
-}
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 1ms !important;
+  }
 
-::selection {
-  background: rgba(214, 162, 78, 0.3);
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }

@@ -1,0 +1,42 @@
+/* The standard section shell: 96px rhythm, 64px gutters, 1240px content. */
+
+.section {
+  padding: var(--section-pad-y) var(--gutter-page);
+}
+
+.bordered {
+  border-top: 1px solid var(--border-hairline);
+}
+
+.inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 56px;
+}
+
+.headTight {
+  margin-bottom: 40px;
+}
+
+.headCapabilities {
+  margin-bottom: 48px;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 64px var(--gutter-page-sm);
+  }
+
+  .head,
+  .headTight,
+  .headCapabilities {
+    margin-bottom: 36px;
+    gap: 24px;
+  }
+}
