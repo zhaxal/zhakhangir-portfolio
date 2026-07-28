@@ -253,6 +253,22 @@
   color: var(--white);
 }
 
+.plateLinkLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  width: fit-content;
+}
+
+.plateLinkLabel:hover {
+  color: var(--white);
+}
+
 .plateDesc {
   margin: 0;
   font-size: 14px;

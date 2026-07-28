@@ -27,11 +27,11 @@ const Header: FC = () => {
       const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
       progressRef.current?.style.setProperty("width", `${progress}%`);
 
-      // Measure the hero, not the viewport. The desktop hero is 76vh so the two
-      // agree there, but the mobile hero is `min-height: auto` (~450px on a
-      // 812px screen) — against the viewport the header stayed transparent for
-      // ~216px after the hero ended, floating white type over the near-black
-      // Projects section with no backdrop.
+      // Measure the hero, not the viewport. The hero is `min-height: 100dvh`
+      // so the two usually agree, but the hero can still grow past one screen
+      // if its content needs more room (e.g. a short landscape phone) — measuring
+      // the element rather than assuming viewport height keeps the header
+      // switching to its scrolled state exactly when the hero actually ends.
       const hero = document.getElementById("top");
       const heroHeight = hero?.offsetHeight ?? window.innerHeight;
       setScrolled(window.scrollY > heroHeight * 0.82);

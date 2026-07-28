@@ -61,6 +61,19 @@ const Work: FC = () => {
                     plate.title[lang]
                   )}
                 </h3>
+                {/* The title's ↗ is generic — for a link that doesn't lead to
+                    an ordinary webpage (e.g. it opens a video file directly),
+                    this names the destination instead of leaving it a surprise. */}
+                {plate.href && plate.linkLabel && (
+                  <a
+                    href={plate.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.plateLinkLabel}
+                  >
+                    {plate.linkLabel[lang]} <Glyph />
+                  </a>
+                )}
                 <p className={styles.plateDesc}>{plate.description[lang]}</p>
               </div>
 

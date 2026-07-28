@@ -31,8 +31,8 @@ export const nav = {
 export const hero = {
   eyebrow: { en: "° Niigata, Japan", ja: "° 新潟、日本" },
   intro: {
-    en: "Software engineer with proficiency in web development, recently started learning hardware. Based in Niigata, Japan.",
-    ja: "Web開発を得意とするソフトウェアエンジニア。最近ハードウェアも学び始めました。日本・新潟在住。",
+    en: "Full-stack engineer. Ships production web platforms and computer vision on self-assembled hardware.",
+    ja: "フルスタックエンジニア。本番運用のWebプラットフォームと、自ら組み立てたハードウェア上のコンピュータビジョン、両方を手がけます。",
   },
   capabilities: [
     { en: "Web Development", ja: "Web開発" },
@@ -69,6 +69,12 @@ export interface ProjectPlate {
   focus?: string;
   title: Localized;
   href?: string;
+  /**
+   * Shown as a small link beneath the title when `href` doesn't lead to a
+   * normal webpage (e.g. it opens a raw video file) — the generic ↗ on the
+   * title alone doesn't say what kind of destination this is.
+   */
+  linkLabel?: Localized;
   description: Localized;
   tags: string[];
   reveal: "left" | "right";
@@ -158,11 +164,16 @@ export const work = {
         en: "Tomato-harvesting robot vision",
         ja: "トマト収穫ロボットの視覚システム",
       },
-      description: {
-        en: "Master’s thesis. Stereo depth and on-device ripeness detection on an edge device.",
-        ja: "修士研究。エッジデバイス上でのステレオ深度と熟度判定。",
+      href: "/projects/thesis/demo.mp4",
+      linkLabel: {
+        en: "Watch the 10s demo",
+        ja: "10秒のデモを見る",
       },
-      tags: ["Python", "YOLOv8", "OpenCV", "OAK-D Lite"],
+      description: {
+        en: "Master’s thesis: 2.4 cm depth error, 12–15 FPS ripeness detection, on a $410 OAK-D Lite + Pi 4 stack — validated in a live greenhouse trial.",
+        ja: "修士研究。ステレオ深度誤差2.4cm、熟度判定12〜15FPSを、$410のOAK-D Lite + Pi 4構成で実現。温室での実証実験で検証済み。",
+      },
+      tags: ["Python", "YOLOv8n", "OpenCV", "OAK-D Lite + Pi 4"],
       reveal: "left",
     },
     {
@@ -344,21 +355,25 @@ export const publications = {
       title: both("IVS 2026 Kyoto"),
       description: both("Project presenter — looq.jp smart camera"),
       year: "2026",
+      href: "https://www.ivs.events/en/",
     },
     {
       title: both("Cost-Effectiveness of Remotely Sensed Data in Agriculture"),
       description: both("Chemical Engineering Transactions, vol. 103"),
       year: "2023",
+      href: "https://doi.org/10.3303/CET23103008",
     },
     {
       title: both("Integrated Monitoring System for Growing Grain Crops"),
       description: both("Chemical Engineering Transactions, vol. 103"),
       year: "2023",
+      href: "https://doi.org/10.3303/CET23103009",
     },
     {
       title: both("XX CIGR World Congress"),
       description: both("Poster presentation — Kyoto"),
       year: "2022",
+      href: "https://cigr.org/node/720",
     },
   ] as PublicationRow[],
 };
