@@ -12,20 +12,20 @@ export default function App({ Component, pageProps }: AppProps) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
-        <meta name="theme-color" content="#0a0a0a" />
+        <meta name="theme-color" content="#2c3136" />
         <meta
           name="description"
-          content="Software engineer in Niigata, Japan — web development, computer vision and hardware."
+          content="Full-stack engineer. Built and ran event platforms where 5,000+ people registered, owning front end, back end, database and deployment."
         />
         <meta property="og:title" content="Zhakhangir Anuarbek" />
         <meta
           property="og:description"
-          content="Software engineer in Niigata, Japan — web development, computer vision and hardware."
+          content="Full-stack engineer. Built and ran event platforms where 5,000+ people registered, owning front end, back end, database and deployment."
         />
         <meta property="og:url" content="https://portfolio.zhakhangir.site" />
         <meta property="og:type" content="website" />
 
-        <title>Zhakhangir Anuarbek — Software Engineer</title>
+        <title>Zhakhangir Anuarbek, full-stack engineer</title>
       </Head>
       <LanguageProvider>
         <Component {...pageProps} />

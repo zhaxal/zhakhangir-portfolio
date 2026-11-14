@@ -1,518 +1,626 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-27T11:54:59.891Z",
+  "generatedAt": "2026-11-14T05:47:36Z",
   "title": "Design System: Zhakhangir Anuarbek Portfolio",
   "extensions": {
     "colorMeta": {
-      "livery-red": {
-        "role": "primary",
-        "displayName": "Livery Red",
-        "canonical": "#e00013",
-        "tonalRamp": [
-          "#2a0208",
-          "#44020d",
-          "#6b010c",
-          "#8c0010",
-          "#c4000f",
-          "#e00013",
-          "#ff4d5c",
-          "#ffb3ba"
-        ]
-      },
-      "livery-red-deep": {
-        "role": "primary",
-        "displayName": "Livery Red Deep",
-        "canonical": "#c4000f",
-        "tonalRamp": [
-          "#2a0208",
-          "#44020d",
-          "#6b010c",
-          "#8c0010",
-          "#c4000f",
-          "#e00013",
-          "#ff4d5c",
-          "#ffb3ba"
-        ]
-      },
-      "livery-red-mid": {
-        "role": "primary",
-        "displayName": "Livery Red Mid",
-        "canonical": "#8c0010",
-        "tonalRamp": [
-          "#2a0208",
-          "#44020d",
-          "#6b010c",
-          "#8c0010",
-          "#c4000f",
-          "#e00013",
-          "#ff4d5c",
-          "#ffb3ba"
-        ]
-      },
-      "livery-red-black": {
-        "role": "primary",
-        "displayName": "Livery Red Black",
-        "canonical": "#2a0208",
-        "tonalRamp": [
-          "#2a0208",
-          "#44020d",
-          "#6b010c",
-          "#8c0010",
-          "#c4000f",
-          "#e00013",
-          "#ff4d5c",
-          "#ffb3ba"
-        ]
-      },
-      "ink-page": {
+      "asphalt": {
         "role": "neutral",
-        "displayName": "Ink Page",
-        "canonical": "#0a0a0a",
+        "displayName": "Asphalt",
+        "canonical": "#3a4046",
         "tonalRamp": [
-          "#000000",
-          "#0a0a0a",
-          "#0d0d0d",
-          "#141414",
-          "#161616",
-          "#1d1d1d",
-          "#242424",
-          "#414141"
+          "#23262a",
+          "#3c4249",
+          "#565e67",
+          "#6f7a86",
+          "#8f99a3",
+          "#b1b8be",
+          "#d2d6da",
+          "#f1f2f3"
         ]
       },
-      "ink-well": {
+      "asphalt-deep": {
         "role": "neutral",
-        "displayName": "Ink Well",
-        "canonical": "#141414",
+        "displayName": "Asphalt Deep",
+        "canonical": "#2c3136",
         "tonalRamp": [
-          "#000000",
-          "#0a0a0a",
-          "#0d0d0d",
-          "#141414",
-          "#161616",
-          "#1d1d1d",
-          "#242424",
-          "#414141"
+          "#22262a",
+          "#3c4249",
+          "#555e68",
+          "#6e7a87",
+          "#8f99a3",
+          "#b0b8bf",
+          "#d2d6da",
+          "#f1f2f4"
         ]
       },
-      "graphite": {
+      "asphalt-tint": {
         "role": "neutral",
-        "displayName": "Graphite",
-        "canonical": "#414141",
+        "displayName": "Asphalt Tint",
+        "canonical": "#c5cbd2",
         "tonalRamp": [
-          "#141414",
-          "#1d1d1d",
-          "#242424",
-          "#414141",
-          "#6b6b6b",
-          "#8a8a8a",
-          "#a8a8a8",
-          "#d4d4d4"
+          "#21262b",
+          "#3a424b",
+          "#525d6a",
+          "#6b798a",
+          "#8c98a6",
+          "#afb7c1",
+          "#d1d6db",
+          "#f1f2f4"
         ]
       },
-      "paper-white": {
+      "asphalt-line": {
         "role": "neutral",
-        "displayName": "Paper White",
+        "displayName": "Asphalt Line",
+        "canonical": "#5a626b",
+        "tonalRamp": [
+          "#23262a",
+          "#3d4248",
+          "#565e66",
+          "#707a85",
+          "#9098a2",
+          "#b1b7be",
+          "#d3d6da",
+          "#f1f2f3"
+        ]
+      },
+      "steel": {
+        "role": "neutral",
+        "displayName": "Steel",
+        "canonical": "#98a1ab",
+        "tonalRamp": [
+          "#22262a",
+          "#3c4249",
+          "#555e68",
+          "#6e7a87",
+          "#8f98a3",
+          "#b0b7bf",
+          "#d2d6da",
+          "#f1f2f4"
+        ]
+      },
+      "paint-white": {
+        "role": "neutral",
+        "displayName": "Paint White",
         "canonical": "#ffffff",
         "tonalRamp": [
-          "#414141",
-          "#6b6b6b",
-          "#8a8a8a",
-          "#a8a8a8",
-          "#d4d4d4",
-          "#e5e5e5",
-          "#f5f5f5",
-          "#ffffff"
+          "#262626",
+          "#424242",
+          "#5e5e5e",
+          "#7a7a7a",
+          "#999999",
+          "#b8b8b8",
+          "#d6d6d6",
+          "#f2f2f2"
         ]
       },
-      "text-secondary": {
-        "role": "neutral",
-        "displayName": "Text Secondary",
-        "canonical": "rgba(255, 255, 255, 0.72)",
+      "sign-green": {
+        "role": "primary",
+        "displayName": "Sign Green",
+        "canonical": "#007b43",
         "tonalRamp": [
-          "rgba(255,255,255,.06)",
-          "rgba(255,255,255,.14)",
-          "rgba(255,255,255,.28)",
-          "rgba(255,255,255,.46)",
-          "rgba(255,255,255,.58)",
-          "rgba(255,255,255,.72)",
-          "rgba(255,255,255,.86)",
-          "#ffffff"
+          "#004c2a",
+          "#008548",
+          "#00bd67",
+          "#00f585",
+          "#33ffa2",
+          "#70ffbe",
+          "#adffda",
+          "#e5fff3"
         ]
       },
-      "text-muted": {
-        "role": "neutral",
-        "displayName": "Text Muted",
-        "canonical": "rgba(255, 255, 255, 0.58)",
+      "sign-green-tint": {
+        "role": "primary",
+        "displayName": "Sign Green Tint",
+        "canonical": "#e0f5e8",
         "tonalRamp": [
-          "rgba(255,255,255,.06)",
-          "rgba(255,255,255,.14)",
-          "rgba(255,255,255,.28)",
-          "rgba(255,255,255,.46)",
-          "rgba(255,255,255,.58)",
-          "rgba(255,255,255,.72)",
-          "rgba(255,255,255,.86)",
-          "#ffffff"
+          "#133a22",
+          "#20643a",
+          "#2e8f53",
+          "#3cb96b",
+          "#65cd8d",
+          "#93dcaf",
+          "#c1ebd1",
+          "#ecf9f1"
         ]
       },
-      "text-faint": {
-        "role": "neutral",
-        "displayName": "Text Faint",
-        "canonical": "rgba(255, 255, 255, 0.46)",
+      "lane-blue": {
+        "role": "secondary",
+        "displayName": "Lane Blue",
+        "canonical": "#1670cf",
         "tonalRamp": [
-          "rgba(255,255,255,.06)",
-          "rgba(255,255,255,.14)",
-          "rgba(255,255,255,.28)",
-          "rgba(255,255,255,.46)",
-          "rgba(255,255,255,.58)",
-          "rgba(255,255,255,.72)",
-          "rgba(255,255,255,.86)",
-          "#ffffff"
+          "#072545",
+          "#0d4178",
+          "#125cab",
+          "#1878dd",
+          "#4797eb",
+          "#7eb6f1",
+          "#b5d5f7",
+          "#e8f2fd"
         ]
       },
-      "border-hairline": {
-        "role": "neutral",
-        "displayName": "Hairline",
-        "canonical": "rgba(255, 255, 255, 0.14)",
+      "lane-vermilion": {
+        "role": "secondary",
+        "displayName": "Lane Vermilion",
+        "canonical": "#d23f1c",
         "tonalRamp": [
-          "rgba(255,255,255,.03)",
-          "rgba(255,255,255,.06)",
-          "rgba(255,255,255,.1)",
-          "rgba(255,255,255,.14)",
-          "rgba(255,255,255,.2)",
-          "rgba(255,255,255,.28)",
-          "rgba(255,255,255,.4)",
-          "rgba(255,255,255,.6)"
+          "#441409",
+          "#752310",
+          "#a63216",
+          "#d8411d",
+          "#e7694b",
+          "#ee9681",
+          "#f5c3b7",
+          "#fcece9"
         ]
       },
-      "hover-veil": {
-        "role": "neutral",
-        "displayName": "Hover Veil",
-        "canonical": "rgba(255, 255, 255, 0.06)",
+      "gate-purple": {
+        "role": "tertiary",
+        "displayName": "Gate Purple",
+        "canonical": "#8236aa",
         "tonalRamp": [
-          "rgba(255,255,255,.03)",
-          "rgba(255,255,255,.06)",
-          "rgba(255,255,255,.1)",
-          "rgba(255,255,255,.14)",
-          "rgba(255,255,255,.2)",
-          "rgba(255,255,255,.28)",
-          "rgba(255,255,255,.4)",
-          "rgba(255,255,255,.6)"
+          "#2c123a",
+          "#4d2065",
+          "#6e2d8f",
+          "#8e3bba",
+          "#a964ce",
+          "#c393dd",
+          "#ddc1eb",
+          "#f4ecf9"
         ]
       },
-      "surface-overlay": {
-        "role": "neutral",
-        "displayName": "Surface Overlay",
-        "canonical": "rgba(10, 10, 10, 0.72)",
+      "gate-purple-deep": {
+        "role": "tertiary",
+        "displayName": "Gate Purple Deep",
+        "canonical": "#6a2a8c",
         "tonalRamp": [
-          "rgba(10,10,10,.2)",
-          "rgba(10,10,10,.35)",
-          "rgba(10,10,10,.5)",
-          "rgba(10,10,10,.62)",
-          "rgba(10,10,10,.72)",
-          "rgba(10,10,10,.85)",
-          "rgba(10,10,10,.94)",
-          "#0a0a0a"
+          "#2d123b",
+          "#4d1f66",
+          "#6e2c91",
+          "#8f38bc",
+          "#aa62d0",
+          "#c391de",
+          "#ddc0ec",
+          "#f4ebf9"
+        ]
+      },
+      "gate-purple-tint": {
+        "role": "tertiary",
+        "displayName": "Gate Purple Tint",
+        "canonical": "#efdff7",
+        "tonalRamp": [
+          "#2e0f3d",
+          "#501b6a",
+          "#712697",
+          "#9331c4",
+          "#ad5cd6",
+          "#c68de2",
+          "#debeef",
+          "#f5ebfa"
+        ]
+      },
+      "caution-yellow": {
+        "role": "neutral",
+        "displayName": "Caution Yellow",
+        "canonical": "#ffd400",
+        "tonalRamp": [
+          "#4c4000",
+          "#856e00",
+          "#bd9d00",
+          "#f5cc00",
+          "#ffdd33",
+          "#ffe770",
+          "#fff1ad",
+          "#fffbe5"
+        ]
+      },
+      "board-ink": {
+        "role": "neutral",
+        "displayName": "Board Ink",
+        "canonical": "#14202e",
+        "tonalRamp": [
+          "#172535",
+          "#28405c",
+          "#395b84",
+          "#4a77ab",
+          "#7196c1",
+          "#9bb5d4",
+          "#c6d5e6",
+          "#edf2f7"
+        ]
+      },
+      "board-ink-soft": {
+        "role": "neutral",
+        "displayName": "Board Ink Soft",
+        "canonical": "#44546a",
+        "tonalRamp": [
+          "#1e252f",
+          "#344051",
+          "#4a5b73",
+          "#607695",
+          "#8395af",
+          "#a8b5c7",
+          "#cdd5df",
+          "#eff2f5"
+        ]
+      },
+      "board-rule": {
+        "role": "neutral",
+        "displayName": "Board Rule",
+        "canonical": "#d3dae2",
+        "tonalRamp": [
+          "#1e262e",
+          "#354150",
+          "#4b5d72",
+          "#617994",
+          "#8498ae",
+          "#a9b7c6",
+          "#ced6df",
+          "#f0f2f5"
+        ]
+      },
+      "board-shade": {
+        "role": "neutral",
+        "displayName": "Board Shade",
+        "canonical": "#eef2f6",
+        "tonalRamp": [
+          "#1a2632",
+          "#2e4257",
+          "#415e7b",
+          "#557aa0",
+          "#7a99b8",
+          "#a2b8ce",
+          "#cad6e3",
+          "#eef2f6"
+        ]
+      },
+      "placeholder": {
+        "role": "neutral",
+        "displayName": "Placeholder",
+        "canonical": "#5c6b7e",
+        "tonalRamp": [
+          "#20262c",
+          "#38414d",
+          "#505d6d",
+          "#67788d",
+          "#8997a9",
+          "#acb6c3",
+          "#d0d5dd",
+          "#f0f2f4"
+        ]
+      },
+      "stop-red": {
+        "role": "neutral",
+        "displayName": "Stop Red",
+        "canonical": "#c8161d",
+        "tonalRamp": [
+          "#45080a",
+          "#770d11",
+          "#aa1319",
+          "#dd1820",
+          "#eb474e",
+          "#f17e83",
+          "#f7b5b8",
+          "#fce8e9"
+        ]
+      },
+      "led-black": {
+        "role": "neutral",
+        "displayName": "LED Black",
+        "canonical": "#0b0e12",
+        "tonalRamp": [
+          "#1d252f",
+          "#324052",
+          "#485b75",
+          "#5d7698",
+          "#8095b2",
+          "#a6b5c9",
+          "#ccd5e0",
+          "#eff2f5"
+        ]
+      },
+      "led-rule": {
+        "role": "neutral",
+        "displayName": "LED Rule",
+        "canonical": "#2c333c",
+        "tonalRamp": [
+          "#20262c",
+          "#38414c",
+          "#505d6d",
+          "#68788d",
+          "#8997a9",
+          "#adb6c3",
+          "#d0d5dc",
+          "#f0f2f4"
+        ]
+      },
+      "led-amber": {
+        "role": "neutral",
+        "displayName": "LED Amber",
+        "canonical": "#ffb400",
+        "tonalRamp": [
+          "#4c3600",
+          "#855e00",
+          "#bd8500",
+          "#f5ad00",
+          "#ffc333",
+          "#ffd570",
+          "#ffe7ad",
+          "#fff8e5"
+        ]
+      },
+      "led-amber-dim": {
+        "role": "neutral",
+        "displayName": "LED Amber Dim",
+        "canonical": "#b08318",
+        "tonalRamp": [
+          "#433209",
+          "#755710",
+          "#a67c17",
+          "#d7a01d",
+          "#e7b94b",
+          "#eece81",
+          "#f5e3b7",
+          "#fcf6e9"
+        ]
+      },
+      "led-green": {
+        "role": "neutral",
+        "displayName": "LED Green",
+        "canonical": "#7be04f",
+        "tonalRamp": [
+          "#1c410b",
+          "#307114",
+          "#44a01c",
+          "#59d025",
+          "#7de052",
+          "#a4ea86",
+          "#cbf3ba",
+          "#effbe9"
         ]
       }
     },
     "typographyMeta": {
-      "display": {
-        "displayName": "Display",
-        "purpose": "The hero name only. Extended, black weight, uppercase, nowrap, allowed to be enormous."
+      "road-lettering": {
+        "displayName": "Road lettering",
+        "purpose": "The name painted on the road; condensed, uppercase, stretched 1.6 times along the direction of travel."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section titles. Always split across lines so each line reveals from a different side."
+        "purpose": "Section signs: Education, papers and tools; Contact."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Block headings, accordion labels, plate titles, company names, education cells."
+        "purpose": "Entry names and board headings."
+      },
+      "sign-row": {
+        "displayName": "Sign row",
+        "purpose": "Lane rows on the introduction sign and the two headings in the contact section."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "The first paragraph on a board and the proof sentence on a pavement block."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Reading copy at 14px/1.55; small body at 13px. Measure capped 46-62ch by context."
+        "purpose": "Bullets on boards. Japanese sets at 1rem / 1.8."
       },
-      "label": {
-        "displayName": "Label",
-        "purpose": "Eyebrows, nav, roles, input labels. Letterspaced 0.08-0.14em and uppercased in CSS."
+      "value": {
+        "displayName": "Value",
+        "purpose": "Right-hand column of a figures table; tabular numerals."
       },
-      "mono": {
-        "displayName": "Mono",
-        "purpose": "Two uses only: the experience period column and the footer site URL. Signals 'this is data'."
+      "small": {
+        "displayName": "Small",
+        "purpose": "Meta lines, figure labels, captions, header places."
+      },
+      "dot-print": {
+        "displayName": "Dot print",
+        "purpose": "The LED availability board only."
+      },
+      "road-lettering-lane": {
+        "displayName": "Road lettering, lane",
+        "purpose": "The lane name painted on its pavement block (WORK, PROJECTS)."
       }
     },
-    "gradients": [
-      {
-        "name": "gradient-hero",
-        "value": "linear-gradient(105deg, #2a0208 0%, #8c0010 45%, #e00013 100%)",
-        "purpose": "The hero field. Sized 180% and drifted over 24s; the only gradient in the system."
-      },
-      {
-        "name": "gradient-scrim",
-        "value": "linear-gradient(180deg, rgba(10,10,10,.55) 0%, rgba(10,10,10,0) 35%, rgba(10,10,10,.65) 100%)",
-        "purpose": "Vertical scrim protecting hero text at top and bottom. Non-interactive."
-      }
-    ],
     "shadows": [],
     "motion": [
       {
-        "name": "ease-standard",
-        "value": "cubic-bezier(0.22, 0.61, 0.36, 1)",
-        "purpose": "Colour, controls, header state. Anything that is a discrete state change."
-      },
-      {
-        "name": "ease-out-expo",
+        "name": "ease",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Reveals, accordion, transforms. Anything that travels distance."
+        "purpose": "Every authored move."
       },
       {
-        "name": "dur-fast",
-        "value": "120ms",
-        "purpose": "Colour only. The publication-row invert."
+        "name": "lay",
+        "value": "1000ms clip-path wipe along the direction of travel, second line 150ms later",
+        "purpose": "The name being painted on the road on load."
       },
       {
-        "name": "dur-base",
-        "value": "220ms",
-        "purpose": "Controls and the header transparent-to-blurred swap."
+        "name": "arrow",
+        "value": "320ms translateX along the arrow's own heading",
+        "purpose": "Arrows on signs and controls under the pointer."
       },
       {
-        "name": "dur-slow",
-        "value": "420ms",
-        "purpose": "Accordion grid-template-rows 0fr to 1fr."
-      },
-      {
-        "name": "reveal-opacity",
-        "value": "620ms",
-        "purpose": "Scroll-reveal opacity leg."
-      },
-      {
-        "name": "reveal-transform",
-        "value": "720ms",
-        "purpose": "Scroll-reveal transform leg; deliberately trails the opacity."
-      },
-      {
-        "name": "reveal-stagger",
-        "value": "100-140ms",
-        "purpose": "Delay between revealing siblings."
-      },
-      {
-        "name": "hero-line",
-        "value": "900ms",
-        "purpose": "Each hero headline line rising from a 110% mask, at 80ms and 220ms."
-      },
-      {
-        "name": "ken-burns",
-        "value": "18s",
-        "purpose": "Hero photo push from scale(1) to scale(1.09), forwards."
-      },
-      {
-        "name": "gradient-drift",
-        "value": "24s",
-        "purpose": "Hero background-position drift, alternating infinitely."
+        "name": "state",
+        "value": "140ms to 160ms ease-out",
+        "purpose": "Hover colour changes."
       }
     ],
     "breakpoints": [
       {
-        "name": "phone-min",
-        "value": "374px"
+        "name": "next-word",
+        "value": "480px"
       },
       {
-        "name": "phone",
+        "name": "education-rows",
         "value": "560px"
       },
       {
-        "name": "tablet",
-        "value": "900px"
+        "name": "approach-two-up",
+        "value": "960px"
       },
       {
-        "name": "content-max",
-        "value": "1240px"
+        "name": "lanes-side-by-side",
+        "value": "980px"
+      },
+      {
+        "name": "header-distances",
+        "value": "1100px"
       }
     ]
   },
   "components": [
     {
-      "name": "Primary Button",
+      "name": "Road lettering",
+      "kind": "custom",
+      "refersTo": "road-lettering",
+      "description": "Words painted on the asphalt: condensed, uppercase, stretched along the direction of travel.",
+      "html": "<div class=\"ds-road\"><span class=\"ds-paint\">Work</span></div>",
+      "css": ".ds-road { padding: 20px 24px 12px; background: #3a4046; } .ds-paint { display: block; color: #fff; font-family: 'Barlow Condensed', sans-serif; font-size: 5rem; font-weight: 700; line-height: 0.9; letter-spacing: 0.01em; text-transform: uppercase; transform: scaleY(1.6); transform-origin: 50% 0; margin-bottom: calc(0.6 * 0.9em); }"
+    },
+    {
+      "name": "Entry sign",
+      "kind": "card",
+      "refersTo": "guide-sign",
+      "description": "Names one entry on a lane: year plate (the start year), name, meta line, and an arrow.",
+      "html": "<div class=\"ds-exit\"><span class=\"ds-plate\">2021</span><div><strong>ANO Mossport</strong><span>Full-stack engineer, contract · Moscow, remote</span></div><span class=\"ds-exit-mark\"><svg width='30' height='30' viewBox='0 0 24 24' fill='currentColor' aria-hidden='true' style='rotate:-45deg'><path d='M2 9.5h10V4l10 8-10 8v-5.5H2z'/></svg></span></div>",
+      "css": ".ds-plate { position: relative; display: inline-grid; place-items: center; min-width: 72px; height: 48px; padding-inline: 12px; border-radius: 8px; background: #1670cf; color: #fff; font-family: Barlow, sans-serif; font-size: 1.25rem; font-weight: 800; line-height: 1; } .ds-plate::after { content: ''; position: absolute; inset: 4px; border: 2px solid #fff; border-radius: 5px; } .ds-exit { position: relative; border-radius: 14px; background: #007b43; color: #fff; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; padding: 20px 22px; font-family: Barlow, 'Zen Kaku Gothic New', system-ui, sans-serif; } .ds-exit::after { content: ''; position: absolute; inset: 5px; border: 3px solid #fff; border-radius: 9px; pointer-events: none; } .ds-exit strong { display: block; font-size: 1.75rem; font-weight: 800; letter-spacing: -0.015em; line-height: 1.05; } .ds-exit div span { display: block; margin-top: 6px; color: #e0f5e8; font-size: 0.9375rem; font-weight: 600; } .ds-exit-mark { display: flex; align-items: center; gap: 8px; font-size: 0.9375rem; font-weight: 800; }"
+    },
+    {
+      "name": "Board with figures",
+      "kind": "card",
+      "refersTo": "board",
+      "description": "A white board for reading: a lead, then figures ruled like a toll table.",
+      "html": "<div class=\"ds-board\"><p>Built and ran event websites where 5,000+ people registered.</p><dl><div><dt>People registered</dt><dd>5,000+</dd></div><div><dt>Team</dt><dd>Solo, then 2 engineers</dd></div></dl></div>",
+      "css": ".ds-board { padding: 28px; border-radius: 14px; background: #fff; color: #14202e; font-family: Barlow, 'Zen Kaku Gothic New', system-ui, sans-serif; } .ds-board p { margin: 0; font-size: 1.25rem; font-weight: 600; line-height: 1.45; } .ds-board dl { margin: 22px 0 0; border-top: 2px solid #14202e; } .ds-board dl div { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding-block: 10px; border-bottom: 1px solid #d3dae2; } .ds-board dl div:last-child { border-bottom: 2px solid #14202e; } .ds-board dt { color: #44546a; font-size: 0.9375rem; font-weight: 500; } .ds-board dd { margin: 0; font-size: 1.125rem; font-weight: 700; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Lane sign",
+      "kind": "nav",
+      "refersTo": "lane-sign",
+      "description": "One per lane on the gantry that stays overhead between Work and Projects.",
+      "html": "<a class=\"ds-lane\" href=\"#web\"><span class=\"ds-swatch\"></span>Work<svg width='18' height='18' viewBox='0 0 24 24' fill='currentColor' aria-hidden='true' style='rotate:90deg'><path d='M2 9.5h10V4l10 8-10 8v-5.5H2z'/></svg></a>",
+      "css": ".ds-lane { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 6px 12px 6px 8px; border: 2px solid #fff; border-radius: 8px; background: #007b43; color: #fff; font-family: Barlow, 'Zen Kaku Gothic New', system-ui, sans-serif; font-weight: 800; line-height: 1.1; text-decoration: none; transition: background-color 160ms ease-out; } .ds-lane svg { margin-left: auto; transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-lane:hover { background: #1670cf; } .ds-lane:hover svg { transform: translateX(4px); } .ds-lane:focus-visible { outline: 3px solid #ffd400; outline-offset: 3px; } .ds-swatch { width: 12px; height: 24px; border: 2px solid #fff; border-radius: 3px; background: #1670cf; }"
+    },
+    {
+      "name": "Contact sign",
       "kind": "button",
-      "refersTo": "button-primary",
-      "description": "The header contact pill. White fill, leading dot, fully round.",
-      "html": "<a class=\"ds-btn-primary\" href=\"#\"><span class=\"ds-btn-dot\"></span>Contact</a>",
-      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 32px; padding: 0 16px; background: var(--white, #ffffff); color: var(--ink-900, #0a0a0a); border: 1px solid var(--white, #ffffff); border-radius: 999px; font-family: var(--font-ui, Archivo, sans-serif); font-size: 12px; font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background-color 220ms cubic-bezier(.22,.61,.36,1), transform 120ms cubic-bezier(.22,.61,.36,1); } .ds-btn-primary:hover { background: #e5e5e5; } .ds-btn-primary:active { transform: scale(.98); } .ds-btn-primary:focus-visible { outline: 2px solid var(--red-500, #e00013); outline-offset: 2px; } .ds-btn-dot { width: 5px; height: 5px; border-radius: 999px; background: currentColor; flex-shrink: 0; }"
+      "refersTo": "contact-sign",
+      "description": "The page's primary action, at the top of the page.",
+      "html": "<a class=\"ds-gate\" href=\"#contact\"><strong>Contact</strong><svg width='30' height='30' viewBox='0 0 24 24' fill='currentColor' aria-hidden='true' style='rotate:90deg'><path d='M2 9.5h10V4l10 8-10 8v-5.5H2z'/></svg></a>",
+      "css": ".ds-gate { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 14px; min-height: 76px; padding: 16px 24px; border-radius: 14px; background: #8236aa; color: #fff; font-family: Barlow, 'Zen Kaku Gothic New', system-ui, sans-serif; text-decoration: none; transition: background-color 160ms ease-out; } .ds-gate::after { content: ''; position: absolute; inset: 5px; border: 3px solid #fff; border-radius: 9px; pointer-events: none; } .ds-gate-plate { padding: 5px 10px; border: 2px solid #fff; border-radius: 6px; font-size: 0.9375rem; font-weight: 800; line-height: 1; } .ds-gate strong { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.01em; } .ds-gate svg { transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-gate:hover { background: #6a2a8c; } .ds-gate:hover svg { transform: translateX(6px); } .ds-gate:focus-visible { outline: 3px solid #ffd400; outline-offset: 3px; }"
     },
     {
-      "name": "Brand Button",
+      "name": "Send button",
       "kind": "button",
-      "refersTo": "button-brand",
-      "description": "The contact form submit. The only red fill on the page.",
-      "html": "<button class=\"ds-btn-brand\"><span class=\"ds-btn-dot\"></span>Send message</button>",
-      "css": ".ds-btn-brand { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; padding: 0 32px; background: var(--red-500, #e00013); color: var(--white, #ffffff); border: 1px solid var(--red-500, #e00013); border-radius: 999px; font-family: var(--font-ui, Archivo, sans-serif); font-size: 14px; font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; cursor: pointer; white-space: nowrap; transition: background-color 220ms cubic-bezier(.22,.61,.36,1), transform 120ms cubic-bezier(.22,.61,.36,1); } .ds-btn-brand:hover { background: var(--red-600, #c4000f); } .ds-btn-brand:active { transform: scale(.98); } .ds-btn-brand:focus-visible { outline: 2px solid var(--red-500, #e00013); outline-offset: 2px; } .ds-btn-dot { width: 5px; height: 5px; border-radius: 999px; background: currentColor; flex-shrink: 0; }"
+      "refersTo": "send-button",
+      "description": "Submits the message form.",
+      "html": "<button class=\"ds-send\" type=\"button\">Send message <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.6' stroke-linecap='square' aria-hidden='true'><path d='M4 12h15M12.5 5.5 19 12l-6.5 6.5'/></svg></button>",
+      "css": ".ds-send { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; min-height: 56px; padding: 0 20px; border: 0; border-radius: 4px; background: #8236aa; color: #fff; font-family: Barlow, 'Zen Kaku Gothic New', system-ui, sans-serif; font-size: 1.125rem; font-weight: 700; cursor: pointer; transition: background-color 160ms ease-out; } .ds-send svg { transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-send:hover { background: #6a2a8c; } .ds-send:hover svg { transform: translateX(6px); } .ds-send:focus-visible { outline: 3px solid #1670cf; outline-offset: 3px; }"
     },
     {
-      "name": "Tag",
-      "kind": "chip",
-      "refersTo": "tag",
-      "description": "Technology label under a project plate. Square, hairline, non-interactive.",
-      "html": "<span class=\"ds-tag\">Python</span> <span class=\"ds-tag\">Hailo NPU</span> <span class=\"ds-tag\">Raspberry Pi</span>",
-      "css": ".ds-tag { display: inline-flex; align-items: center; height: 28px; padding: 0 16px; margin-right: 8px; border: 1px solid var(--border-hairline, rgba(255,255,255,.14)); border-radius: 0; background: transparent; color: var(--text-muted, rgba(255,255,255,.5)); font-family: var(--font-ui, Archivo, sans-serif); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; cursor: default; transition: background-color 220ms cubic-bezier(.22,.61,.36,1), color 220ms cubic-bezier(.22,.61,.36,1); } .ds-tag:hover { background: rgba(255,255,255,.06); color: var(--white, #ffffff); }"
-    },
-    {
-      "name": "Text Input",
+      "name": "Field",
       "kind": "input",
       "refersTo": "input",
-      "description": "Contact field. No box — a label and a single hairline underline. Errors lead with a red dot and set their text in white.",
-      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Email</span><input class=\"ds-input\" type=\"email\" placeholder=\"you@company.com\"></label>",
-      "css": ".ds-field { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 320px; } .ds-field-label { font-family: var(--font-ui, Archivo, sans-serif); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted, rgba(255,255,255,.5)); } .ds-input { width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--border-hairline, rgba(255,255,255,.14)); border-radius: 0; padding: 12px 0; color: var(--white, #ffffff); font-family: var(--font-ui, Archivo, sans-serif); font-size: 14px; transition: border-color 220ms cubic-bezier(.22,.61,.36,1); } .ds-input::placeholder { color: rgba(255,255,255,.38); } .ds-input:focus { border-bottom-color: var(--white, #ffffff); outline: none; } .ds-input:focus-visible { outline: 2px solid var(--red-500, #e00013); outline-offset: 2px; }"
+      "description": "Form field: bold label, 2px ink border, Lane Blue on focus, Stop Red on error.",
+      "html": "<label class=\"ds-field\"><span>Your email</span><input type=\"email\" placeholder=\"you@company.com\"></label>",
+      "css": ".ds-field { display: grid; gap: 6px; font-family: Barlow, 'Zen Kaku Gothic New', system-ui, sans-serif; color: #14202e; } .ds-field span { font-size: 0.9375rem; font-weight: 700; } .ds-field input { padding: 12px 14px; border: 2px solid #14202e; border-radius: 4px; background: #fff; font: inherit; font-size: 1rem; line-height: 1.5; } .ds-field input::placeholder { color: #5c6b7e; } .ds-field input:hover { border-color: #1670cf; } .ds-field input:focus-visible { border-color: #1670cf; outline: 3px solid #1670cf; outline-offset: 2px; }"
     },
     {
-      "name": "Section Label",
+      "name": "Monogram and year plates",
       "kind": "custom",
-      "refersTo": null,
-      "description": "The eyebrow above every section title. A degree or dot marker, then a letterspaced label.",
-      "html": "<div class=\"ds-section-label\"><span>&deg;</span>Selected work</div>",
-      "css": ".ds-section-label { display: flex; align-items: baseline; gap: 6px; font-family: var(--font-ui, Archivo, sans-serif); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted, rgba(255,255,255,.5)); }"
-    },
-    {
-      "name": "Language Switch",
-      "kind": "nav",
-      "refersTo": "lang-pill",
-      "description": "Two pills, EN and 日本語. The active one inverts to a white fill.",
-      "html": "<div class=\"ds-lang\"><button class=\"ds-lang-pill ds-lang-active\">EN</button><button class=\"ds-lang-pill\">日本語</button></div>",
-      "css": ".ds-lang { display: flex; align-items: center; gap: 4px; } .ds-lang-pill { appearance: none; border: 0; background: transparent; cursor: pointer; padding: 5px 10px; border-radius: 999px; font-family: var(--font-ui, Archivo, sans-serif); font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,.62); transition: background-color 220ms cubic-bezier(.22,.61,.36,1), color 220ms cubic-bezier(.22,.61,.36,1); } .ds-lang-pill:hover { color: var(--white, #ffffff); } .ds-lang-active { background: var(--white, #ffffff); color: var(--ink-900, #0a0a0a); font-weight: 700; } .ds-lang-pill:focus-visible { outline: 2px solid var(--red-500, #e00013); outline-offset: 2px; }"
-    },
-    {
-      "name": "Inverting Publication Row",
-      "kind": "custom",
-      "refersTo": "publication-row",
-      "description": "Signature component. The whole row flips to solid white on hover in 120ms — the fastest transition in the system.",
-      "html": "<div class=\"ds-award-row\"><div class=\"ds-award-copy\"><span class=\"ds-award-title\">IVS 2026 Kyoto</span><span class=\"ds-award-desc\">Project presenter &mdash; looq.jp smart camera</span></div><span class=\"ds-award-year\">//2026</span></div>",
-      "css": ".ds-award-row { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 24px 20px; border-top: 1px solid var(--border-hairline, rgba(255,255,255,.14)); border-bottom: 1px solid var(--border-hairline, rgba(255,255,255,.14)); color: var(--white, #ffffff); transition: background-color 120ms cubic-bezier(.22,.61,.36,1), color 120ms cubic-bezier(.22,.61,.36,1); } .ds-award-row:hover { background: var(--white, #ffffff); color: var(--ink-900, #0a0a0a); } .ds-award-copy { display: flex; flex-direction: column; gap: 8px; min-width: 0; } .ds-award-title { font-family: var(--font-display, Archivo, sans-serif); font-weight: 700; font-stretch: 104%; font-size: 20px; line-height: 1.1; text-transform: uppercase; } .ds-award-desc { font-size: 13px; color: var(--text-muted, rgba(255,255,255,.5)); transition: color 120ms cubic-bezier(.22,.61,.36,1); } .ds-award-row:hover .ds-award-desc { color: #414141; } .ds-award-year { font-family: var(--font-display, Archivo, sans-serif); font-weight: 700; font-style: italic; font-size: 20px; white-space: nowrap; }"
-    },
-    {
-      "name": "Work Thumbnail",
-      "kind": "card",
-      "refersTo": null,
-      "description": "Signature component. A 4:3 screenshot held grayscale until the pointer arrives, then it resolves to colour and pushes 4%.",
-      "html": "<a class=\"ds-thumb-card\" href=\"#\"><span class=\"ds-thumb\"><span class=\"ds-thumb-img\"></span></span><span class=\"ds-thumb-caption\"><span>Nation's Cross &#8599;</span><span class=\"ds-thumb-year\">//2025</span></span></a>",
-      "css": ".ds-thumb-card { display: flex; flex-direction: column; gap: 10px; max-width: 240px; text-decoration: none; color: var(--white, #ffffff); transition: opacity 220ms cubic-bezier(.22,.61,.36,1); } .ds-thumb-card:hover { opacity: .82; } .ds-thumb { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--ink-800, #141414); } .ds-thumb-img { display: block; width: 100%; height: 100%; background: linear-gradient(135deg, #c4000f 0%, #1b3fa0 55%, #d8c400 100%); filter: grayscale(1) contrast(1.05); transition: filter 320ms cubic-bezier(.22,.61,.36,1), transform 520ms cubic-bezier(.16,1,.3,1); } .ds-thumb-card:hover .ds-thumb-img { filter: none; transform: scale(1.04); } .ds-thumb-caption { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; font-family: var(--font-ui, Archivo, sans-serif); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.3; } .ds-thumb-year { font-family: var(--font-display, Archivo, sans-serif); font-style: italic; color: var(--text-faint, rgba(255,255,255,.38)); white-space: nowrap; }"
-    },
-    {
-      "name": "Capability Accordion Row",
-      "kind": "custom",
-      "refersTo": null,
-      "description": "Signature component. Two 1.5px rules form a plus that rotates 45° into an ✕; the body opens on grid-template-rows rather than height.",
-      "html": "<div class=\"ds-acc\"><button class=\"ds-acc-head\" aria-expanded=\"true\"><span class=\"ds-acc-label\">Web Development</span><span class=\"ds-acc-plus\"></span></button><div class=\"ds-acc-body ds-acc-open\"><div class=\"ds-acc-inner\"><p class=\"ds-acc-copy\">Building and running web apps end to end &mdash; the interface, the API, the database and the server it sits on.</p><div class=\"ds-acc-chips\"><span class=\"ds-acc-chip\">Next.js / React</span><span class=\"ds-acc-chip\">Go / Node</span></div></div></div></div>",
-      "css": ".ds-acc { border-top: 1px solid var(--border-hairline, rgba(255,255,255,.14)); border-bottom: 1px solid var(--border-hairline, rgba(255,255,255,.14)); padding: 28px 0; } .ds-acc-head { appearance: none; border: 0; background: transparent; padding: 0; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; cursor: pointer; text-align: left; color: inherit; } .ds-acc-label { font-family: var(--font-display, Archivo, sans-serif); font-weight: 800; font-stretch: 118%; font-size: 28px; line-height: 1; text-transform: uppercase; color: var(--white, #ffffff); } .ds-acc-plus { position: relative; width: 22px; height: 22px; flex-shrink: 0; transition: transform 220ms cubic-bezier(.22,.61,.36,1); } .ds-acc-head[aria-expanded=\"true\"] .ds-acc-plus { transform: rotate(45deg); } .ds-acc-plus::before, .ds-acc-plus::after { content: \"\"; position: absolute; background: var(--white, #ffffff); } .ds-acc-plus::before { top: 10px; left: 0; width: 22px; height: 1.5px; } .ds-acc-plus::after { left: 10px; top: 0; width: 1.5px; height: 22px; } .ds-acc-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 420ms cubic-bezier(.16,1,.3,1); } .ds-acc-open { grid-template-rows: 1fr; } .ds-acc-inner { overflow: hidden; } .ds-acc-copy { margin: 18px 0 0; max-width: 46ch; font-size: 13px; line-height: 1.5; color: var(--text-secondary, rgba(255,255,255,.72)); } .ds-acc-chips { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 16px; font-size: 12px; color: var(--white, #ffffff); } .ds-acc-chip { display: inline-flex; align-items: center; gap: 8px; } .ds-acc-chip::before { content: \"+\"; color: var(--red-500, #e00013); font-size: 15px; line-height: 1; }"
+      "refersTo": "year-plate",
+      "description": "The ZA monogram, and year plates in the two lane colours.",
+      "html": "<span class=\"ds-shield ds-za\">ZA</span><span class=\"ds-plate\">2021</span><span class=\"ds-plate ds-e2\">2024</span>",
+      "css": ":host { display: flex; align-items: center; gap: 12px; padding: 16px; background: #3a4046; } .ds-shield { position: relative; display: inline-grid; place-items: center; width: 54px; height: 40px; border-radius: 10px; background: #1670cf; color: #fff; font-family: Barlow, sans-serif; font-size: 20px; font-weight: 800; line-height: 1; } .ds-shield::after { content: ''; position: absolute; inset: 3px; border: 2px solid #fff; border-radius: 7px; } .ds-plate { position: relative; display: inline-grid; place-items: center; min-width: 72px; height: 48px; padding-inline: 12px; border-radius: 8px; background: #1670cf; color: #fff; font-family: Barlow, sans-serif; font-size: 1.25rem; font-weight: 800; line-height: 1; } .ds-plate::after { content: ''; position: absolute; inset: 4px; border: 2px solid #fff; border-radius: 5px; } .ds-e2 { background: #d23f1c; } .ds-za { background: #007b43; }"
     }
   ],
   "narrative": {
-    "northStar": "The Spec Sheet",
-    "overview": "An engineering specification, printed large. Everything in this system behaves like a technical document that someone decided to set at poster scale: values are ruled into cells by hairlines, periods and URLs are set in a numeral face so they read as data, labels are small and letterspaced like field names, and the page itself is near-black paper. Nothing is styled for pleasantness. Things are the size they are because that is how important they are.\n\nThe temperament is industrial, decisive, unsentimental. The display face is set extended and heavy and always uppercase — it does not modulate, it does not get friendly at small sizes, it just gets smaller. There is exactly one chromatic colour in the entire system and it is used sparingly enough that a single 36px strip of it across the bottom of the page reads as an event. Depth does not exist: there is not one shadow in the codebase, and separation is carried entirely by a 14%-white hairline that never changes weight or colour. Corners are square. The only curve permitted anywhere is the full 999px pill on controls, and the contrast between that curve and the universal zero is the system's one piece of wit.\n\nMotion is heavy but never decorative. Content arrives from off-axis under a single expo easing, thumbnails resolve from grayscale to colour under the pointer, a publication row inverts to solid white the instant you touch it. Every one of those is a state change reporting itself, not an ornament. The system is bilingual by commitment — Noto Sans JP is appended to both type stacks, so Japanese must be composed for, never bolted on.",
+    "northStar": "The Road From Above",
+    "overview": "The page is a Japanese expressway seen from directly overhead, and scrolling is driving. The ground is asphalt from top to bottom, with solid white edge lines in the gutters and dashed lane lines down the middle. The name is painted on the road. A little way in, the road splits at a hatched gore into two lanes that run side by side, Work on the left and Projects on the right, so each role sits beside the work it produced. They merge again, pass the boards for education, papers and tools, and end at the contact section.\n\nThree kinds of object sit on the road, and the difference between them is the system. **Paint** is for the biggest words: condensed lettering stretched along the direction of travel, the way it is painted for drivers. **Signs** name things: green, white lettering, a white border set inside the edge. **Boards** are white and are for reading. Nothing has a shadow or a gradient.\n\nThe theme is carried by the visuals only. The owner asked for the copy to be serious, so every word on the page says plainly what a thing is.",
     "keyCharacteristics": [
-      "One chromatic colour, rationed hard",
-      "A single hairline is the only line in the system",
-      "Extended, heavy, uppercase display type at every scale",
-      "Zero radius everywhere; 999px on controls; nothing in between",
-      "No shadows at all — depth is line and veil",
-      "Motion reports state; it never garnishes"
+      "Asphalt everywhere; the page is one road",
+      "Work and Projects side by side, never one after the other on a wide screen",
+      "Paint for the biggest words, signs for names, white boards for reading",
+      "Blue is the Work lane, vermilion is the Projects lane, purple is contact",
+      "Plain words: the road is drawn, never described",
+      "Flat: no shadows, no gradients"
     ],
     "rules": [
       {
-        "name": "The One Voice Rule",
-        "body": "Livery Red is the only chromatic colour that exists. It appears on well under 5% of any viewport, and its rarity is the entire point. A second accent hue does not get introduced; if something needs to be distinguished, distinguish it with weight, scale, or a hairline.",
+        "name": "The Three Objects Rule",
+        "body": "Paint, sign, board. The biggest words are painted on the asphalt; a name goes on a green sign; anything to be read goes on a white board. Body text never sits directly on asphalt or on a sign beyond a sentence.",
         "section": "colors"
       },
       {
-        "name": "The Hairline Rule",
-        "body": "1px solid rgba(255,255,255,.14) is the only line in the system. Not a heavier variant for emphasis, not a darker one for subtlety, not a dashed one for provisional state. One line, everywhere, forever.",
+        "name": "The Lane Colour Rule",
+        "body": "Blue means Work and vermilion means Projects, wherever they appear: pavement, year plate, swatch. They are never used for anything else, and never as a board or sign background.",
         "section": "colors"
       },
       {
-        "name": "The Four Whites Rule",
-        "body": "Body text has exactly four weights — 100%, 72%, 58%, 46% — plus the 14% that is a line rather than text. Reach for one of the four; do not invent a fifth opacity to solve a hierarchy problem. Every one of them clears 4.5:1 on the page, and that is the constraint that sets the floor: the quiet end stops where legibility does.",
+        "name": "The Contact Rule",
+        "body": "Purple marks contact only.",
         "section": "colors"
       },
       {
-        "name": "The Hero Exception",
-        "body": "The hero and header carry six opacities of their own (.62, .65, .70, .82, .86, .90). These are pinned by the handoff and sit over the red gradient rather than the page, where the four-tier scale does not apply. They are the only sanctioned departure.",
-        "section": "colors"
-      },
-      {
-        "name": "The Extended Rule",
-        "body": "Display type is always font-weight: 800, font-stretch: 118%, and uppercase. There is no light display setting, no sentence-case headline, no condensed variant. Archivo at normal width is UI type and is never used for a heading.",
+        "name": "The Plain Words Rule",
+        "body": "Copy is plain and professional. Sections are called what they are (Work, Projects, Education, Contact). No road puns, slogans, themed labels or jokes: the road is drawn, never described.",
         "section": "typography"
       },
       {
-        "name": "The Two Faces Rule",
-        "body": "Space Grotesk appears only where a value must read as measured data. It is not a body face, not a label face, and not a stylistic accent. If a number is prose, it is set in Archivo.",
+        "name": "The Paint Rule",
+        "body": "Road lettering is uppercase, condensed and stretched, set with the `.paint` class, one element per line. It is for the name and the two lane names and nothing else.",
         "section": "typography"
       },
       {
-        "name": "The Uppercase Is Structural Rule",
-        "body": "Case is applied in CSS, never in the content layer. Copy in data/content.ts is written in sentence case and uppercased by text-transform, so a locale that has no case (Japanese) is unaffected.",
+        "name": "The Both Scripts Rule",
+        "body": "A sign carries both scripts. The name's other script is on an auxiliary plate under the paint; lane names, section signs and the footer show the other language's name beside or beneath the current one, marked with its `lang`.",
         "section": "typography"
       },
       {
-        "name": "The 96/64/1240 Rule",
-        "body": "Vertical rhythm is 96px, page gutters are 64px, content is 1240px. A new section that wants different numbers is wrong about being a section.",
-        "section": "layout"
+        "name": "The Dot Print Rule",
+        "body": "DotGothic16 appears only on the LED board, where a dot matrix is the material.",
+        "section": "typography"
       },
       {
-        "name": "The Hairline Seam Rule",
-        "body": "Sections are separated by a hairline, not by a gap. Two sections never sit adjacent with only whitespace between them.",
-        "section": "layout"
+        "name": "The Sentence Case Rule",
+        "body": "Signs and boards are sentence case. No tracked uppercase labels and no label above a heading.",
+        "section": "typography"
       },
       {
-        "name": "The No-Shadow Rule",
-        "body": "No box-shadow, no drop-shadow, no glow, no inner highlight. If an element needs to feel separate, give it a hairline. If it needs to feel active, give it the veil. There is no third option.",
+        "name": "The Flat Rule",
+        "body": "No `box-shadow`, no blur, no gradient used as colour. Gradients appear only as mechanics for flat paint and metal: dashed lane lines, zebra hatching, the canopy's ribs.",
         "section": "elevation"
       },
       {
-        "name": "The Zero-or-Pill Rule",
-        "body": "Radius is 0 or it is 999px. Nothing between those two values may be introduced.",
+        "name": "The Inset Border Rule",
+        "body": "Anything that is a sign carries a white border inside its edge. Boards do not.",
         "section": "shapes"
       },
       {
-        "name": "The Earned Colour Rule",
-        "body": "Desaturation is a unifying device, not a house style. The nine event-site screenshots are grayscaled because they are nine clashing brands that must read as one texture, and their colour returns under the pointer. Feature photography stays in colour. Do not desaturate an image whose subject is the point.",
-        "section": "components"
-      },
-      {
-        "name": "The Off-Axis Rule",
-        "body": "Content enters from off-axis and resolves — rise from 26px below, or slide 40px from the left or right, over 620ms opacity / 720ms transform on cubic-bezier(.16,1,.3,1), staggered 100–140ms between siblings, fired once by an IntersectionObserver at threshold 0.1 and never replayed. Section titles split: line one from the left, line two from the right at +120ms.",
-        "section": "components"
-      },
-      {
-        "name": "The Contained Motion Rule",
-        "body": "Because reveals start translated ±40px off their final position, any container holding them must clip horizontally (overflow-x: clip on main). A reveal that widens the document is a bug, not a flourish.",
-        "section": "components"
-      },
-      {
-        "name": "The Reduced-Motion Rule",
-        "body": "Under prefers-reduced-motion: reduce every animation is cancelled, all transitions collapse to 1ms, reveals resolve instantly at full opacity, and the custom cursor is not mounted at all. This is not a degraded experience; it is a supported one.",
-        "section": "components"
+        "name": "The Start Year Rule",
+        "body": "A plate shows the year an entry began, written in full (2021). Nothing is numbered 01, 02, 03.",
+        "section": "shapes"
       }
     ],
     "dos": [
-      "Do separate everything with the hairline (rgba(255,255,255,.14)) and let it carry all structure.",
-      "Do set every heading extended, heavy and uppercase (font-stretch: 118%, font-weight: 800).",
-      "Do keep radius at 0, except controls at 999px.",
-      "Do ration Livery Red. Under 5% of any viewport, and never as a text background beyond a button label.",
-      "Do write copy in sentence case in data/content.ts and uppercase it in CSS, so Japanese is unaffected.",
-      "Do give every new string both an en and a ja value. A one-locale string is unfinished.",
-      "Do clip horizontally around anything that reveals from off-axis.",
-      "Do honour prefers-reduced-motion in the same commit that adds motion, not in a later pass.",
-      "Do use Livery Red as a marker rather than as body or message text — at 3.94:1 it clears the 3:1 non-text bar but not the 4.5:1 text bar."
+      "Do keep asphalt as the ground everywhere, with the edge lines unbroken.",
+      "Do put anything to be read on a white board.",
+      "Do keep Work and Projects side by side from 980px.",
+      "Do use blue only for Work, vermilion only for Projects and purple only for contact.",
+      "Do give every sign its white inset border and both scripts.",
+      "Do write plain, professional copy that names things for what they are.",
+      "Do write every string in both `en` and `ja` in `data/content.ts`.",
+      "Do honour `prefers-reduced-motion`: paint is simply there."
     ],
     "donts": [
-      "Don't add a box-shadow, glow, or glassmorphic panel. The system has zero shadows and that is load-bearing.",
-      "Don't introduce a second accent hue, a gradient on text, or a colour-shifting border. One red, flat.",
-      "Don't use an intermediate corner radius. 4px, 8px and 12px do not exist here.",
-      "Don't reach for Inter, Roboto, or a terminal-green monospace theme. This is not a dark-mode developer-portfolio page — no typing animations, no </> motifs, no contribution graphs.",
-      "Don't centre everything on a soft grey card with a drop shadow. Corporate template minimalism is an explicit anti-reference.",
-      "Don't animate for its own sake. No parallax garnish, no bouncing easing, no motion that isn't a state reporting itself.",
-      "Don't invent a fifth text opacity to solve a hierarchy problem. Use the four, or use scale.",
-      "Don't desaturate feature photography. Grayscale unifies the screenshot grid; it is not the house style.",
-      "Don't set error or status copy in red. The dot is red; the words are white."
+      "Don't write road puns, slogans or themed labels (no \"toll gate\", \"exit\", \"drive safely\", \"expressway\" names).",
+      "Don't add playful gadgets that exist for the theme: trip meters, receipts, lifting barriers.",
+      "Don't add a shadow, a blur or a gradient used as colour.",
+      "Don't set body text directly on asphalt or run paragraphs on a green sign.",
+      "Don't use road lettering for anything but the name and the lane names.",
+      "Don't stack the two lanes on a wide screen, or bring back a centred name with coloured bands under it.",
+      "Don't present machine-learning or computer-vision work as a headline; the thesis is one brief project entry without figures.",
+      "Don't put text on Caution Yellow."
     ]
   }
 }

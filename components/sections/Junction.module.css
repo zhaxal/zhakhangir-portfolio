@@ -1,0 +1,264 @@
+.junction {
+  --median: 56px;
+  /* Diagonal zebra hatching: paint that says "keep off". */
+  --zebra: repeating-linear-gradient(
+    135deg,
+    transparent 0 12px,
+    #fff 12px 18px
+  );
+}
+
+.road {
+  display: grid;
+  gap: 0;
+}
+
+.work {
+  --tone: var(--e1);
+}
+
+.projects {
+  --tone: var(--e2);
+}
+
+/* ---- The lane gantry: stays overhead between the two lanes ---------- */
+
+.gantry {
+  position: sticky;
+  top: var(--bar);
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding-block: 8px;
+  /* The steel beam the signs hang from. */
+  border-top: 5px solid var(--steel);
+  background: var(--asphalt);
+}
+
+.laneSign {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 6px 12px 6px 10px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  background: var(--sign);
+  color: #fff;
+  font-weight: 800;
+  line-height: 1.1;
+  text-decoration: none;
+  transition: background-color 160ms ease-out;
+}
+
+/* A patch of the lane's own paint colour. */
+.swatch {
+  flex: none;
+  width: 12px;
+  height: 24px;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  background: var(--tone);
+}
+
+.laneSign svg {
+  margin-left: auto;
+  transition: transform 320ms var(--ease);
+}
+
+.laneSign:hover {
+  background: var(--tone);
+}
+
+.laneSign:hover svg {
+  transform: translateX(4px);
+}
+
+/* ---- A lane -------------------------------------------------------------- */
+
+.lane {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: clamp(36px, 5vw, 52px);
+  padding-block: 18px clamp(48px, 6vw, 72px);
+  /* Clear the gantry on an anchor jump. */
+  scroll-margin-top: 68px;
+  /* Its lane line: dashed white paint, seen between the boards. */
+  background: repeating-linear-gradient(
+      to bottom,
+      #fff 0 34px,
+      transparent 34px 68px
+    )
+    50% 0 / 4px 100% no-repeat;
+}
+
+/* Coloured pavement at the start of a lane, with its name painted on it. */
+.pavement {
+  padding: 26px clamp(18px, 3vw, 28px) 26px;
+  background: var(--tone);
+  color: #fff;
+}
+
+.lanePaint {
+  font-size: clamp(4.5rem, 15vw, 7rem);
+}
+
+html:lang(ja) .lanePaint {
+  font-size: clamp(3.25rem, 12vw, 5rem);
+}
+
+.laneOther {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.laneLead {
+  max-width: 34ch;
+  margin-top: 14px;
+  font-size: var(--fs-lead);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* ---- The event sites ------------------------------------------------------ */
+
+.note {
+  color: var(--fg-2);
+  font-size: var(--fs-small);
+  font-weight: 500;
+}
+
+.billboards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 12px;
+  margin-top: 16px;
+}
+
+.billboard {
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.shot {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  margin-bottom: 6px;
+  border: 2px solid var(--ink);
+  border-radius: var(--r-sign);
+  background: var(--board-shade);
+}
+
+.shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 520ms var(--ease);
+}
+
+.siteName {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.years {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--fg-2);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.billboard:hover .shot {
+  border-color: var(--e1);
+}
+
+.billboard:hover .shot img {
+  transform: scale(1.05);
+}
+
+.billboard:hover .siteName {
+  text-decoration: underline;
+}
+
+.gore,
+.median,
+.merge {
+  display: none;
+}
+
+/* ---- Wide: the two lanes side by side ------------------------------------ */
+
+@media (min-width: 980px) {
+  .road {
+    grid-template-columns: minmax(0, 1fr) var(--median) minmax(0, 1fr);
+  }
+
+  /* The gore: the hatched nose where the road splits. */
+  .gore {
+    display: block;
+    grid-column: 2;
+    height: 150px;
+    background: var(--zebra);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+
+  .gantry {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1fr) var(--median) minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .laneSign.projects {
+    grid-column: 3;
+  }
+
+  /* The median: hatching between two solid lines. */
+  .median {
+    display: block;
+    grid-column: 2;
+    grid-row: 3;
+    background: linear-gradient(#fff, #fff) 0 0 / 3px 100% no-repeat,
+      linear-gradient(#fff, #fff) 100% 0 / 3px 100% no-repeat, var(--zebra);
+  }
+
+  .lane {
+    grid-row: 3;
+  }
+
+  .lane.work {
+    grid-column: 1;
+    padding-right: 20px;
+  }
+
+  .lane.projects {
+    grid-column: 3;
+    padding-left: 20px;
+  }
+
+  /* Where the two lanes come back together. */
+  .merge {
+    display: block;
+    grid-column: 2;
+    height: 150px;
+    background: var(--zebra);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+  }
+
+  .lanePaint {
+    font-size: clamp(4.5rem, 8vw, 7rem);
+  }
+
+  html:lang(ja) .lanePaint {
+    font-size: clamp(3.25rem, 5.6vw, 5rem);
+  }
+}

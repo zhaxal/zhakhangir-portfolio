@@ -10,18 +10,16 @@ export default function Document() {
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* Archivo carries the extended display type; Space Grotesk the
-            technical numerals; Noto Sans JP the Japanese locale. */}
+        {/* Barlow is the road-sign grotesk and Barlow Condensed the road
+            lettering; Zen Kaku Gothic New the square gothic of expressway
+            signs; DotGothic16 the LED availability board. */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Space+Grotesk:wght@300..700&family=Noto+Sans+JP:wght@400;700;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=DotGothic16&display=swap"
           rel="stylesheet"
         />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
       </Head>
       <body>
-        <noscript>
-          {/* Reveals are JS-driven; without it, show everything. */}
-          <style>{`[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}`}</style>
-        </noscript>
         <Main />
         <NextScript />
       </body>

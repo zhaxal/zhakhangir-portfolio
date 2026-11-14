@@ -40,3 +40,6 @@ secret/firebaseConfig.ts
 .impeccable/live/sessions/
 .firebaserc
 firebase-debug.log
+
+# impeccable review captures (local evidence, regenerated per review)
+.impeccable/review/

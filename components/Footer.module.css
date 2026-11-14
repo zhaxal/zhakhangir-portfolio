@@ -1,129 +1,71 @@
 .footer {
-  padding: 0 var(--gutter-page);
-  border-top: 1px solid var(--border-hairline);
+  border-top: 2px solid var(--asphalt-line);
+  background: var(--asphalt-deep);
+  color: #fff;
 }
 
-.mailto {
-  text-align: center;
-  padding: 64px 0 80px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-}
-
-/* The fallback conversion route for anyone who distrusts a form, is offline, or
-   hit the send timeout — so it is full white at rest, not the body tier. The
-   lower clamp floor keeps the address on one line at 375px instead of orphaning
-   ".COM"; `anywhere` only engages if a viewport is narrower still. */
-.mailto a {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-stretch: var(--display-stretch);
-  font-size: clamp(16px, 5.2vw, 52px);
-  text-transform: uppercase;
-  color: var(--white);
-  /* break-word, not anywhere: `anywhere` also shrinks the intrinsic min-content
-     width, which in this flex column makes the address wrap even when it fits.
-     This only engages if a viewport is too narrow for the clamped size. */
-  overflow-wrap: break-word;
-  line-height: 1.1;
-}
-
-.cols {
+.inner {
   display: grid;
-  /* Two columns since the social list moved out: page links, then meta. */
-  grid-template-columns: 1fr 1.4fr;
-  gap: 48px;
-  padding-bottom: 48px;
+  gap: 22px;
+  padding-block: 36px max(40px, env(safe-area-inset-bottom));
 }
 
-.list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.id {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-  font-family: var(--font-display);
+  align-items: center;
+  gap: 14px;
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.alt {
+  color: var(--asphalt-tint);
+  font-size: var(--fs-small);
+  font-weight: 500;
+}
+
+.top {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 8px;
+  min-height: 44px;
   font-weight: 700;
-  font-stretch: 104%;
-  font-size: 16px;
-  text-transform: uppercase;
 }
 
-.list a {
-  display: inline-block;
-  padding: 4px 0;
-}
-
-.meta {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.location {
-  margin: 0;
-  max-width: 32ch;
-  font-size: 12px;
-  color: var(--text-secondary);
-}
-
-.url {
-  font-family: var(--font-mono);
-  /* 13px is the documented mono size; this was the one place it drifted. */
-  font-size: 13px;
-  color: var(--text-muted);
+.top:hover {
+  color: var(--caution);
 }
 
 .legal {
-  border-top: 1px solid var(--border-hairline);
-  padding: 24px 0;
   display: flex;
-  justify-content: space-between;
-  gap: 24px;
   flex-wrap: wrap;
-  font-size: 12px;
-  color: var(--text-secondary);
+  gap: 4px 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--asphalt-line);
+  color: var(--asphalt-tint);
+  font-size: var(--fs-small);
 }
 
-.legal .mark {
-  color: var(--red-500);
+.legal a:hover {
+  color: var(--caution);
 }
 
-.strip {
-  /* the strip closes the page, so it absorbs the home-indicator inset itself */
-  height: calc(36px + env(safe-area-inset-bottom));
-  background: var(--red-600);
-  margin: 0 calc(var(--gutter-page) * -1);
-}
-
-@media (max-width: 900px) {
-  .footer {
-    padding: 0 var(--gutter-page-sm);
+@media (min-width: 800px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
   }
 
-  .mailto {
-    padding: 48px 0 52px;
+  .top {
+    justify-self: end;
   }
 
-  .cols {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-
-  .meta {
+  .legal {
     grid-column: 1 / -1;
-  }
-
-  .strip {
-    margin: 0 calc(var(--gutter-page-sm) * -1);
-  }
-}
-
-@media (max-width: 560px) {
-  .cols {
-    grid-template-columns: 1fr;
   }
 }

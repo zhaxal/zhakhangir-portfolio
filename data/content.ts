@@ -2,14 +2,20 @@ import { Lang } from "@/contexts/language-context";
 
 export type Localized = Record<Lang, string>;
 
+/** The two lanes that run side by side down the page. */
+export type LaneId = "work" | "projects";
+
 /** Strings that are identical in both locales (proper nouns, journal names). */
 const both = (value: string): Localized => ({ en: value, ja: value });
 
 export const site = {
-  name: "Zhakhangir Anuarbek",
-  /* Localised so the header matches the hero: the JA locale renders the name in
-     katakana, and showing two different renderings at once reads as two people. */
-  wordmark: { en: "Zhakhangir", ja: "ジャハンギル" } as Localized,
+  name: { en: "Zhakhangir Anuarbek", ja: "ジャハンギル・アヌアルベク" } as Localized,
+  /* The name is painted on two lines. */
+  nameLines: {
+    en: ["Zhakhangir", "Anuarbek"],
+    ja: ["ジャハンギル", "アヌアルベク"],
+  } as Record<Lang, [string, string]>,
+  role: { en: "Full-stack engineer", ja: "フルスタックエンジニア" } as Localized,
   email: "anuarbek.z.b@gmail.com",
   url: "https://portfolio.zhakhangir.site",
   urlLabel: "portfolio.zhakhangir.site",
@@ -21,394 +27,382 @@ export const socials = [
   { label: "Instagram", href: "https://www.instagram.com/zhaxal/" },
 ];
 
+/*
+ * Copy rule for this file: plain and professional. The road theme is carried
+ * by the visuals; the words say what things are (Work, Projects, Contact).
+ */
+
+export const lanes: Record<LaneId, { name: Localized; lead: Localized }> = {
+  work: {
+    name: { en: "Work", ja: "職歴" },
+    lead: {
+      en: "Web products owned end to end, from requirements to live support on event day.",
+      ja: "要件定義からイベント当日のサポートまで、Webプロダクトを一貫して担当。",
+    },
+  },
+  projects: {
+    name: { en: "Projects", ja: "プロジェクト" },
+    lead: {
+      en: "Event sites built for ANO Mossport, and my master's thesis project.",
+      ja: "ANO Mossport向けに開発したイベントサイトと、修士研究のプロジェクト。",
+    },
+  },
+};
+
+/**
+ * The sections of the page, in order. Ids are the in-page anchors. On wide
+ * screens Work and Projects start at the same point, side by side.
+ */
+export const stops: { id: string; name: Localized }[] = [
+  { id: "work", name: lanes.work.name },
+  { id: "projects", name: lanes.projects.name },
+  { id: "record", name: { en: "Education", ja: "学歴" } },
+  { id: "contact", name: { en: "Contact", ja: "連絡先" } },
+];
+
 export const nav = {
-  work: { en: "Projects", ja: "プロジェクト" },
-  experience: { en: "Experience", ja: "経歴" },
-  contact: { en: "Contact", ja: "連絡先" },
-  cta: { en: "Contact", ja: "連絡する" },
+  sections: { en: "Sections", ja: "セクション" },
+  lanes: { en: "Work and projects", ja: "職歴とプロジェクト" },
+  next: { en: "Next", ja: "次は" },
+  contact: { en: "Contact", ja: "連絡する" },
+  menu: { en: "Menu", ja: "メニュー" },
+  close: { en: "Close", ja: "閉じる" },
+  language: { en: "Language", ja: "言語" },
+  top: { en: "Back to top", ja: "トップへ戻る" },
 };
 
 export const hero = {
-  eyebrow: { en: "° Niigata, Japan", ja: "° 新潟、日本" },
   intro: {
-    en: "Full-stack engineer. Ships production web platforms and computer vision on self-assembled hardware.",
-    ja: "フルスタックエンジニア。本番運用のWebプラットフォームと、自ら組み立てたハードウェア上のコンピュータビジョン、両方を手がけます。",
+    en: "I build and run production web applications end to end: front end, back end, database and deployment.",
+    ja: "フロントエンド、バックエンド、データベース、デプロイまで、本番運用のWebアプリケーションを一貫して開発・運用しています。",
   },
-  capabilities: [
-    { en: "Web Development", ja: "Web開発" },
-    { en: "Computer Vision & Hardware", ja: "コンピュータビジョンとハードウェア" },
-  ] as Localized[],
-  line1: { en: "Zhakhangir", ja: "ジャハンギル" },
-  line2: { en: "Anuarbek", ja: "アヌアルベク" },
-  stat: {
-    en: "Portfolio · 2019 — 2026",
-    ja: "ポートフォリオ · 2019 — 2026",
+  /* The LED board: what I am open to. */
+  notice: {
+    title: { en: "Availability", ja: "対応状況" },
+    rows: [
+      {
+        type: { en: "Hire", ja: "採用" },
+        text: { en: "Engineering roles in Japan", ja: "日本でのエンジニア職" },
+        status: { en: "Open", ja: "受付中" },
+      },
+      {
+        type: { en: "Freelance", ja: "業務委託" },
+        text: { en: "Project work", ja: "プロジェクトのご相談" },
+        status: { en: "Open", ja: "受付中" },
+      },
+    ],
   },
-  /* The ↑↗↓ glyphs are decorative and live in the components, wrapped in
-     aria-hidden — a screen reader announcing "north east arrow" 25 times is
-     noise, and the link text already says where it goes. */
-  scroll: { en: "Scroll", ja: "スクロール" },
+  contact: { en: "Contact", ja: "連絡先" },
 };
 
-export interface WorkCard {
-  name: string;
-  year: string;
+export interface Fact {
+  label: Localized;
+  value: Localized;
+}
+
+export interface SiteCard {
+  name: Localized;
+  years: string;
   href: string;
   image: string;
 }
 
-export interface ProjectPlate {
-  chip: Localized;
-  year: string;
-  image: string;
-  /**
-   * `object-position` for the 16:8 plate. Both device photos are portrait, so a
-   * centred cover crop lands on hands and background rather than the hardware —
-   * the focal point names the band worth showing. Defaults to `50% 50%`.
-   */
-  focus?: string;
-  title: Localized;
-  href?: string;
-  /**
-   * Shown as a small link beneath the title when `href` doesn't lead to a
-   * normal webpage (e.g. it opens a raw video file) — the generic ↗ on the
-   * title alone doesn't say what kind of destination this is.
-   */
-  linkLabel?: Localized;
-  description: Localized;
-  tags: string[];
-  reveal: "left" | "right";
-}
-
+/** The Work lane: roles, from the CV. */
 export const work = {
-  label: { en: "Selected work", ja: "主な実績" },
-  title: { en: "Projects", ja: "プロジェクト" },
-  moscowSport: {
-    title: {
-      en: "Moscow Sport — event platforms",
-      ja: "モスクワ・スポーツ — イベント基盤",
+  mossport: {
+    id: "mossport",
+    year: "2021",
+    name: both("ANO Mossport"),
+    meta: {
+      en: "Full-stack engineer, contract · Moscow, remote · Aug 2021 – Jun 2026",
+      ja: "フルスタックエンジニア（業務委託）· モスクワ（リモート）· 2021年8月 – 2026年6月",
     },
-    description: {
-      en: "Event websites I built across the years",
-      ja: "長年にわたって制作したイベントサイト",
+    lead: {
+      en: "Built and ran event websites where 5,000+ people registered, tracked points and won prizes, owning the React and TypeScript front end, the Node.js back end, the PostgreSQL database and deployment.",
+      ja: "5,000人以上が登録し、ポイントを貯め、賞品を獲得したイベントサイトを構築・運用。React／TypeScriptのフロントエンド、Node.jsのバックエンド、PostgreSQLのデータベース、デプロイまでを担当。",
     },
-    /* The grid is bounded to one screenful; the toggle carries the total so
-       collapsing it never costs the volume evidence. {n} = cards.length. */
-    showAll: { en: "See all {n}", ja: "{n}件すべて表示" },
-    showFewer: { en: "Show fewer", ja: "表示を減らす" },
+    facts: [
+      {
+        label: { en: "Event applications shipped", ja: "開発したイベントアプリ" },
+        value: { en: "10+", ja: "10件以上" },
+      },
+      {
+        label: { en: "People registered", ja: "登録者数" },
+        value: { en: "5,000+", ja: "5,000人以上" },
+      },
+      {
+        label: { en: "Largest events", ja: "最大規模のイベント" },
+        value: { en: "Up to 1,000 attendees", ja: "参加者最大1,000人" },
+      },
+      {
+        label: { en: "Team", ja: "チーム" },
+        value: { en: "Solo, then 2 engineers", ja: "1人から2人体制へ" },
+      },
+    ] as Fact[],
+    stops: [
+      {
+        en: "Developed 10+ event web applications with Next.js, TypeScript and Node.js REST APIs, with end-to-end ownership from requirements to live support for events of up to 1,000 attendees.",
+        ja: "Next.js、TypeScript、Node.jsのREST APIで10件以上のイベントWebアプリを開発。要件定義から、最大1,000人が参加するイベント当日のサポートまで一貫して担当。",
+      },
+      {
+        en: "Migrated the data layer from Firebase/Firestore (NoSQL) on Google Cloud to PostgreSQL with Kysely, which removed the data inconsistencies of the document model.",
+        ja: "データ層をGoogle Cloud上のFirebase／Firestore（NoSQL）から、Kyselyを用いたPostgreSQLへ移行。ドキュメントモデルに起因するデータ不整合を解消。",
+      },
+      {
+        en: "Set up CI/CD with Docker Compose and Coolify on Linux servers, so linting, type checks, builds and SQL migrations ran before every deploy.",
+        ja: "LinuxサーバーにDocker ComposeとCoolifyでCI/CDを構築。デプロイのたびにリント、型チェック、ビルド、SQLマイグレーションを実行。",
+      },
+      {
+        en: "Grew the work from a solo role to a 2-person team and mentored 1 developer through Git code review.",
+        ja: "1人で始めた業務を2人チームへ拡大し、Gitでのコードレビューを通じて開発者1名を指導。",
+      },
+    ] as Localized[],
+    proof: { en: "See nine of the sites", ja: "サイト9件を見る" },
+  },
+  apartx: {
+    id: "apartx",
+    year: "2023",
+    name: both("ApartX"),
+    href: "https://apartx.co",
+    hrefLabel: both("apartx.co"),
+    meta: {
+      en: "Full-stack engineer · Kazakhstan · Jun 2023 – Apr 2024",
+      ja: "フルスタックエンジニア · カザフスタン · 2023年6月 – 2024年4月",
+    },
+    lead: {
+      en: "Web and mobile features for a short-term rental platform, in a 2-engineer team.",
+      ja: "2人のエンジニアチームで、短期賃貸プラットフォームのWeb・モバイル機能を担当。",
+    },
+    stops: [
+      {
+        en: "Maintained web and mobile features with React, Apollo GraphQL, MongoDB, Redis, Meteor.js and Cordova, including fixes for unreliable native functionality.",
+        ja: "React、Apollo GraphQL、MongoDB、Redis、Meteor.js、CordovaでWeb・モバイル機能を保守。不安定だったネイティブ機能の修正も担当。",
+      },
+      {
+        en: "Integrated the biometric.vision external API to verify users with a selfie and a government ID.",
+        ja: "外部APIのbiometric.visionを連携し、自撮り写真と公的身分証による本人確認を実装。",
+      },
+      {
+        en: "Integrated Channex webhooks as the source of truth for Airbnb and Booking.com availability, which ended double bookings.",
+        ja: "ChannexのWebhookをAirbnb・Booking.comの空室状況の基準とする連携を実装し、ダブルブッキングを解消。",
+      },
+      {
+        en: "Built MongoDB aggregation pipelines for dashboard reporting and added soft deletion with a data migration, which preserved records that hard deletes had destroyed.",
+        ja: "ダッシュボード集計用のMongoDBアグリゲーションパイプラインを構築。データ移行を伴う論理削除を導入し、物理削除では失われていた記録を保持。",
+      },
+    ] as Localized[],
+  },
+};
+
+/** The Projects lane: work that can be opened, then the thesis in brief. */
+export const projects = {
+  sites: {
+    id: "sites",
+    year: "2021",
+    name: {
+      en: "Event sites for ANO Mossport",
+      ja: "ANO Mossport向けイベントサイト",
+    },
+    meta: {
+      en: "Nine of the 10+ applications · 2021 – 2026",
+      ja: "10件以上のうち9件 · 2021 – 2026",
+    },
+    note: {
+      en: "Each one opens the public site.",
+      ja: "各カードから公開サイトを開けます。",
+    },
     cards: [
       {
-        name: "Labyrinth Orienteering",
-        year: "//2022–25",
-        href: "https://rogaine.mosgorsport.ru",
-        image: "/projects/rogaine.png",
-      },
-      {
-        name: "Ski Track of Russia",
-        year: "//2022–26",
-        href: "https://ski.sport.mos.ru",
-        image: "/projects/ski.jpg",
-      },
-      {
-        name: '"On Your Marks!" Run',
-        year: "//2023–26",
+        name: { en: '"On Your Marks!" Run', ja: "「位置について！」ランニング大会" },
+        years: "2023–26",
         href: "https://running.mosgorsport.ru",
         image: "/projects/zabeg.jpg",
       },
       {
-        name: "Pole Vault Festival",
-        year: "//2023–25",
-        href: "https://pryzki.sport.mos.ru",
-        image: "/projects/pryzki.jpg",
+        name: { en: "Ski Track of Russia", ja: "ロシア・スキートラック" },
+        years: "2022–26",
+        href: "https://ski.sport.mos.ru",
+        image: "/projects/ski.jpg",
       },
       {
-        name: "Ice of Our Hope",
-        year: "//2023–25",
-        href: "https://led.sport.mos.ru",
-        image: "/projects/led.png",
+        name: { en: "Labyrinth Orienteering", ja: "ラビリンス・オリエンテーリング" },
+        years: "2022–25",
+        href: "https://rogaine.mosgorsport.ru",
+        image: "/projects/rogaine.png",
       },
       {
-        name: "Moscow Interesting",
-        year: "//2025",
-        href: "https://interesnaya.sport.mos.ru",
-        image: "/projects/interesnaya.jpg",
-      },
-      {
-        name: "Nation's Cross",
-        year: "//2025",
+        name: { en: "Nation's Cross", ja: "クロス・ネーション" },
+        years: "2025",
         href: "https://cross.sport.mos.ru",
         image: "/projects/cross.jpg",
       },
       {
-        name: "Technical Sports Festival",
-        year: "//2025",
+        name: { en: "Moscow Interesting", ja: "「面白いモスクワ」街歩きクエスト" },
+        years: "2025",
+        href: "https://interesnaya.sport.mos.ru",
+        image: "/projects/interesnaya.jpg",
+      },
+      {
+        name: { en: "Technical Sports Festival", ja: "テクニカルスポーツ・フェスティバル" },
+        years: "2025",
         href: "https://tech-fest.sport.mos.ru",
         image: "/projects/techfest.jpg",
       },
       {
-        name: "GTO Point at VDNH",
-        year: "//2021",
+        name: { en: "Ice of Our Hope", ja: "「私たちの希望の氷」スケート大会" },
+        years: "2023–25",
+        href: "https://led.sport.mos.ru",
+        image: "/projects/led.png",
+      },
+      {
+        name: { en: "Pole Vault Festival", ja: "棒高跳びフェスティバル" },
+        years: "2023–25",
+        href: "https://pryzki.sport.mos.ru",
+        image: "/projects/pryzki.jpg",
+      },
+      {
+        name: { en: "GTO Point at VDNH", ja: "VDNH「GTOポイント」" },
+        years: "2021",
         href: "https://gtopoint.moscow.sport",
         image: "/projects/gto.jpg",
       },
-    ] as WorkCard[],
+    ] as SiteCard[],
   },
-  plates: [
-    {
-      chip: { en: "Computer Vision", ja: "コンピュータビジョン" },
-      year: "//2026",
-      image: "/projects/greenhouse-device.jpg",
-      // Lifts the band onto the tablet and its on-screen greenhouse view.
-      focus: "50% 35%",
-      title: {
-        en: "Tomato-harvesting robot vision",
-        ja: "トマト収穫ロボットの視覚システム",
-      },
-      href: "/projects/thesis/demo.mp4",
-      linkLabel: {
-        en: "Watch the 10s demo",
-        ja: "10秒のデモを見る",
-      },
-      description: {
-        en: "Master’s thesis: 2.4 cm depth error, 12–15 FPS ripeness detection, on a $410 OAK-D Lite + Pi 4 stack — validated in a live greenhouse trial.",
-        ja: "修士研究。ステレオ深度誤差2.4cm、熟度判定12〜15FPSを、$410のOAK-D Lite + Pi 4構成で実現。温室での実証実験で検証済み。",
-      },
-      tags: ["Python", "YOLOv8n", "OpenCV", "OAK-D Lite + Pi 4"],
-      reveal: "left",
+  thesis: {
+    id: "thesis",
+    year: "2024",
+    name: {
+      en: "Tomato-harvesting robot vision system",
+      ja: "トマト収穫ロボットの視覚システム",
     },
-    {
-      chip: { en: "Edge AI", ja: "エッジAI" },
-      year: "//2026",
-      image: "/projects/looq-camera.jpg",
-      // Drops the band onto the camera body so the LOOQ wordmark reads.
-      focus: "50% 70%",
-      title: {
-        en: "Looq — portable smart camera",
-        ja: "Looq — ポータブル・スマートカメラ",
-      },
-      href: "https://looq.jp",
-      description: {
-        en: "A battery-powered camera measuring visitor attention on-device, with its own hotspot and web UI.",
-        ja: "バッテリー駆動のカメラが来訪者の注目度をオンデバイスで計測。自前のホットスポットとWeb UIを備えます。",
-      },
-      tags: ["Python", "Hailo NPU", "Raspberry Pi", "Next.js"],
-      reveal: "right",
+    meta: {
+      en: "Master's thesis · Niigata University and Hitachi",
+      ja: "修士論文 · 新潟大学 × Hitachi",
     },
-  ] as ProjectPlate[],
+    lead: {
+      en: "Built the vision system that finds ripe tomatoes and measures their distance for a harvesting robot, as the sole developer in joint research with Hitachi.",
+      ja: "Hitachiとの共同研究で、収穫ロボットが熟したトマトを見つけ、その距離を測るための視覚システムを単独で開発。",
+    },
+  },
 };
 
-export interface CapabilityRow {
-  label: Localized;
-  body: Localized;
-  chips: string[];
-}
-
-export const capabilities = {
-  label: { en: "Capabilities", ja: "できること" },
-  title: [
-    { en: "Skills &", ja: "スキルと" },
-    { en: "Tools", ja: "ツール" },
-  ] as Localized[],
-  rows: [
-    {
-      label: { en: "Web Development", ja: "Web開発" },
-      body: {
-        en: "Building and running web apps end to end — the interface, the API, the database and the server it sits on.",
-        ja: "インターフェースからAPI、データベース、稼働するサーバーまで、Webアプリを一貫して構築・運用します。",
-      },
-      chips: [
-        "Next.js / React",
-        "PostgreSQL / MongoDB",
-        "Go / Node",
-        "Docker / Nginx",
-      ],
-    },
-    {
-      label: {
-        en: "Computer Vision & Hardware",
-        ja: "コンピュータビジョンとハードウェア",
-      },
-      body: {
-        en: "Getting vision models to run on small devices, and wiring up the cameras and sensors they read from.",
-        ja: "小型デバイス上で視覚モデルを動かし、そこに繋がるカメラやセンサーを組み込みます。",
-      },
-      chips: [
-        "YOLO / OpenCV",
-        "Stereo depth",
-        "Edge NPUs",
-        "Raspberry Pi",
-        "Sensors",
-      ],
-    },
-  ] as CapabilityRow[],
-};
-
-export interface ExperienceRow {
-  period: Localized;
-  company: string;
-  href: string;
-  role: Localized;
-  body: Localized;
-}
-
-export interface EducationCell {
+export interface School {
   name: Localized;
   href: string;
-  subtitle: Localized;
+  degree: Localized;
+  period: string;
+  status: Localized;
 }
 
-export const experience = {
-  label: { en: "Experience", ja: "経歴" },
-  title: [
-    { en: "Where I've", ja: "これまでの" },
-    { en: "Worked", ja: "仕事" },
-  ] as Localized[],
-  rows: [
-    {
-      period: { en: "2026", ja: "2026年" },
-      company: "Looq · Japan",
-      href: "https://looq.jp",
-      role: {
-        en: "Hardware / Software Engineering Intern",
-        ja: "ハードウェア／ソフトウェアエンジニア インターン",
-      },
-      body: {
-        en: "Built a portable smart camera running on-device vision models to measure visitor attention.",
-        ja: "オンデバイスの視覚モデルで来訪者の注目度を計測するポータブル・スマートカメラを開発。",
-      },
-    },
-    {
-      period: { en: "2021 — 2026", ja: "2021年 — 2026年" },
-      company: "Moscow Sport · Russia",
-      href: "https://mosgorsport.ru",
-      role: {
-        en: "Fullstack Engineer, freelance",
-        ja: "フルスタックエンジニア（フリーランス）",
-      },
-      body: {
-        en: "10+ event web apps from scratch for 5,000+ users, owning backend, frontend and deployment.",
-        ja: "5,000人以上が利用するイベントWebアプリを10件以上ゼロから開発し、バックエンドからデプロイまで担当。",
-      },
-    },
-    {
-      period: { en: "2023 — 2024", ja: "2023年 — 2024年" },
-      company: "ApartX · Kazakhstan",
-      href: "https://apartx.co",
-      role: { en: "Fullstack Engineer", ja: "フルスタックエンジニア" },
-      body: {
-        en: "Biometric tenant verification across signup, booking and check-in, and calendar sync with Airbnb and Booking.com.",
-        ja: "登録・予約・チェックインでの生体認証によるテナント確認と、AirbnbおよびBooking.comのカレンダー同期を実装。",
-      },
-    },
-    {
-      period: { en: "2021 — 2023", ja: "2021年 — 2023年" },
-      company: "D. Serikbayev EKTU · Kazakhstan",
-      href: "https://www.ektu.kz",
-      role: { en: "R&D Engineer", ja: "R&Dエンジニア" },
-      body: {
-        en: "Led a GPS fleet-management system and satellite remote-sensing work for farmers.",
-        ja: "GPSによる車両管理システムを主導し、農家向けの衛星リモートセンシングにも従事。",
-      },
-    },
-  ] as ExperienceRow[],
-  educationLabel: { en: "Education", ja: "学歴" },
+export interface Paper {
+  year: string;
+  title: Localized;
+  venue: Localized;
+  href: string;
+}
+
+export const record = {
+  title: { en: "Education, papers and tools", ja: "学歴・論文・技術" },
+  educationTitle: { en: "Education", ja: "学歴" },
   education: [
     {
       name: { en: "Niigata University", ja: "新潟大学" },
       href: "https://www.niigata-u.ac.jp",
-      subtitle: {
-        en: "Master’s, Science and Technology · 2024–2026",
-        ja: "修士 自然科学研究科 · 2024〜2026",
+      degree: {
+        en: "Master's degree, Graduate School of Science and Technology",
+        ja: "大学院自然科学研究科 修士号",
       },
+      period: "2024 – 2026",
+      status: { en: "Graduated", ja: "修了" },
     },
     {
-      name: both("Astana IT University"),
+      name: { en: "Astana IT University", ja: "アスタナIT大学" },
       href: "https://astanait.edu.kz/en/main-page/",
-      subtitle: {
-        en: "Bachelor’s, Software Engineering · 2019–2022",
-        ja: "学士 ソフトウェア工学 · 2019〜2022年",
+      degree: {
+        en: "Bachelor's degree in Software Engineering",
+        ja: "ソフトウェア工学 学士号",
       },
+      period: "2019 – 2022",
+      status: { en: "Graduated", ja: "卒業" },
     },
-  ] as EducationCell[],
-};
-
-export interface PublicationRow {
-  title: Localized;
-  description: Localized;
-  year: string;
-  /**
-   * DOI or event page. The row only performs the system's invert-on-hover
-   * gesture when this is set — a dramatic hover on something that goes nowhere
-   * is an affordance lie, and these are the page's least verifiable claims.
-   */
-  href?: string;
-}
-
-export const publications = {
-  label: { en: "Publications & Presentations", ja: "論文と発表" },
-  title: [
-    { en: "Papers &", ja: "論文と" },
-    { en: "Presentations", ja: "発表" },
-  ] as Localized[],
-  rows: [
+  ] as School[],
+  papersTitle: { en: "Papers and presentations", ja: "論文・発表" },
+  papers: [
     {
-      title: both("IVS 2026 Kyoto"),
-      description: both("Project presenter — looq.jp smart camera"),
-      year: "2026",
-      href: "https://www.ivs.events/en/",
-    },
-    {
-      title: both("Cost-Effectiveness of Remotely Sensed Data in Agriculture"),
-      description: both("Chemical Engineering Transactions, vol. 103"),
       year: "2023",
+      title: both("Cost-Effectiveness of Remotely Sensed Data in Agriculture"),
+      venue: both("Chemical Engineering Transactions, vol. 103"),
       href: "https://doi.org/10.3303/CET23103008",
     },
     {
-      title: both("Integrated Monitoring System for Growing Grain Crops"),
-      description: both("Chemical Engineering Transactions, vol. 103"),
       year: "2023",
+      title: both("Integrated Monitoring System for Growing Grain Crops"),
+      venue: both("Chemical Engineering Transactions, vol. 103"),
       href: "https://doi.org/10.3303/CET23103009",
     },
     {
-      title: both("XX CIGR World Congress"),
-      description: both("Poster presentation — Kyoto"),
       year: "2022",
+      title: both("XX CIGR World Congress"),
+      venue: { en: "Poster presentation, Kyoto", ja: "ポスター発表（京都）" },
       href: "https://cigr.org/node/720",
     },
-  ] as PublicationRow[],
+  ] as Paper[],
+  toolsTitle: { en: "Tools", ja: "使用技術" },
+  tools: [
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "REST APIs",
+    "PostgreSQL",
+    "Kysely",
+    "MongoDB",
+    "Redis",
+    "Apollo GraphQL",
+    "Meteor.js",
+    "Cordova",
+    "Firebase",
+    "Google Cloud",
+    "Docker Compose",
+    "Coolify",
+    "Linux",
+    "CI/CD",
+    "Git",
+  ],
 };
 
 export const contact = {
-  label: { en: "Contact", ja: "連絡先" },
-  title: [
-    { en: "Get in", ja: "ご連絡" },
-    { en: "Touch", ja: "ください" },
-  ] as Localized[],
-  /* Answers the question a recruiter otherwise has to guess at the one point
-     on the page where they decide whether to write. */
+  title: { en: "Contact", ja: "連絡先" },
   availability: {
     en: "Open to engineering roles in Japan and to freelance work.",
     ja: "日本でのエンジニア職、フリーランスのご相談を受け付けています。",
   },
-  emailLabel: { en: "Email", ja: "メールアドレス" },
+  emailTitle: { en: "Email", ja: "メール" },
+  formTitle: { en: "Message", ja: "メッセージ" },
+  profiles: { en: "Profiles", ja: "プロフィール" },
+  portraitAlt: {
+    en: "Zhakhangir Anuarbek standing in front of a large orange torii gate",
+    ja: "大きな朱色の鳥居の前に立つジャハンギル・アヌアルベク",
+  },
+  emailLabel: { en: "Your email", ja: "メールアドレス" },
   emailPlaceholder: both("you@company.com"),
   messageLabel: { en: "Message", ja: "メッセージ" },
   messagePlaceholder: {
-    en: "A line about the project",
-    ja: "プロジェクトについて一言",
+    en: "A line about the role or the project",
+    ja: "募集職種やプロジェクトについて一言",
   },
   send: { en: "Send message", ja: "送信する" },
   sending: { en: "Sending…", ja: "送信中…" },
   /* A stated window reassures where "soon" only defers the question. */
   sent: {
-    en: "Message sent — I’ll reply within a few days",
-    ja: "メッセージを送信しました。数日以内に返信します",
+    title: { en: "Message sent", ja: "送信しました" },
+    body: { en: "I'll reply within a few days.", ja: "数日以内に返信します。" },
+    again: { en: "Write another message", ja: "もう一通送る" },
   },
-  /* Names the failure and both recovery routes, and stays parallel with the
-     timeout message so the two read as one system rather than two voices. */
+  /* Names the failure and both recovery routes. */
   failed: {
-    en: "Couldn’t send — try again, or email me directly",
-    ja: "送信できませんでした。再度お試しいただくか、直接メールしてください",
+    en: "Couldn't send. Try again, or email me directly.",
+    ja: "送信できませんでした。再度お試しいただくか、直接メールしてください。",
   },
   emailInvalid: {
     en: "Enter a valid email address",
@@ -422,11 +416,11 @@ export const contact = {
     en: "Message is required",
     ja: "メッセージを入力してください",
   },
-  /* Shown only when the submit never settles — Firestore queues writes offline
+  /* Shown only when the submit never settles: Firestore queues writes offline
      rather than rejecting, so without a timeout the form would hang forever. */
   timedOut: {
-    en: "No response — check your connection, or email me directly",
-    ja: "応答がありません。接続を確認するか、直接メールしてください",
+    en: "No response. Check your connection, or email me directly.",
+    ja: "応答がありません。接続を確認するか、直接メールしてください。",
   },
   /* <noscript>: the form is client-side only, so say so rather than present a
      control that silently does nothing. */
@@ -438,9 +432,9 @@ export const contact = {
 
 export const a11y = {
   skipToContent: { en: "Skip to content", ja: "本文へスキップ" },
+  external: { en: "opens in a new tab", ja: "新しいタブで開きます" },
 };
 
 export const footer = {
-  location: { en: "Niigata, Japan", ja: "新潟、日本" },
-  legal: both("2026 Zhakhangir Anuarbek"),
+  legal: both("© 2026 Zhakhangir Anuarbek"),
 };

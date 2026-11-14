@@ -1,165 +1,282 @@
-.grid {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 64px;
+.gate {
+  position: relative;
+  padding-bottom: var(--section);
 }
 
-.left {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+/* ---- The sign ------------------------------------------------------------ */
+
+.head {
+  padding: 26px 28px;
 }
 
-/* Sits between the title and the social links, so the answer arrives before
-   the visitor starts choosing a channel. */
+.title {
+  font-size: var(--fs-h2);
+}
+
+.other {
+  margin-top: 4px;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
 .availability {
-  margin: 0;
-  max-width: 42ch;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--text-secondary);
+  max-width: 40ch;
+  margin-top: 12px;
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  line-height: 1.4;
 }
 
-.links {
+/* ---- The canopy -------------------------------------------------------- */
+
+.canopy {
+  position: relative;
+  z-index: 1;
+  height: 30px;
+  margin-block: var(--gap) 26px;
+  border-block: 4px solid var(--asphalt-deep);
+  /* Roof ribs. */
+  background: repeating-linear-gradient(
+    to right,
+    var(--steel) 0 46px,
+    var(--asphalt-line) 46px 50px
+  );
+}
+
+/* ---- Lanes ---------------------------------------------------------------- */
+
+.lanes {
+  display: grid;
+  gap: 44px;
+}
+
+.laneTitle {
+  margin-bottom: 14px;
+  font-size: 1.375rem;
+}
+
+/* ---- Email and profiles --------------------------------------------------- */
+
+.through {
+  display: grid;
+  grid-template-columns: clamp(96px, 26vw, 140px) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(16px, 4vw, 24px);
+  padding: clamp(18px, 3vw, 24px);
+}
+
+.portrait {
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--ink);
+  border-radius: var(--r-sign);
+}
+
+.mail {
+  display: inline-block;
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.mail:hover {
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+}
+
+.exitsLabel {
+  margin-top: 18px;
+  color: var(--fg-2);
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+/* Outside profiles: each one carries the exit arrow. */
+.exits {
   display: flex;
-  gap: 24px;
   flex-wrap: wrap;
+  gap: 8px;
   margin-top: 8px;
-  font-family: var(--font-ui);
-  font-size: 13px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+}
+
+.exits a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 14px 0 6px;
+  border: 2px solid var(--ink);
+  border-radius: var(--r-sign);
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 140ms ease-out, color 140ms ease-out;
+}
+
+.exitArrow {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  background: var(--sign);
+  color: #fff;
+}
+
+.exits a:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* ---- The message form ----------------------------------------------------- */
+
+.noScript {
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.booth {
+  scroll-margin-top: calc(var(--bar) + 16px);
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  align-items: flex-start;
+  display: grid;
+  gap: 18px;
+  padding: clamp(18px, 3vw, 28px);
 }
 
 .field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
+  display: grid;
+  gap: 6px;
 }
 
 .label {
-  font-family: var(--font-ui);
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  font-size: var(--fs-small);
+  font-weight: 700;
 }
 
 .input {
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--border-hairline);
-  border-radius: var(--radius-none);
-  color: var(--text-primary);
-  font-family: var(--font-ui);
-  font-size: 14px;
-  padding: 12px 0;
-  transition: var(--transition-control);
-  resize: vertical;
   width: 100%;
-}
-
-.input::placeholder {
-  color: var(--text-faint);
-}
-
-.input:focus {
-  border-bottom-color: var(--white);
-}
-
-.input:focus-visible {
-  outline: 2px solid var(--red-500);
-  outline-offset: 2px;
-}
-
-/* 16px stops iOS Safari zooming the page on focus; the extra padding brings the
-   field to a 44px target. Both are touch-only so the desktop scale is unchanged. */
-@media (pointer: coarse) {
-  .input {
-    font-size: 16px;
-    padding: 14px 0;
-  }
-}
-
-.input.invalid {
-  border-bottom-color: var(--red-500);
+  padding: 12px 14px;
+  border: 2px solid var(--ink);
+  border-radius: var(--r-sign);
+  background: #fff;
+  /* 16px keeps iOS from zooming the page on focus. */
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 textarea.input {
-  min-height: 96px;
+  min-height: 8.5rem;
+  resize: vertical;
 }
 
-/* Livery Red measures 3.94:1 on the page — fine as a marker (needs 3:1), but it
-   was carrying the words themselves. The dot keeps the brand signal; the text
-   moves to a tier that can actually be read. Same leading-dot idiom as the
-   pill buttons and the red "+" chips. */
-.fieldError,
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-ui);
-  font-size: 12px;
-  color: var(--text-primary);
-}
-
-.fieldError::before,
-.status::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: var(--radius-pill);
-  background: var(--red-500);
-  flex-shrink: 0;
-}
-
-.status {
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0;
-  transition: opacity var(--dur-base) var(--ease-standard);
-  min-height: 1em;
-}
-
-.status.visible {
+.input::placeholder {
+  color: var(--placeholder);
   opacity: 1;
 }
 
-/* Pending is not an alert, so it drops the red entirely. */
-.status.pending {
-  color: var(--text-secondary);
+.input:hover {
+  border-color: var(--e1);
 }
 
-.status.pending::before {
-  background: var(--text-secondary);
+.input:focus-visible {
+  border-color: var(--e1);
+  outline-offset: 2px;
 }
 
-.noScript {
-  margin: 0 0 24px;
-  padding: 16px 0;
-  border-top: 1px solid var(--border-hairline);
-  border-bottom: 1px solid var(--border-hairline);
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--text-secondary);
+.input[aria-invalid="true"] {
+  border-color: var(--stop);
 }
 
-.noScript a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.fieldError,
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-small);
+  font-weight: 700;
 }
 
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 44px;
+.fieldError,
+.status[data-state="error"],
+.status[data-state="timeout"] {
+  color: var(--stop);
+}
+
+.status {
+  min-height: 1.5em;
+  color: var(--fg-2);
+}
+
+.send {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 56px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: var(--r-sign);
+  background: var(--gate);
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  transition: background-color 160ms ease-out;
+}
+
+.send svg {
+  transition: transform 320ms var(--ease);
+}
+
+.send:hover:not(:disabled) {
+  background: var(--gate-deep);
+}
+
+.send:hover:not(:disabled) svg {
+  transform: translateX(6px);
+}
+
+.send:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.send:disabled {
+  background: var(--ink-2);
+  cursor: progress;
+}
+
+/* Shown in place of the form once the message has gone through. */
+.sent {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  padding: clamp(20px, 3vw, 28px);
+}
+
+.sentTitle {
+  font-size: var(--fs-h3);
+}
+
+.again {
+  margin-top: 8px;
+  padding: 8px 12px;
+  border: 2px solid var(--ink);
+  border-radius: var(--r-sign);
+  background: #fff;
+  font-weight: 700;
+}
+
+.again:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+@media (min-width: 980px) {
+  .lanes {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    column-gap: clamp(40px, 6vw, 88px);
   }
 }

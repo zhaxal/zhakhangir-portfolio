@@ -1,61 +1,38 @@
 import { FC } from "react";
 import { useLanguage } from "@/contexts/language-context";
 import { footer, nav, site } from "@/data/content";
-import Glyph from "@/components/ui/Glyph";
+import Icon from "@/components/ui/Icon";
+import Monogram from "@/components/ui/Monogram";
 import styles from "./Footer.module.css";
 
+/** The end of the page. */
 const Footer: FC = () => {
   const { lang } = useLanguage();
-
-  const pageLinks = [
-    { href: "#work", label: nav.work[lang] },
-    { href: "#experience", label: nav.experience[lang] },
-    { href: "#contact", label: nav.contact[lang] },
-  ];
+  const other = lang === "en" ? "ja" : "en";
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.mailto}>
-        <a href={`mailto:${site.email}`} data-tap>
-          {site.email.toUpperCase()}
-        </a>
-      </div>
-
-      {/* The social links live in the Contact section, next to the availability
-          line and the form — repeating them here put the same three links twice
-          within ~700px on a phone. */}
-      <div className={styles.cols}>
-        <ul className={styles.list}>
-          {pageLinks.map((link) => (
-            <li key={link.href}>
-              <a href={link.href} data-tap>
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div className={styles.meta}>
-          <p className={styles.location}>{footer.location[lang]}</p>
-          <a
-            href={site.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.url}
-            data-tap
-          >
-            {site.urlLabel} <Glyph />
-          </a>
+      <div className={`wrap ${styles.inner}`}>
+        <div className={styles.id}>
+          <Monogram size={40} />
+          <div>
+            <p className={styles.name}>{site.name[lang]}</p>
+            <p className={styles.alt} lang={other}>
+              {site.name[other]}
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className={styles.legal}>
-        <span>
-          <span className={styles.mark}>©</span> {footer.legal[lang]}
-        </span>
-      </div>
+        <a href="#top" className={styles.top}>
+          {nav.top[lang]}
+          <Icon dir="up" size={18} />
+        </a>
 
-      <div className={styles.strip} />
+        <p className={styles.legal}>
+          {footer.legal[lang]}
+          <a href={site.url}>{site.urlLabel}</a>
+        </p>
+      </div>
     </footer>
   );
 };

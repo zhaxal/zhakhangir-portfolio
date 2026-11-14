@@ -1,168 +1,60 @@
-/* Shared primitives from the Novasite Design System:
-   SectionLabel, SectionTitle, Tag, Button. */
-
-.sectionLabel {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  font-family: var(--font-ui);
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+.work {
+  --tone: var(--e1);
 }
 
-.sectionTitle {
-  margin: 0;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-stretch: var(--display-stretch);
-  font-size: clamp(34px, 5.4vw, 72px);
-  line-height: 1;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-  color: var(--white);
+.projects {
+  --tone: var(--e2);
 }
 
-.sectionTitle > span {
-  display: block;
-}
-
-/* ---- PlusToggle ----
-   Two 1.5px rules forming a +, rotating 45° into an × when its control is
-   expanded. The system's disclosure mark: used by the capability accordion and
-   by the Moscow Sport grid's see-all row. */
-
-.plus {
+/* Monogram and year plate: white on colour, inside a white inset border
+   that keeps them legible on any ground. */
+.shield,
+.plate {
   position: relative;
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-  transition: transform var(--dur-base) var(--ease-standard);
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  color: #fff;
+  font-family: "Barlow", sans-serif;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
 }
 
-[aria-expanded="true"] .plus {
-  transform: rotate(45deg);
-}
-
-.plus::before,
-.plus::after {
+.shield::after,
+.plate::after {
   content: "";
   position: absolute;
-  background: var(--white);
-}
-
-.plus::before {
-  top: 10px;
-  left: 0;
-  width: 22px;
-  height: 1.5px;
-}
-
-.plus::after {
-  left: 10px;
-  top: 0;
-  width: 1.5px;
-  height: 22px;
-}
-
-/* ---- Tag ---- */
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  height: 28px;
-  padding: 0 16px;
-  border: 1px solid var(--border-hairline);
-  border-radius: var(--radius-none);
-  font-family: var(--font-ui);
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  background: transparent;
-  transition: var(--transition-control);
-  cursor: default;
-}
-
-.tag:hover {
-  color: var(--white);
-  background: var(--state-hover-veil);
-}
-
-/* ---- Button ---- */
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-family: var(--font-ui);
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  border: 1px solid transparent;
-  border-radius: var(--radius-pill);
-  cursor: pointer;
-  white-space: nowrap;
-  text-decoration: none;
-  transition: var(--transition-control), transform var(--dur-fast)
-      var(--ease-standard);
-}
-
-.button:active {
-  transform: scale(0.98);
-}
-
-.button:disabled {
-  opacity: 0.4;
+  border: solid #fff;
   pointer-events: none;
 }
 
-.button .dot {
-  width: 5px;
-  height: 5px;
-  border-radius: var(--radius-pill);
-  background: currentColor;
-  display: inline-block;
-  flex-shrink: 0;
+.shield {
+  width: calc(var(--size, 36px) * 1.36);
+  height: var(--size, 36px);
+  border-radius: calc(var(--size, 36px) * 0.24);
+  background: var(--sign);
+  font-size: calc(var(--size, 36px) * 0.5);
 }
 
-.sizeSm {
-  height: 32px;
-  padding: 0 16px;
+.shield::after {
+  inset: calc(var(--size, 36px) * 0.08);
+  border-width: max(1.5px, calc(var(--size, 36px) * 0.05));
+  border-radius: calc(var(--size, 36px) * 0.17);
 }
 
-.sizeMd {
-  height: 40px;
-  padding: 0 24px;
-}
-
-.sizeLg {
+.plate {
+  min-width: 72px;
   height: 48px;
-  padding: 0 32px;
-  font-size: 14px;
+  padding-inline: 12px;
+  border-radius: var(--r-plate);
+  background: var(--tone);
+  font-size: 1.25rem;
+  font-variant-numeric: tabular-nums;
 }
 
-.variantPrimary {
-  background: var(--white);
-  color: var(--ink-900);
-  border-color: var(--white);
-}
-
-.variantPrimary:hover {
-  background: #e5e5e5;
-  color: var(--ink-900);
-}
-
-.variantBrand {
-  background: var(--red-500);
-  color: var(--white);
-  border-color: var(--red-500);
-}
-
-.variantBrand:hover {
-  background: var(--red-600);
-  color: var(--white);
+.plate::after {
+  inset: 4px;
+  border-width: 2px;
+  border-radius: 5px;
 }
