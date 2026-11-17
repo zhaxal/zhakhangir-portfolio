@@ -11,23 +11,20 @@ export type Lang = "en" | "ja";
 
 export const LANGS: Lang[] = ["en", "ja"];
 
-// Label shown on the header language switch.
+// Label shown on the language switch, written in its own language.
 export const LANG_LABELS: Record<Lang, string> = {
-  en: "EN",
+  en: "English",
   ja: "日本語",
 };
 
 interface LanguageContextValue {
   lang: Lang;
   setLang: (lang: Lang) => void;
-  /** How many times the language has changed since load; 0 on first paint. */
-  swaps: number;
 }
 
 const LanguageContext = createContext<LanguageContextValue>({
   lang: "en",
   setLang: () => {},
-  swaps: 0,
 });
 
 const STORAGE_KEY = "portfolio-lang";
@@ -53,7 +50,6 @@ const LanguageProvider: FC<{ children: ReactNode }> = ({ children }) => {
   // Always render "en" on first paint so static-export hydration matches,
   // then swap to the stored/detected language on the client.
   const [lang, setLangState] = useState<Lang>("en");
-  const [swaps, setSwaps] = useState(0);
 
   useEffect(() => {
     // Storage can throw in private windows; fall back to detection.
@@ -62,7 +58,6 @@ const LanguageProvider: FC<{ children: ReactNode }> = ({ children }) => {
       stored = window.localStorage.getItem(STORAGE_KEY);
     } catch {}
     const next = isLang(stored) ? stored : detectLang();
-    if (next !== "en") setSwaps(1);
     setLangState(next);
     document.documentElement.lang = next;
   }, []);
@@ -70,7 +65,6 @@ const LanguageProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const setLang = (next: Lang) => {
     if (next === lang) return;
     setLangState(next);
-    setSwaps((count) => count + 1);
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
     } catch {}
@@ -78,7 +72,7 @@ const LanguageProvider: FC<{ children: ReactNode }> = ({ children }) => {
   };
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, swaps }}>
+    <LanguageContext.Provider value={{ lang, setLang }}>
       {children}
     </LanguageContext.Provider>
   );

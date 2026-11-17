@@ -6,7 +6,7 @@ function ExperienceRedirect() {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace("/#work");
+    router.replace("/#experience");
   }, [router]);
 
   return null;
